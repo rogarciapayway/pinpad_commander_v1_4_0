@@ -1,0 +1,77 @@
+{
+  "message_type": "0800",
+  "descripcion": "Echo Test Request",
+  "campos": {
+    "TPDU": {
+      "formato": "n..10",
+      "atributo": "n",
+      "longitud": 10,
+      "mandatorio": "M",
+      "descripcion": "Transport Protocol Data Unit"
+    },
+    "3": {
+      "formato": "n6",
+      "atributo": "n",
+      "longitud": 6,
+      "mandatorio": "M",
+      "descripcion": "Código de Procesamiento",
+      "valor_fijo": "990000"
+    },
+    "7": {
+      "formato": "MMDDHHMMSS",
+      "atributo": "n",
+      "longitud": 10,
+      "mandatorio": "M",
+      "descripcion": "Fecha y Hora de la Transmisión"
+    },
+    "11": {
+      "formato": "n6",
+      "atributo": "n",
+      "longitud": 6,
+      "mandatorio": "M",
+      "descripcion": "Número de Trace del Sistema"
+    },
+    "12": {
+      "formato": "HHMMSS",
+      "atributo": "n",
+      "longitud": 6,
+      "mandatorio": "M",
+      "descripcion": "Hora local de la Transacción"
+    },
+    "13": {
+      "formato": "MMDD",
+      "atributo": "n",
+      "longitud": 4,
+      "mandatorio": "M",
+      "descripcion": "Fecha local de la Transacción"
+    },
+    "24": {
+      "formato": "n4",
+      "atributo": "n",
+      "longitud": 4,
+      "mandatorio": "M",
+      "descripcion": "Identificador Internacional de la Red"
+    },
+    "41": {
+      "formato": "ans8",
+      "atributo": "ans",
+      "longitud": 8,
+      "mandatorio": "M",
+      "descripcion": "Identificación de la Terminal"
+    },
+    "42": {
+      "formato": "ans15",
+      "atributo": "ans",
+      "longitud": 15,
+      "mandatorio": "M",
+      "descripcion": "Código de Identificación Comercio"
+    },
+    "60": {
+      "formato": "LLLVAR",
+      "atributo": "ans",
+      "longitud_maxima": 999,
+      "mandatorio": "O",
+      "descripcion": "Versión del Software / Aplicación"
+    }
+  }
+}

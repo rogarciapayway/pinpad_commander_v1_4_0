@@ -1,0 +1,352 @@
+{
+  "campo_2": {
+    "nombre": "NÚMERO DE TARJETA - PRIMARY ACCOUNT NUMBER (PAN)",
+    "descripcion": "Este campo informa el número de tarjeta viajan en BCD. Al ser un campo LLVAR, la longitud que antecede a los datos corresponde al número de tarjeta real (ingresado de modo manual o leído por banda magnética) y no a los datos comprimidos en BCD.",
+    "formato": "LLVAR n..19",
+    "tipo": "numeric",
+    "codificacion": "BCD"
+  },
+  "campo_3": {
+    "nombre": "CÓDIGO DE PROCESAMIENTO - PROCESSING CODE",
+    "descripcion": "Código que identifica el tipo de transacción solicitada",
+    "formato": "n6",
+    "tipo": "numeric",
+    "codigos": {
+      "000000": "Solicitud de Compra",
+      "020000": "Solicitud de Anulación",
+      "200000": "Solicitud de Devolución",
+      "920000": "Solicitud de Cierre de Lote",
+      "220000": "Solicitud de Anulación de Devolución",
+      "090000": "Solicitud de Compra + Cash Back",
+      "140000": "Solicitud de Anulación + Cash Back",
+      "00X000": "Solicitud de Compra Maestro",
+      "09X000": "Solicitud de Compra Maestro + Cash Back",
+      "02X000": "Solicitud de Anulación Maestro",
+      "20X000": "Solicitud de Devolución Maestro",
+      "22X000": "Solicitud de Anulación de Devolución Maestro",
+      "14X000": "Solicitud de Anulación Maestro + Cash Back",
+      "990000": "Echo test"
+    },
+    "tipos_cuenta_maestro": {
+      "1": "Caja de Ahorro en Pesos",
+      "2": "Cuenta Corriente en Pesos",
+      "8": "Caja de Ahorro en Dólares",
+      "9": "Cuenta Corriente en Dólares"
+    }
+  },
+  "campo_4": {
+    "nombre": "IMPORTE DE LA TRANSACCIÓN - AMOUNT, TRANSACTION",
+    "descripcion": "Los últimos 2 dígitos corresponden a decimales. En las operaciones de compra que incluyen un monto adicional (Ej. Cash Back) este campo refleja la suma de ambos importes, es decir, el monto total por el cual se pide autorización.",
+    "formato": "n12",
+    "tipo": "numeric",
+    "decimales": 2
+  },
+  "campo_7": {
+    "nombre": "FECHA Y HORA DE LA TRANSMISIÓN - TRANSMISSION DATE & TIME",
+    "descripcion": "Fecha y hora de transmisión del mensaje",
+    "formato": "n10",
+    "tipo": "numeric",
+    "patron": "MMDDHHMMSS",
+    "zona_horaria": "GMT-3"
+  },
+  "campo_11": {
+    "nombre": "NÚMERO DE TRACE DEL SISTEMA - SYSTEMS TRACE AUDIT NUMBER",
+    "descripcion": "El número de trace del sistema es generado e incrementado por el sistema propio y cada terminal debe mantener su propio contador independiente. El único mensaje que no incrementa el trace number es el reverso (mensaje 0400). El reverso mantiene el mismo número de trace que el último mensaje enviado (0200 ó 0220), sea cual fuere el motivo por el que debe ser reversado.",
+    "formato": "n6",
+    "tipo": "numeric",
+    "rango": {
+      "minimo": "000000",
+      "maximo": "999999"
+    },
+    "reglas": {
+      "incremento": "Debe ser consecutivo excepto en reversos (0400)",
+      "reverso": "Mantiene el mismo trace del mensaje original",
+      "reset": "Al llegar a 999999 se resetea a 000000"
+    }
+  },
+  "campo_12": {
+    "nombre": "HORA LOCAL DE LA TRANSACCIÓN - TIME, LOCAL TRANSACTION",
+    "descripcion": "El valor HHMMSS (GMT-3) informado en este campo debe coincidir con lo informado Campo ISO 7.",
+    "formato": "n6",
+    "tipo": "numeric",
+    "patron": "HHMMSS",
+    "zona_horaria": "GMT-3",
+    "validacion": "Debe coincidir con campo 7"
+  },
+  "campo_13": {
+    "nombre": "FECHA LOCAL DE LA TRANSACCIÓN - DATE, LOCAL TRANSACTION",
+    "descripcion": "El valor MMDD informado en este campo debe coincidir con lo informado Campo ISO 7.",
+    "formato": "n4",
+    "tipo": "numeric",
+    "patron": "MMDD",
+    "validacion": "Debe coincidir con campo 7"
+  },
+  "campo_14": {
+    "nombre": "FECHA DE EXPIRACIÓN - DATE, EXPIRATION",
+    "descripcion": "Se debe informar la fecha de caducidad de la tarjeta (AAMM) en las operaciones con ingreso manual.",
+    "formato": "n4",
+    "tipo": "numeric",
+    "patron": "AAMM",
+    "uso": "Operaciones con ingreso manual"
+  },
+  "campo_15": {
+    "nombre": "FECHA DE CIERRE - DATE, SETTLEMENT",
+    "descripcion": "El valor MMDD, informado en este campo, debe coincidir con el informado en el Campo ISO 7.",
+    "formato": "n4",
+    "tipo": "numeric",
+    "patron": "MMDD",
+    "validacion": "Debe coincidir con campo 7"
+  },
+  "campo_17": {
+    "nombre": "FECHA DE CAPTURA - DATE, CAPTURE",
+    "descripcion": "El valor MMDD corresponde al mes y día de la captura (operación offline); siempre es igual o anterior a la fecha del Campo ISO 13.",
+    "formato": "n4",
+    "tipo": "numeric",
+    "patron": "MMDD",
+    "validacion": "Debe ser igual o anterior al campo 13",
+    "uso": "Operaciones offline"
+  },
+  "campo_19": {
+    "nombre": "CÓDIGO DE PAÍS DEL ADQUIRENTE - ACQUIRING INSTITUTION COUNTRY CODE",
+    "descripcion": "El código para Argentina es '032'.",
+    "formato": "n3",
+    "tipo": "numeric",
+    "valor_argentina": "032"
+  },
+  "campo_22": {
+    "nombre": "MODO DE INGRESO - POINT OF SERVICE ENTRY MODE",
+    "descripcion": "Especifica el modo de entrada de datos en la terminal.",
+    "formato": "n3",
+    "tipo": "numeric",
+    "estructura": {
+      "posiciones_1_2": {
+        "01": "Manual",
+        "02": "Banda Magnética",
+        "05": "Chip",
+        "07": "Contactless"
+      },
+      "posicion_3": {
+        "1": "El POS posee PIN PAD",
+        "2": "El POS no posee PIN PAD instalado",
+        "3": "El indicador de mPOS (sólo MasterCard y Maestro)"
+      }
+    }
+  },
+  "campo_23": {
+    "nombre": "NÚMERO DE SECUENCIA - APPLICATION PAN NUMBER",
+    "descripcion": "El valor por defecto es '000', si se encuentra presente el TAG 5F34 en la tarjeta EMV contendrá el valor 'Application PAN Sequence Number'",
+    "formato": "n3",
+    "tipo": "numeric",
+    "valor_defecto": "000",
+    "emv_tag": "5F34"
+  },
+  "campo_24": {
+    "nombre": "IDENTIFICADOR INTERNACIONAL DE LA RED - NETWORK INTERNATIONAL IDENTIFIER",
+    "descripcion": "Identificador de la red de procesamiento",
+    "formato": "n3",
+    "tipo": "numeric",
+    "valores": {
+      "visa": {
+        "produccion": "112",
+        "test": ["700", "112"]
+      },
+      "mastercard": {
+        "produccion": "119",
+        "test": ["118", "119"]
+      }
+    }
+  },
+  "campo_25": {
+    "nombre": "CÓDIGO DE CONDICIÓN DE LA POS - POINT OF SERVICE CONDITION CODE",
+    "descripcion": "El valor es '00'",
+    "formato": "n2",
+    "tipo": "numeric",
+    "valor_fijo": "00"
+  },
+  "campo_34": {
+    "nombre": "NÚMERO DE CUENTA - PRIMARY ACCOUNT NUMBER, EXTENDED",
+    "descripcion": "Número de cuenta extendido",
+    "formato": "LLVAR ns..28",
+    "tipo": "numeric_special"
+  },
+  "campo_35": {
+    "nombre": "DATOS DEL TRACK II - TRACK 2 DATA",
+    "descripcion": "Datos de la banda magnética track 2",
+    "formato": "LLVAR an..37",
+    "tipo": "alphanumeric",
+    "estructura": {
+      "inicio": ";",
+      "pan": "Número de tarjeta",
+      "separador": "=",
+      "vencimiento": "AAMM",
+      "datos_discrecionales": "Datos adicionales",
+      "fin": "?"
+    }
+  },
+  "campo_37": {
+    "nombre": "NÚMERO DE REFERENCIA - RETRIEVAL REFERENCE NUMBER",
+    "descripcion": "Es un identificador que individualiza cada operación cuyo formato es 'an12'.",
+    "formato": "an12",
+    "tipo": "alphanumeric"
+  },
+  "campo_38": {
+    "nombre": "CÓDIGO DE AUTORIZACIÓN - AUTHORIZATION IDENTIFICATION RESPONSE",
+    "descripcion": "Es un código que individualiza una transacción aprobada cuyo formato es 'an6'.",
+    "formato": "an6",
+    "tipo": "alphanumeric"
+  },
+  "campo_39": {
+    "nombre": "CÓDIGO DE RESPUESTA - RESPONSE CODE",
+    "descripcion": "Código que indica el resultado de la transacción",
+    "formato": "an2",
+    "tipo": "alphanumeric",
+    "referencia_tabla": "codigos_respuesta"
+  },
+  "campo_41": {
+    "nombre": "IDENTIFICACIÓN DE LA TERMINAL - CARD ACCEPTOR TERMINAL IDENTIFICATION",
+    "descripcion": "Es un código que identifica una terminal, cuyo formato es 'ans8'.",
+    "formato": "ans8",
+    "tipo": "alphanumeric_special"
+  },
+  "campo_42": {
+    "nombre": "CÓDIGO DE IDENTIFICACIÓN COMERCIO - CARD ACCEPTOR IDENTIFICATION CODE",
+    "descripcion": "Es un código que identifica el Establecimiento, cuyo formato es 'ans15'",
+    "formato": "ans15",
+    "tipo": "alphanumeric_special"
+  },
+  "campo_45": {
+    "nombre": "DATOS DEL TRACK I - TRACK 1 DATA",
+    "descripcion": "Datos de la banda magnética track 1",
+    "formato": "LLVAR an..76",
+    "tipo": "alphanumeric",
+    "estructura": {
+      "inicio": "%",
+      "control": "b",
+      "pan": "Número de tarjeta",
+      "separador1": "^",
+      "nombre": "Nombre del usuario",
+      "separador2": "^",
+      "vencimiento": "AAMM",
+      "datos_discrecionales": "Datos adicionales",
+      "fin": "?"
+    }
+  },
+  "campo_46": {
+    "nombre": "TRACK I NO LEÍDO - ADDITIONAL DATA – ISO",
+    "descripcion": "Sólo en caso de lectura de banda magnética y ante la imposibilidad de leer el Track I se enviará este campo asignándole un byte con valor '1'",
+    "formato": "LLLVAR ans…999",
+    "tipo": "alphanumeric_special",
+    "valor_error": "1"
+  },
+  "campo_48": {
+    "nombre": "CUOTAS / DATOS ORIGINALES - ADDITIONAL DATA – PRIVATE",
+    "descripcion": "Información de cuotas o datos de transacción original",
+    "formato": "LLLVAR ans…999",
+    "tipo": "alphanumeric_special",
+    "estructura": {
+      "todas_transacciones": {
+        "plan": {
+          "descripcion": "Plan de pago",
+          "formato": "an..1",
+          "longitud": 1,
+          "valores": "0..9"
+        },
+        "cuotas": {
+          "descripcion": "Cantidad de cuotas",
+          "formato": "an..2",
+          "longitud": 2,
+          "valores": "01..99"
+        }
+      },
+      "devolucion": {
+        "ticket_original": {
+          "descripcion": "Número de ticket Original",
+          "formato": "an..4",
+          "longitud": 4,
+          "valores": "0001..9999"
+        },
+        "fecha_original": {
+          "descripcion": "Fecha de la transacción original",
+          "formato": "an..6",
+          "longitud": 6,
+          "patron": "DDMMAA"
+        }
+      }
+    }
+  },
+  "campo_49": {
+    "nombre": "CÓDIGO DE MONEDA - CURRENCY CODE, TRANSACTION",
+    "descripcion": "El código para Pesos Argentinos será '032'.",
+    "formato": "n3",
+    "tipo": "numeric",
+    "valor_argentina": "032"
+  },
+  "campo_52": {
+    "nombre": "PIN BLOCK - PERSONAL IDENTIFICATION NUMBER DATA",
+    "descripcion": "En este campo deberá viajar el PIN Block tal cual lo devuelve el PIN PAD",
+    "formato": "b64",
+    "tipo": "binary",
+    "atributo": "Bit",
+    "encriptado": true,
+    "origen": "PIN PAD",
+    "validacion": "Debe estar presente si el terminal posee PIN PAD y la tarjeta lo requiere"
+  },
+  "campo_54": {
+    "nombre": "MONTO ADICIONAL - ADDITIONAL AMOUNTS",
+    "descripcion": "Se informará el monto adicional en operaciones con 'Compra + Cash Back'.",
+    "formato": "LLLVAR an12",
+    "tipo": "alphanumeric",
+    "uso": "Cash Back"
+  },
+  "campo_55": {
+    "nombre": "CÓDIGO DE SEGURIDAD DE LA TARJETA - RESERVED ISO",
+    "descripcion": "Código de seguridad o TAGs EMV según modo de ingreso",
+    "formato": "LLLVAR ans...999",
+    "tipo": "alphanumeric_special",
+    "modos": {
+      "manual_banda": "Código de seguridad si el medio de pago lo requiere",
+      "chip_contactless": "TAGs EMV"
+    }
+  },
+  "campo_62": {
+    "nombre": "NÚMERO DE TICKET - RESERVED PRIVATE",
+    "descripcion": "Numérico de 4 posiciones comenzando con 0001 e incrementando siempre de 1 en 1 por cada operación aprobada (compra, anulación o devolución). El último será 9999, el siguiente a éste deberá ser 0001. Cada terminal debe llevar un contador independiente para los números de ticket.",
+    "formato": "LLLVAR ans…999",
+    "tipo": "numeric",
+    "rango": {
+      "minimo": "0001",
+      "maximo": "9999"
+    },
+    "reglas": {
+      "incremento": "Consecutivo por operación aprobada",
+      "reset": "Al llegar a 9999 se resetea a 0001",
+      "contador": "Independiente por terminal"
+    }
+  },
+  "campo_63": {
+    "nombre": "MENSAJE DEL HOST MOSTRAR / IMPRIMIR - RESERVED PRIVATE",
+    "descripcion": "Mensaje a visualizar y/o imprimir si es informado en el Bit Map.",
+    "formato": "LLLVAR ans...999",
+    "tipo": "alphanumeric_special",
+    "formatos": {
+      "display_imprimir": {
+        "caracter_inicial": ".",
+        "descripcion": "Se debe mostrar por display e imprimir",
+        "longitud_maxima": 40
+      },
+      "solo_imprimir": {
+        "caracter_inicial": ",",
+        "descripcion": "NO se debe mostrar por display, solo imprimir",
+        "longitud_maxima": 200
+      }
+    },
+    "caracteres_especiales": {
+      "|": "Fin de línea, continuar en próximo renglón",
+      "^": "Fin de mensaje"
+    },
+    "reglas": {
+      "centrado": "Las líneas impresas deberán centrarse",
+      "uso": "Puede ser enviado en cualquier tipo de transacción"
+    }
+  }
+}

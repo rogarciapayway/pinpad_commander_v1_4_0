@@ -1,0 +1,140 @@
+{
+  "parsers": {
+    "parse_cse_cbc_nya": {
+      "description": "Parsear CSE (3) + CBC (3) + NYA (resto)",
+      "fields": [
+        {"name": "csv", "start": 0, "length": 3},
+        {"name": "moneda", "start": 3, "length": 3},
+        {"name": "nombre", "start": 6, "end": null}
+      ]
+    },
+    "parse_reg_mdi_ver": {
+      "description": "Parsear REG (6) + MDI (1) + VER (resto)",
+      "fields": [
+        {"name": "REG", "start": 0, "length": 6},
+        {"name": "MDI", "start": 6, "length": 1},
+        {"name": "version", "start": 7, "end": null}
+      ]
+    },
+    "parse_fdv_tc2": {
+      "description": "Parsear FDV (4) + TC2 (resto con RSA)",
+      "fields": [
+        {"name": "ven", "start": 0, "length": 4},
+        {"name": "tc2", "start": 4, "end": null, "post_process": "rsa_decrypt"}
+      ]
+    },
+    "parse_tdc_pin": {
+      "description": "Tipo de cuenta (1) + PIN (resto)",
+      "fields": [
+        {"name": "tipo_cuenta", "start": 0, "length": 1},
+        {"name": "pin", "start": 1, "end": null}
+      ]
+    },
+    "parse_fdv_tc1": {
+      "description": "Parsear FDV (4) + TC1 (resto con RSA)",
+      "fields": [
+        {"name": "ven", "start": 0, "length": 4},
+        {"name": "TC1", "start": 4, "end": null, "post_process": "rsa_decrypt"}
+      ]
+    },
+    "parse_cau_cre_rcp": {
+      "description": "CAU (6) + CRE (2) + Datos EMV adicionales en formato TLV (resto Tags TLV)",
+      "fields": [
+        {"name": "cod_aut", "start": 0, "length": 6},
+        {"name": "cod_resp", "start": 6, "length": 2},
+        {"name": "tag_emv", "start": 8, "end": null, "post_process": "emv_pretty"}
+      ]
+    },
+    "parse_fdv_cds": {
+      "description": "Parsear FDV (4) + Codigo de seguridad (resto)",
+      "fields": [
+        {"name": "ven", "start": 0, "length": 4},
+        {"name": "cod_seg", "start": 4, "end": null,"post_process": "rsa_decrypt"}
+      ]
+    },
+    "parse_1nl_nsf": {
+      "description": "Parsear 1NL (1) + NSF (resto)",
+      "fields": [
+        {"name": "t1_no_leido", "start": 0, "length": 1},
+        {"name": "nro_serie", "start": 1, "end": null}
+      ]
+    },
+    "parse_cau_cre_nsp_apn": {
+      "description": "Parsear CAU (6 espacios) + CRE (2) + NSP (3) + APN (resto hex->ascii)",
+      "fields": [
+        {"name": "aut_emisor", "value": "[EMPTY]"},
+        {"name": "resp_emisor", "start": 0, "length": 2},
+        {"name": "sec_pan", "start": 2, "length": 3},
+        {"name": "app_emv", "start": 5, "end": null, "decode": "hex_to_ascii"}
+      ]
+    },
+    "parse_COE_IM1_CM1_CV1_IM2_CM2_CV2_IM3_CM3_CV3_IM4_CM4_CV4_IM5_CM5_CV5": {
+      "description": "Parsear COE (1) + IM1 (2) + CM1 (3) + CV1 (12) + IM2 (2) + CM2 (3) + CV2 (12) + IM3 (2) + CM3 + (3) + CV3 (12) + IM4 (2) + CM4 (3) + CV4 (12) + IM5 (2) + CM5 (3) + CV5 (resto 12)",
+      "fields": [
+        {"name": "COE", "start": 0, "length": 1},
+        {"name": "INT", "start": 1, "length": 1},
+        {"name": "CMI", "start": 2, "length": 3},
+        {"name": "PRI", "start": 5, "length": 1},
+        {"name": "IM1", "start": 6, "length": 2},
+        {"name": "CM1", "start": 8, "length": 3},
+        {"name": "CV1", "start": 11, "length": 12},
+        {"name": "IM2", "start": 23, "length": 2},
+        {"name": "CM2", "start": 25, "length": 3},
+        {"name": "CV2", "start": 28, "length": 12},
+        {"name": "IM3", "start": 40, "length": 2},
+        {"name": "CM3", "start": 42, "length": 3},
+        {"name": "CV3", "start": 45, "length": 12},
+        {"name": "IM4", "start": 57, "length": 2},
+        {"name": "CM4", "start": 59, "length": 3},
+        {"name": "CV4", "start": 62, "length": 12},
+        {"name": "IM5", "start": 74, "length": 2},
+        {"name": "CM5", "start": 76, "length": 3},
+        {"name": "CV5", "start": 79, "end": null}
+      ]
+    },
+    "parse_Y0C_Consulta": {
+      "description": "Parsear COE (1) + IM1 (2) + CM1 (3) + CV1 (12) + IM2 (2) + CM2 (3) + CV2 (12) + IM3 (2) + CM3 + (3) + CV3 (12) + IM4 (2) + CM4 (3) + CV4 (12) + IM5 (2) + CM5 (3) + CV5 (resto 12)",
+      "fields": [
+        {"name": "COE", "start": 0, "length": 1},
+        {"name": "IM1", "start": 1, "length": 2},
+        {"name": "CM1", "start": 3, "length": 3},
+        {"name": "CV1", "start": 6, "length": 12},
+        {"name": "IM2", "start": 18, "length": 2},
+        {"name": "CM2", "start": 20, "length": 3},
+        {"name": "CV2", "start": 23, "length": 12},
+        {"name": "IM3", "start": 35, "length": 2},
+        {"name": "CM3", "start": 37, "length": 3},
+        {"name": "CV3", "start": 40, "length": 12},
+        {"name": "IM4", "start": 52, "length": 2},
+        {"name": "CM4", "start": 54, "length": 3},
+        {"name": "CV4", "start": 57, "length": 12},
+        {"name": "IM5", "start": 69, "length": 2},
+        {"name": "CM5", "start": 71, "length": 3},
+        {"name": "CV5", "start": 74, "end": null}
+      ]
+    },
+    "parse_1nl_cds": {
+      "description": "Track1 no leído (1) + Codigo de seguridad (resto con RSA)",
+      "fields": [
+        {"name": "t1_no_leido", "start": 0, "length": 1},
+        {"name": "cvv2", "start": 1, "end": null, "post_process": "rsa_decrypt"}
+      ]
+    },
+    "parse_tdc_pin": {
+      "description": "Tipo de cuenta (1) + PIN (resto)",
+      "fields": [
+        {"name": "tipo_cuenta", "start": 0, "length": 1},
+        {"name": "pin", "start": 1, "end": null}
+      ]
+    },
+    "parse_tdc_pvf_pin": {
+      "description": "Tipo de cuenta (1) + PVF (1) + PIN (resto)",
+      "fields": [
+        {"name": "tipo_cuenta", "start": 0, "length": 1},
+        {"name": "pvf", "start": 1, "length": 1},
+        {"name": "pin", "start": 2, "end": null}
+      ]
+    }
+
+  }
+}

@@ -1,0 +1,18 @@
+2026-05-04 10:07:57 - root - INFO - === PinPad Commander Security Logging Initialized ===
+2026-05-04 10:07:57 - root - INFO - Log directory: C:\SPP-1.5.0\pinpad_commander_v1_4_0\logs
+2026-05-04 10:07:57 - root - INFO - Log level: INFO
+2026-05-04 10:07:57 - root - INFO - === Environment Security Check ===
+2026-05-04 10:07:57 - root - INFO - Write permissions: OK
+2026-05-04 10:07:57 - root - INFO - Directory config: OK
+2026-05-04 10:07:57 - root - INFO - Directory ui: OK
+2026-05-04 10:07:57 - root - INFO - Directory core: OK
+2026-05-04 10:07:57 - root - INFO - Directory crypto: OK
+2026-05-04 10:07:57 - root - INFO - File config/commands.json: OK
+2026-05-04 10:07:57 - root - INFO - File protocol.py: OK
+2026-05-04 10:07:57 - root - INFO - === Security configuration completed ===
+2026-05-04 10:07:58 - PinPadCommanderModular - INFO - Initializing PinPad Commander Modular
+2026-05-04 10:08:00 - root - INFO - Configuration loaded from C:\SPP-1.5.0\pinpad_commander_v1_4_0\config\commands.json
+2026-05-04 10:08:25 - TLSClient - INFO - TLS connected to ws1.prismamp.com:8443
+2026-05-04 10:08:25 - iso.orchestrator - INFO - Conectado a ws1.prismamp.com:8443
+2026-05-04 10:08:25 - TLSClient - INFO - TX: 67 bytes
+2026-05-04 10:08:25 - TLSClient - INFO - RX: 33 bytes

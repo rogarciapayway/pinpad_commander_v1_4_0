@@ -1,0 +1,12 @@
+{
+  "descripcion": "NII (Network International Identifier) por marca - Campo 24 y TPDU",
+  "nii_por_marca": {
+    "Visa": "0721",
+    "MasterCard": "0721",
+    "Maestro": "0721",
+    "Cabal": "0721",
+    "Discover": "0721",
+    "Amex": "0721"
+  },
+  "nii_default": "0721"
+}

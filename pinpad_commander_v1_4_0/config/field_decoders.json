@@ -1,0 +1,43 @@
+{
+  "decoders": {
+    "bankver": {
+      "description": "Decodificar código de banco y versión",
+      "bank_code_length": 6,
+      "fields": {
+        "bank_code": {"start": 0, "length": 6, "name": "COD_BANCO"},
+        "version": {"start": 6, "end": null, "name": "VERSION_PP", "trim": true}
+      }
+    },
+    "hex_ascii_printable": {
+      "description": "Convertir hex a ASCII imprimible",
+      "char_range": {"min": 32, "max": 126}
+    }
+  },
+  "post_processors": {
+    "emv_pretty": {
+      "description": "Formatear datos EMV de forma legible",
+      "output_format": {"tlv": "original", "pretty": "formatted"}
+    },
+    "parse_track2": {
+      "description": "Parsear Track2 desde ASCII",
+      "regex": "([0-9]{12,19})(?:=|D)([0-9]{2})([0-9]{2})([0-9]{3})?([0-9]*)",
+      "fields": ["pan", "exp_yy", "exp_mm", "service_code", "discretionary"],
+      "pan_mask": {
+        "min_length": 10,
+        "show_first": 6,
+        "show_last": 4,
+        "mask_char": "*"
+      },
+      "date_format": {
+        "century_cutoff": 79,
+        "default_century": 2000,
+        "fallback_century": 1900
+      }
+    },
+    "rsa_decrypt": {
+      "description": "Desencriptar datos RSA",
+      "fallback_modes": ["TLV", "RAW"],
+      "output_format": {"hex": "original", "rsa": "decrypted"}
+    }
+  }
+}

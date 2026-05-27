@@ -1,0 +1,31 @@
+{
+  "validation": {
+    "cid_validation": {
+      "error_command": "Y0E",
+      "error_fields": {
+        "command": {"start": 0, "length": 3},
+        "error_code": {"start": 3, "length": 2}
+      },
+      "special_cases": {
+        "Y19_variants": {
+          "pattern": "Y19*",
+          "accept_as": "Y19"
+        }
+      }
+    },
+    "lrc_validation": {
+      "enabled": true,
+      "error_message": "LRC inválido"
+    }
+  },
+  "parsing": {
+    "default_parser": {
+      "type": "fs",
+      "fields": []
+    },
+    "field_naming": {
+      "default_prefix": "FIELD_",
+      "index_start": 1
+    }
+  }
+}

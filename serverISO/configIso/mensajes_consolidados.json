@@ -1,0 +1,1385 @@
+{
+  "0200": {
+    "tipo_mensaje": "0200",
+    "descripcion_base": "COMPRA ONLINE - REQUEST MANUAL",
+    "campos_base": {
+      "3": {
+        "formato": "n6",
+        "atributo": "M",
+        "descripcion": "Código de Procesamiento"
+      },
+      "4": {
+        "formato": "n12",
+        "atributo": "M",
+        "descripcion": "Importe de la Transacción"
+      },
+      "7": {
+        "formato": "n10",
+        "atributo": "M",
+        "descripcion": "Fecha y Hora de la Transmisión",
+        "patron": "MMDDHHMMSS"
+      },
+      "11": {
+        "formato": "n6",
+        "atributo": "M",
+        "descripcion": "Número del Trace del Sistema"
+      },
+      "12": {
+        "formato": "n6",
+        "atributo": "M",
+        "descripcion": "Hora Local de la Transacción",
+        "patron": "HHMMSS"
+      },
+      "13": {
+        "formato": "n4",
+        "atributo": "M",
+        "descripcion": "Fecha Local de la Transacción",
+        "patron": "MMDD"
+      },
+      "22": {
+        "formato": "n3",
+        "atributo": "M",
+        "descripcion": "Modo de Ingreso"
+      },
+      "24": {
+        "formato": "n3",
+        "atributo": "M",
+        "descripcion": "Identificador Internacional de la Red"
+      },
+      "25": {
+        "formato": "n2",
+        "atributo": "M",
+        "descripcion": "Código de condición de la POS",
+        "valor_fijo": "00"
+      },
+      "35": {
+        "formato": "LLVAR an..37",
+        "atributo": "C1",
+        "descripcion": "Datos del TRACK II"
+      },
+      "41": {
+        "formato": "ans8",
+        "atributo": "M",
+        "descripcion": "Identificación de la Terminal"
+      },
+      "42": {
+        "formato": "ans15",
+        "atributo": "M",
+        "descripcion": "Código de Identificación Comercio"
+      },
+      "48": {
+        "formato": "LLLVAR ans…999",
+        "atributo": "M",
+        "descripcion": "Cuotas"
+      },
+      "49": {
+        "formato": "n3",
+        "atributo": "M",
+        "descripcion": "Código de Moneda"
+      },
+      "52": {
+        "formato": "b64",
+        "atributo": "C4",
+        "descripcion": "PIN Block BIT"
+      },
+      "54": {
+        "formato": "LLLVAR an12",
+        "atributo": "C5",
+        "descripcion": "Monto Adicional"
+      },
+      "55": {
+        "formato": "LLLVAR ans...999",
+        "atributo": "C3",
+        "descripcion": "Código de Seguridad de la Tarjeta"
+      },
+      "59": {
+        "formato": "LLLVAR ans…999",
+        "atributo": "M",
+        "descripcion": "Lista de Productos"
+      },
+      "60": {
+        "formato": "LLLVAR ans...999",
+        "atributo": "M",
+        "descripcion": "Versión del Software / Aplicación"
+      },
+      "62": {
+        "formato": "LLLVAR ans…999",
+        "atributo": "M",
+        "descripcion": "Número de Ticket"
+      },
+      "TPDU": {
+        "formato": "n..10",
+        "atributo": "M",
+        "descripcion": "TPDU"
+      },
+      "tipo_mensaje": {
+        "valor": "0200",
+        "atributo": "M"
+      },
+      "mapa_bit": {
+        "formato": "b64",
+        "atributo": "M",
+        "descripcion": "Mapa de BIT"
+      }
+    },
+    "variantes_por_modo": {
+      "manual": {
+        "descripcion": "DEVOLUCION ONLINE - REQUEST MANUAL",
+        "campos_adicionales": {
+          "2": {
+            "formato": "LLVAR n..19",
+            "atributo": "M",
+            "descripcion": "Número de Tarjeta"
+          },
+          "14": {
+            "formato": "n4",
+            "atributo": "M",
+            "descripcion": "Fecha de Expiración",
+            "patron": "AAMM"
+          },
+          "19": {
+            "formato": "n3",
+            "atributo": "M",
+            "descripcion": "Código de País del Adquirente"
+          },
+          "23": {
+            "formato": "n3",
+            "atributo": "M",
+            "descripcion": "Número de Secuencia"
+          },
+          "45": {
+            "formato": "LLVAR an..76",
+            "atributo": "C1",
+            "descripcion": "Datos del TRACK I"
+          },
+          "46": {
+            "formato": "LLLVAR ans…999",
+            "atributo": "C2",
+            "descripcion": "TRACK I no leído"
+          }
+        }
+      },
+      "banda": {
+        "descripcion": "DEVOLUCION ONLINE - REQUEST BANDA",
+        "campos_adicionales": {
+          "19": {
+            "formato": "n3",
+            "atributo": "M",
+            "descripcion": "Código de País del Adquirente"
+          },
+          "45": {
+            "formato": "LLVAR an..76",
+            "atributo": "C1",
+            "descripcion": "Datos del TRACK I"
+          },
+          "46": {
+            "formato": "LLLVAR ans…999",
+            "atributo": "C2",
+            "descripcion": "TRACK I no leído"
+          }
+        }
+      },
+      "chip": {
+        "descripcion": "DEVOLUCION ONLINE - REQUEST CHIP",
+        "campos_adicionales": {
+          "23": {
+            "formato": "n3",
+            "atributo": "M",
+            "descripcion": "Número de Secuencia"
+          }
+        }
+      },
+      "contactless": {
+        "descripcion": "DEVOLUCION ONLINE - REQUEST CONTACTLESS",
+        "campos_adicionales": {}
+      }
+    }
+  },
+  "0400": {
+    "tipo_mensaje": "0400",
+    "descripcion_base": "REVERSO - REQUEST MANUAL",
+    "campos_base": {
+      "3": {
+        "formato": "n6",
+        "atributo": "M",
+        "descripcion": "Código de Procesamiento"
+      },
+      "4": {
+        "formato": "n12",
+        "atributo": "M",
+        "descripcion": "Importe de la Transacción"
+      },
+      "7": {
+        "formato": "n10",
+        "atributo": "M",
+        "descripcion": "Fecha y Hora de la Transmisión",
+        "patron": "MMDDHHMMSS"
+      },
+      "11": {
+        "formato": "n6",
+        "atributo": "M",
+        "descripcion": "Número del Trace del Sistema"
+      },
+      "12": {
+        "formato": "n6",
+        "atributo": "M",
+        "descripcion": "Hora Local de la Transacción",
+        "patron": "HHMMSS"
+      },
+      "13": {
+        "formato": "n4",
+        "atributo": "M",
+        "descripcion": "Fecha Local de la Transacción",
+        "patron": "MMDD"
+      },
+      "22": {
+        "formato": "n3",
+        "atributo": "M",
+        "descripcion": "Modo de Ingreso"
+      },
+      "24": {
+        "formato": "n3",
+        "atributo": "M",
+        "descripcion": "Identificador Internacional de la Red"
+      },
+      "25": {
+        "formato": "n2",
+        "atributo": "M",
+        "descripcion": "Código de condición de la POS"
+      },
+      "41": {
+        "formato": "ans8",
+        "atributo": "M",
+        "descripcion": "Identificación de la Terminal"
+      },
+      "42": {
+        "formato": "ans15",
+        "atributo": "M",
+        "descripcion": "Código de Identificación Comercio"
+      },
+      "49": {
+        "formato": "n3",
+        "atributo": "M",
+        "descripcion": "Código de Moneda"
+      },
+      "90": {
+        "formato": "n42",
+        "atributo": "M",
+        "descripcion": "Datos de la Transacción Original"
+      },
+      "TPDU": {
+        "formato": "n..10",
+        "atributo": "M",
+        "descripcion": "TPDU"
+      },
+      "tipo_mensaje": {
+        "valor": "0400",
+        "atributo": "M"
+      },
+      "mapa_bit": {
+        "formato": "b64",
+        "atributo": "M",
+        "descripcion": "Mapa de BIT"
+      }
+    },
+    "variantes_por_modo": {
+      "manual": {
+        "descripcion": "REVERSO - REQUEST MANUAL",
+        "campos_adicionales": {
+          "2": {
+            "formato": "LLVAR n..19",
+            "atributo": "M",
+            "descripcion": "Número de Tarjeta"
+          }
+        }
+      },
+      "banda": {
+        "descripcion": "REVERSO - REQUEST BANDA",
+        "campos_adicionales": {
+          "35": {
+            "formato": "LLVAR an..37",
+            "atributo": "C1",
+            "descripcion": "Datos del TRACK II"
+          }
+        }
+      },
+      "chip": {
+        "descripcion": "REVERSO - REQUEST CHIP",
+        "campos_adicionales": {
+          "55": {
+            "formato": "LLLVAR ans...999",
+            "atributo": "M",
+            "descripcion": "Código de Seguridad de la Tarjeta"
+          }
+        }
+      },
+      "contactless": {
+        "descripcion": "REVERSO - REQUEST CONTACTLESS",
+        "campos_adicionales": {
+          "55": {
+            "formato": "LLLVAR ans...999",
+            "atributo": "M",
+            "descripcion": "Código de Seguridad de la Tarjeta"
+          }
+        }
+      }
+    }
+  },
+  "0220": {
+    "tipo_mensaje": "0220",
+    "descripcion_base": "ADVICE DE UNA COMPRA - REQUEST",
+    "campos_base": {
+      "3": {
+        "formato": "n6",
+        "atributo": "M",
+        "descripcion": "Código de Procesamiento"
+      },
+      "4": {
+        "formato": "n12",
+        "atributo": "M",
+        "descripcion": "Importe de la Transacción"
+      },
+      "7": {
+        "formato": "n10",
+        "atributo": "M",
+        "descripcion": "Fecha y Hora de la Transmisión",
+        "patron": "MMDDHHMMSS"
+      },
+      "11": {
+        "formato": "n6",
+        "atributo": "M",
+        "descripcion": "Número de Trace del Sistema"
+      },
+      "12": {
+        "formato": "n6",
+        "atributo": "M",
+        "descripcion": "Hora local de la Transacción",
+        "patron": "HHMMSS"
+      },
+      "13": {
+        "formato": "n4",
+        "atributo": "M",
+        "descripcion": "Fecha local de la Transacción",
+        "patron": "MMDD"
+      },
+      "22": {
+        "formato": "n3",
+        "atributo": "M",
+        "descripcion": "Modo de Ingreso"
+      },
+      "24": {
+        "formato": "n3",
+        "atributo": "M",
+        "descripcion": "Identificador Internacional de la Red"
+      },
+      "25": {
+        "formato": "n2",
+        "atributo": "M",
+        "descripcion": "Código de condición de la POS"
+      },
+      "37": {
+        "formato": "an12",
+        "atributo": "M",
+        "descripcion": "Número de Referencia"
+      },
+      "38": {
+        "formato": "an6",
+        "atributo": "M",
+        "descripcion": "Código de Autorización"
+      },
+      "41": {
+        "formato": "ans8",
+        "atributo": "M",
+        "descripcion": "Identificación de la Terminal"
+      },
+      "42": {
+        "formato": "ans15",
+        "atributo": "M",
+        "descripcion": "Código de Identificación Comercio"
+      },
+      "48": {
+        "formato": "LLLVAR ans…999",
+        "atributo": "M",
+        "descripcion": "Cuotas / Datos Originales"
+      },
+      "49": {
+        "formato": "n3",
+        "atributo": "M",
+        "descripcion": "Código de Moneda"
+      },
+      "55": {
+        "formato": "LLLVAR ans...999",
+        "atributo": "M",
+        "descripcion": "Código de Seguridad de la Tarjeta"
+      },
+      "59": {
+        "formato": "LLLVAR ans…999",
+        "atributo": "M",
+        "descripcion": "Lista de Productos"
+      },
+      "60": {
+        "formato": "LLLVAR ans...999",
+        "atributo": "M",
+        "descripcion": "Versión del Software / Aplicación"
+      },
+      "62": {
+        "formato": "LLLVAR ans…999",
+        "atributo": "M",
+        "descripcion": "Número de Ticket"
+      },
+      "TPDU": {
+        "formato": "n..10",
+        "atributo": "M",
+        "descripcion": "TPDU"
+      },
+      "tipo_mensaje": {
+        "valor": "0220",
+        "atributo": "M"
+      },
+      "mapa_bit": {
+        "formato": "b64",
+        "atributo": "M",
+        "descripcion": "Mapa de BIT"
+      }
+    },
+    "variantes_por_modo": {
+      "todos": {
+        "descripcion": "ADVICE DE UNA DEVOLUCION - REQUEST",
+        "campos_adicionales": {
+          "2": {
+            "formato": "LLVAR n..19",
+            "atributo": "M",
+            "descripcion": "Número de Tarjeta"
+          },
+          "17": {
+            "formato": "n4",
+            "atributo": "M",
+            "descripcion": "Fecha de Captura",
+            "patron": "MMDD"
+          },
+          "19": {
+            "formato": "n3",
+            "atributo": "M",
+            "descripcion": "Código de País del Adquirente"
+          },
+          "23": {
+            "formato": "n3",
+            "atributo": "M",
+            "descripcion": "Número de Secuencia"
+          },
+          "35": {
+            "formato": "LLVAR an..37",
+            "atributo": "M",
+            "descripcion": "Datos del TRACK II"
+          },
+          "52": {
+            "formato": "b64",
+            "atributo": "O",
+            "descripcion": "PIN Block BIT"
+          },
+          "54": {
+            "formato": "LLLVAR an12",
+            "atributo": "O",
+            "descripcion": "Monto Adicional"
+          }
+        }
+      },
+      "manual": {
+        "descripcion": "ANULACION OFFLINE Y CAPTURA - REQUEST MANUAL",
+        "campos_adicionales": {
+          "2": {
+            "formato": "LLVAR n..19",
+            "atributo": "M",
+            "descripcion": "Número de Tarjeta"
+          },
+          "14": {
+            "formato": "n4",
+            "atributo": "C6",
+            "descripcion": "Fecha de Expiración",
+            "patron": "AAMM"
+          },
+          "52": {
+            "formato": "b64",
+            "atributo": "O",
+            "descripcion": "PIN Block BIT"
+          }
+        }
+      },
+      "banda": {
+        "descripcion": "ANULACION OFFLINE Y CAPTURA - REQUEST BANDA",
+        "campos_adicionales": {
+          "2": {
+            "formato": "LLVAR n..19",
+            "atributo": "M",
+            "descripcion": "Número de Tarjeta"
+          },
+          "14": {
+            "formato": "n4",
+            "atributo": "C6",
+            "descripcion": "Fecha de Expiración",
+            "patron": "AAMM"
+          },
+          "35": {
+            "formato": "LLVAR an..37",
+            "atributo": "C7",
+            "descripcion": "Datos del TRACK II"
+          },
+          "52": {
+            "formato": "b64",
+            "atributo": "O",
+            "descripcion": "PIN Block BIT"
+          }
+        }
+      }
+    }
+  },
+  "0100": {
+    "tipo_mensaje": "0100",
+    "descripcion_base": "PRE-AUTORIZACION ONLINE - REQUEST",
+    "campos_base": {
+      "2": {
+        "formato": "LLVAR n..19",
+        "atributo": "M",
+        "descripcion": "Número de Tarjeta"
+      },
+      "3": {
+        "formato": "n6",
+        "atributo": "M",
+        "descripcion": "Código de Procesamiento"
+      },
+      "4": {
+        "formato": "n12",
+        "atributo": "M",
+        "descripcion": "Importe de la Transacción"
+      },
+      "7": {
+        "formato": "n10",
+        "atributo": "M",
+        "descripcion": "Fecha y Hora de la Transmisión",
+        "patron": "MMDDHHMMSS"
+      },
+      "11": {
+        "formato": "n6",
+        "atributo": "M",
+        "descripcion": "Número de Trace del Sistema"
+      },
+      "12": {
+        "formato": "n6",
+        "atributo": "M",
+        "descripcion": "Hora local de la Transacción",
+        "patron": "HHMMSS"
+      },
+      "13": {
+        "formato": "n4",
+        "atributo": "M",
+        "descripcion": "Fecha local de la Transacción",
+        "patron": "MMDD"
+      },
+      "14": {
+        "formato": "n4",
+        "atributo": "M",
+        "descripcion": "Fecha de Expiración",
+        "patron": "AAMM"
+      },
+      "22": {
+        "formato": "n3",
+        "atributo": "M",
+        "descripcion": "Modo de Ingreso"
+      },
+      "24": {
+        "formato": "n3",
+        "atributo": "M",
+        "descripcion": "Identificador Internacional de la Red"
+      },
+      "25": {
+        "formato": "n2",
+        "atributo": "M",
+        "descripcion": "Código de condición de la POS"
+      },
+      "41": {
+        "formato": "ans8",
+        "atributo": "M",
+        "descripcion": "Identificación de la Terminal"
+      },
+      "42": {
+        "formato": "ans15",
+        "atributo": "M",
+        "descripcion": "Código de Identificación Comercio"
+      },
+      "48": {
+        "formato": "LLLVAR ans…999",
+        "atributo": "M",
+        "descripcion": "Cuotas / Datos Originales"
+      },
+      "49": {
+        "formato": "n3",
+        "atributo": "M",
+        "descripcion": "Código de Moneda"
+      },
+      "55": {
+        "formato": "LLLVAR ans...999",
+        "atributo": "M",
+        "descripcion": "Código de Seguridad de la Tarjeta"
+      },
+      "59": {
+        "formato": "LLLVAR ans…999",
+        "atributo": "M",
+        "descripcion": "Lista de Productos"
+      },
+      "60": {
+        "formato": "LLLVAR ans...999",
+        "atributo": "M",
+        "descripcion": "Versión del Software / Aplicación"
+      },
+      "62": {
+        "formato": "LLLVAR ans…999",
+        "atributo": "M",
+        "descripcion": "Número de Ticket"
+      },
+      "TPDU": {
+        "formato": "n..10",
+        "atributo": "M",
+        "descripcion": "TPDU"
+      },
+      "tipo_mensaje": {
+        "valor": "0100",
+        "atributo": "M"
+      },
+      "mapa_bit": {
+        "formato": "b64",
+        "atributo": "M",
+        "descripcion": "Mapa de BIT"
+      }
+    },
+    "variantes_por_modo": {
+      "todos": {
+        "descripcion": "ANULACION PRE-AUTORIZACION ONLINE - REQUEST",
+        "campos_adicionales": {}
+      }
+    }
+  },
+  "0500": {
+    "tipo_mensaje": "0500",
+    "descripcion_base": "CIERRE DE LOTE - REQUEST",
+    "campos_base": {
+      "3": {
+        "formato": "n6",
+        "atributo": "M",
+        "descripcion": "Código de Procesamiento"
+      },
+      "7": {
+        "formato": "n10",
+        "atributo": "M",
+        "descripcion": "Fecha y Hora de la Transmisión",
+        "patron": "MMDDHHMMSS"
+      },
+      "11": {
+        "formato": "n6",
+        "atributo": "M",
+        "descripcion": "Número del Trace del Sistema"
+      },
+      "12": {
+        "formato": "n6",
+        "atributo": "M",
+        "descripcion": "Hora Local de la Transacción",
+        "patron": "HHMMSS"
+      },
+      "13": {
+        "formato": "n4",
+        "atributo": "M",
+        "descripcion": "Fecha Local de la Transacción",
+        "patron": "MMDD"
+      },
+      "15": {
+        "formato": "n4",
+        "atributo": "M",
+        "descripcion": "Fecha de Cierre",
+        "patron": "MMDD"
+      },
+      "24": {
+        "formato": "n3",
+        "atributo": "M",
+        "descripcion": "Identificador Internacional de la Red"
+      },
+      "41": {
+        "formato": "ans8",
+        "atributo": "M",
+        "descripcion": "Identificación de la Terminal"
+      },
+      "42": {
+        "formato": "ans15",
+        "atributo": "M",
+        "descripcion": "Código de Identificación Comercio"
+      },
+      "60": {
+        "formato": "LLLVAR ans...999",
+        "atributo": "M",
+        "descripcion": "Versión del Software / Aplicación"
+      },
+      "TPDU": {
+        "formato": "n..10",
+        "atributo": "M",
+        "descripcion": "TPDU"
+      },
+      "tipo_mensaje": {
+        "valor": "0500",
+        "atributo": "M"
+      },
+      "mapa_bit": {
+        "formato": "b64",
+        "atributo": "M",
+        "descripcion": "Mapa de BIT"
+      }
+    },
+    "variantes_por_modo": {
+      "todos": {
+        "descripcion": "CIERRE DE LOTE - REQUEST",
+        "campos_adicionales": {}
+      }
+    }
+  },
+  "0800": {
+    "tipo_mensaje": "0800",
+    "descripcion_base": "Echo Test Request",
+    "campos_base": {
+      "3": {
+        "formato": "n6",
+        "atributo": "n",
+        "longitud": 6,
+        "mandatorio": "M",
+        "descripcion": "Código de Procesamiento",
+        "valor_fijo": "990000"
+      },
+      "7": {
+        "formato": "MMDDHHMMSS",
+        "atributo": "n",
+        "longitud": 10,
+        "mandatorio": "M",
+        "descripcion": "Fecha y Hora de la Transmisión"
+      },
+      "11": {
+        "formato": "n6",
+        "atributo": "n",
+        "longitud": 6,
+        "mandatorio": "M",
+        "descripcion": "Número de Trace del Sistema"
+      },
+      "12": {
+        "formato": "HHMMSS",
+        "atributo": "n",
+        "longitud": 6,
+        "mandatorio": "M",
+        "descripcion": "Hora local de la Transacción"
+      },
+      "13": {
+        "formato": "MMDD",
+        "atributo": "n",
+        "longitud": 4,
+        "mandatorio": "M",
+        "descripcion": "Fecha local de la Transacción"
+      },
+      "24": {
+        "formato": "n4",
+        "atributo": "n",
+        "longitud": 4,
+        "mandatorio": "M",
+        "descripcion": "Identificador Internacional de la Red"
+      },
+      "41": {
+        "formato": "ans8",
+        "atributo": "ans",
+        "longitud": 8,
+        "mandatorio": "M",
+        "descripcion": "Identificación de la Terminal"
+      },
+      "42": {
+        "formato": "ans15",
+        "atributo": "ans",
+        "longitud": 15,
+        "mandatorio": "M",
+        "descripcion": "Código de Identificación Comercio"
+      },
+      "60": {
+        "formato": "LLLVAR",
+        "atributo": "ans",
+        "longitud_maxima": 999,
+        "mandatorio": "O",
+        "descripcion": "Versión del Software / Aplicación"
+      },
+      "TPDU": {
+        "formato": "n..10",
+        "atributo": "n",
+        "longitud": 10,
+        "mandatorio": "M",
+        "descripcion": "Transport Protocol Data Unit"
+      }
+    },
+    "variantes_por_modo": {
+      "todos": {
+        "descripcion": "Echo Test Request",
+        "campos_adicionales": {}
+      }
+    }
+  },
+  "0210": {
+    "tipo_mensaje": "0210",
+    "descripcion_base": "COMPRA ONLINE - RESPONSE",
+    "campos_base": {
+      "2": {
+        "formato": "LLVAR n..19",
+        "atributo": "M",
+        "descripcion": "Número de Tarjeta"
+      },
+      "3": {
+        "formato": "n6",
+        "atributo": "M",
+        "descripcion": "Código de Procesamiento"
+      },
+      "4": {
+        "formato": "n12",
+        "atributo": "M",
+        "descripcion": "Importe de la Transacción"
+      },
+      "7": {
+        "formato": "n10",
+        "atributo": "M",
+        "descripcion": "Fecha y Hora de la Transmisión",
+        "patron": "MMDDHHMMSS"
+      },
+      "11": {
+        "formato": "n6",
+        "atributo": "M",
+        "descripcion": "Número del Trace del Sistema"
+      },
+      "24": {
+        "formato": "n3",
+        "atributo": "M",
+        "descripcion": "Identificador Internacional de la Red"
+      },
+      "34": {
+        "formato": "LLVAR ns..28",
+        "atributo": "O",
+        "descripcion": "Número de cuenta"
+      },
+      "37": {
+        "formato": "an12",
+        "atributo": "M",
+        "descripcion": "Número de Referencia"
+      },
+      "38": {
+        "formato": "an6",
+        "atributo": "O",
+        "descripcion": "Código de Autorización"
+      },
+      "39": {
+        "formato": "an2",
+        "atributo": "M",
+        "descripcion": "Código de Respuesta"
+      },
+      "41": {
+        "formato": "ans8",
+        "atributo": "M",
+        "descripcion": "Identificación de la Terminal"
+      },
+      "42": {
+        "formato": "ans15",
+        "atributo": "O",
+        "descripcion": "Código de Identificación Comercio"
+      },
+      "48": {
+        "formato": "LLLVAR ans...999",
+        "atributo": "M",
+        "descripcion": "Cuotas"
+      },
+      "49": {
+        "formato": "n3",
+        "atributo": "M",
+        "descripcion": "Código de Moneda"
+      },
+      "52": {
+        "formato": "b64",
+        "atributo": "O",
+        "descripcion": "PIN Block BIT"
+      },
+      "TPDU": {
+        "formato": "n..10",
+        "atributo": "M",
+        "descripcion": "TPDU"
+      },
+      "tipo_mensaje": {
+        "valor": "0210",
+        "atributo": "M"
+      },
+      "mapa_bit": {
+        "formato": "b64",
+        "atributo": "M",
+        "descripcion": "Mapa de BIT"
+      }
+    },
+    "variantes_por_modo": {
+      "todos": {
+        "descripcion": "DEVOLUCION ONLINE - RESPONSE",
+        "campos_adicionales": {}
+      }
+    }
+  },
+  "0410": {
+    "tipo_mensaje": "0410",
+    "descripcion_base": "REVERSO - RESPONSE",
+    "campos_base": {
+      "3": {
+        "formato": "n6",
+        "atributo": "M",
+        "descripcion": "Código de Procesamiento"
+      },
+      "4": {
+        "formato": "n12",
+        "atributo": "M",
+        "descripcion": "Importe de la Transacción"
+      },
+      "7": {
+        "formato": "n10",
+        "atributo": "M",
+        "descripcion": "Fecha y Hora de la Transmisión",
+        "patron": "MMDDHHMMSS"
+      },
+      "11": {
+        "formato": "n6",
+        "atributo": "M",
+        "descripcion": "Número del Trace del Sistema"
+      },
+      "24": {
+        "formato": "n3",
+        "atributo": "M",
+        "descripcion": "Identificador Internacional de la Red"
+      },
+      "37": {
+        "formato": "an12",
+        "atributo": "M",
+        "descripcion": "Número de Referencia"
+      },
+      "39": {
+        "formato": "an2",
+        "atributo": "M",
+        "descripcion": "Código de Respuesta"
+      },
+      "41": {
+        "formato": "ans8",
+        "atributo": "M",
+        "descripcion": "Identificación de la Terminal"
+      },
+      "42": {
+        "formato": "ans15",
+        "atributo": "O",
+        "descripcion": "Código de Identificación Comercio"
+      },
+      "49": {
+        "formato": "n3",
+        "atributo": "M",
+        "descripcion": "Código de Moneda"
+      },
+      "90": {
+        "formato": "n42",
+        "atributo": "M",
+        "descripcion": "Datos de la Transacción Original"
+      },
+      "TPDU": {
+        "formato": "n..10",
+        "atributo": "M",
+        "descripcion": "TPDU"
+      },
+      "tipo_mensaje": {
+        "valor": "0410",
+        "atributo": "M"
+      },
+      "mapa_bit": {
+        "formato": "b64",
+        "atributo": "M",
+        "descripcion": "Mapa de BIT"
+      }
+    },
+    "variantes_por_modo": {
+      "todos": {
+        "descripcion": "REVERSO - RESPONSE",
+        "campos_adicionales": {}
+      }
+    }
+  },
+  "0230": {
+    "tipo_mensaje": "0230",
+    "descripcion_base": "ADVICE DE UNA COMPRA - RESPONSE",
+    "campos_base": {
+      "3": {
+        "formato": "n6",
+        "atributo": "M",
+        "descripcion": "Código de Procesamiento"
+      },
+      "4": {
+        "formato": "n12",
+        "atributo": "M",
+        "descripcion": "Importe de la Transacción"
+      },
+      "7": {
+        "formato": "n10",
+        "atributo": "M",
+        "descripcion": "Fecha y Hora de la Transmisión",
+        "patron": "MMDDHHMMSS"
+      },
+      "11": {
+        "formato": "n6",
+        "atributo": "M",
+        "descripcion": "Número de Trace del Sistema"
+      },
+      "24": {
+        "formato": "n3",
+        "atributo": "M",
+        "descripcion": "Identificador Internacional de la Red"
+      },
+      "38": {
+        "formato": "an6",
+        "atributo": "M",
+        "descripcion": "Código de Autorización"
+      },
+      "39": {
+        "formato": "an2",
+        "atributo": "M",
+        "descripcion": "Código de Respuesta"
+      },
+      "41": {
+        "formato": "ans8",
+        "atributo": "M",
+        "descripcion": "Identificación de la Terminal"
+      },
+      "42": {
+        "formato": "ans15",
+        "atributo": "M",
+        "descripcion": "Código de Identificación Comercio"
+      },
+      "48": {
+        "formato": "LLLVAR ans…999",
+        "atributo": "M",
+        "descripcion": "Cuotas / Datos Originales"
+      },
+      "49": {
+        "formato": "n3",
+        "atributo": "M",
+        "descripcion": "Código de Moneda"
+      },
+      "63": {
+        "formato": "LLLVAR ans...999",
+        "atributo": "O",
+        "descripcion": "Mensaje del Host Mostrar / Imprimir"
+      },
+      "TPDU": {
+        "formato": "n..10",
+        "atributo": "M",
+        "descripcion": "TPDU"
+      },
+      "tipo_mensaje": {
+        "valor": "0230",
+        "atributo": "M"
+      },
+      "mapa_bit": {
+        "formato": "b64",
+        "atributo": "M",
+        "descripcion": "Mapa de BIT"
+      }
+    },
+    "variantes_por_modo": {
+      "todos": {
+        "descripcion": "ANULACION OFFLINE Y CAPTURA - RESPONSE",
+        "campos_adicionales": {
+          "2": {
+            "formato": "LLVAR n..19",
+            "atributo": "M",
+            "descripcion": "Número de Tarjeta"
+          },
+          "37": {
+            "formato": "an12",
+            "atributo": "M",
+            "descripcion": "Número de Referencia"
+          },
+          "52": {
+            "formato": "b64",
+            "atributo": "O",
+            "descripcion": "PIN Block BIT"
+          }
+        }
+      }
+    }
+  },
+  "0110": {
+    "tipo_mensaje": "0110",
+    "descripcion_base": "PRE-AUTORIZACION ONLINE - RESPONSE",
+    "campos_base": {
+      "2": {
+        "formato": "LLVAR n..19",
+        "atributo": "M",
+        "descripcion": "Número de Tarjeta"
+      },
+      "3": {
+        "formato": "n6",
+        "atributo": "M",
+        "descripcion": "Código de Procesamiento"
+      },
+      "4": {
+        "formato": "n12",
+        "atributo": "M",
+        "descripcion": "Importe de la Transacción"
+      },
+      "7": {
+        "formato": "n10",
+        "atributo": "M",
+        "descripcion": "Fecha y Hora de la Transmisión",
+        "patron": "MMDDHHMMSS"
+      },
+      "11": {
+        "formato": "n6",
+        "atributo": "M",
+        "descripcion": "Número de Trace del Sistema"
+      },
+      "24": {
+        "formato": "n3",
+        "atributo": "M",
+        "descripcion": "Identificador Internacional de la Red"
+      },
+      "34": {
+        "formato": "LLVAR ns..28",
+        "atributo": "O",
+        "descripcion": "Número de cuenta"
+      },
+      "37": {
+        "formato": "an12",
+        "atributo": "M",
+        "descripcion": "Número de Referencia"
+      },
+      "38": {
+        "formato": "an6",
+        "atributo": "M",
+        "descripcion": "Código de Autorización"
+      },
+      "39": {
+        "formato": "an2",
+        "atributo": "M",
+        "descripcion": "Código de Respuesta"
+      },
+      "41": {
+        "formato": "ans8",
+        "atributo": "M",
+        "descripcion": "Identificación de la Terminal"
+      },
+      "42": {
+        "formato": "ans15",
+        "atributo": "M",
+        "descripcion": "Código de Identificación Comercio"
+      },
+      "48": {
+        "formato": "LLLVAR ans…999",
+        "atributo": "M",
+        "descripcion": "Cuotas / Datos Originales"
+      },
+      "49": {
+        "formato": "n3",
+        "atributo": "M",
+        "descripcion": "Código de Moneda"
+      },
+      "63": {
+        "formato": "LLLVAR ans...999",
+        "atributo": "O",
+        "descripcion": "Mensaje del Host Mostrar / Imprimir"
+      },
+      "TPDU": {
+        "formato": "n..10",
+        "atributo": "M",
+        "descripcion": "TPDU"
+      },
+      "tipo_mensaje": {
+        "valor": "0110",
+        "atributo": "M"
+      },
+      "mapa_bit": {
+        "formato": "b64",
+        "atributo": "M",
+        "descripcion": "Mapa de BIT"
+      }
+    },
+    "variantes_por_modo": {
+      "todos": {
+        "descripcion": "ANULACION PRE-AUTORIZACION ONLINE - RESPONSE",
+        "campos_adicionales": {}
+      }
+    }
+  },
+  "0510": {
+    "tipo_mensaje": "0510",
+    "descripcion_base": "CIERRE DE LOTE - RESPONSE",
+    "campos_base": {
+      "3": {
+        "formato": "n6",
+        "atributo": "M",
+        "descripcion": "Código de Procesamiento"
+      },
+      "7": {
+        "formato": "n10",
+        "atributo": "M",
+        "descripcion": "Fecha y Hora de la Transmisión",
+        "patron": "MMDDHHMMSS"
+      },
+      "11": {
+        "formato": "n6",
+        "atributo": "M",
+        "descripcion": "Número del Trace del Sistema"
+      },
+      "15": {
+        "formato": "n4",
+        "atributo": "M",
+        "descripcion": "Fecha de Cierre",
+        "patron": "MMDD"
+      },
+      "24": {
+        "formato": "n3",
+        "atributo": "M",
+        "descripcion": "Identificador Internacional de la Red"
+      },
+      "37": {
+        "formato": "an12",
+        "atributo": "M",
+        "descripcion": "Número de Referencia"
+      },
+      "38": {
+        "formato": "an6",
+        "atributo": "M",
+        "descripcion": "Código de Autorización"
+      },
+      "39": {
+        "formato": "an2",
+        "atributo": "M",
+        "descripcion": "Código de Respuesta"
+      },
+      "41": {
+        "formato": "ans8",
+        "atributo": "M",
+        "descripcion": "Identificación de la Terminal"
+      },
+      "42": {
+        "formato": "ans15",
+        "atributo": "M",
+        "descripcion": "Código de Identificación Comercio"
+      },
+      "63": {
+        "formato": "LLLVAR ans...999",
+        "atributo": "O",
+        "descripcion": "Mensaje del Host Mostrar / Imprimir"
+      },
+      "TPDU": {
+        "formato": "n..10",
+        "atributo": "M",
+        "descripcion": "TPDU"
+      },
+      "tipo_mensaje": {
+        "valor": "0510",
+        "atributo": "M"
+      },
+      "mapa_bit": {
+        "formato": "b64",
+        "atributo": "M",
+        "descripcion": "Mapa de BIT"
+      }
+    },
+    "variantes_por_modo": {
+      "todos": {
+        "descripcion": "CIERRE DE LOTE - RESPONSE",
+        "campos_adicionales": {}
+      }
+    }
+  },
+  "0810": {
+    "tipo_mensaje": "0810",
+    "descripcion_base": "Echo Test Response",
+    "campos_base": {
+      "3": {
+        "formato": "n6",
+        "atributo": "n",
+        "longitud": 6,
+        "mandatorio": "M",
+        "descripcion": "Código de Procesamiento",
+        "valor_fijo": "990000"
+      },
+      "7": {
+        "formato": "MMDDHHMMSS",
+        "atributo": "n",
+        "longitud": 10,
+        "mandatorio": "M",
+        "descripcion": "Fecha y Hora de la Transmisión"
+      },
+      "11": {
+        "formato": "n6",
+        "atributo": "n",
+        "longitud": 6,
+        "mandatorio": "M",
+        "descripcion": "Número de Trace del Sistema"
+      },
+      "24": {
+        "formato": "n3",
+        "atributo": "n",
+        "longitud": 3,
+        "mandatorio": "M",
+        "descripcion": "Identificador Internacional de la Red"
+      },
+      "39": {
+        "formato": "an2",
+        "atributo": "an",
+        "longitud": 2,
+        "mandatorio": "O",
+        "descripcion": "Código de Respuesta",
+        "valores_validos": [
+          "00",
+          "01",
+          "02",
+          "03",
+          "04",
+          "05",
+          "06",
+          "07",
+          "08",
+          "09",
+          "10"
+        ]
+      },
+      "41": {
+        "formato": "ans8",
+        "atributo": "ans",
+        "longitud": 8,
+        "mandatorio": "M",
+        "descripcion": "Identificación de la Terminal"
+      },
+      "42": {
+        "formato": "ans15",
+        "atributo": "ans",
+        "longitud": 15,
+        "mandatorio": "M",
+        "descripcion": "Código de Identificación Comercio"
+      },
+      "60": {
+        "formato": "LLLVAR",
+        "atributo": "ans",
+        "longitud_maxima": 999,
+        "mandatorio": "O",
+        "descripcion": "Versión del Software / Aplicación"
+      },
+      "TPDU": {
+        "formato": "n..10",
+        "atributo": "n",
+        "longitud": 10,
+        "mandatorio": "M",
+        "descripcion": "Transport Protocol Data Unit"
+      }
+    },
+    "variantes_por_modo": {
+      "todos": {
+        "descripcion": "Echo Test Response",
+        "campos_adicionales": {}
+      }
+    }
+  }
+}

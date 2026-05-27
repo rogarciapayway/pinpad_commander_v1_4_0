@@ -1,0 +1,20 @@
+# ==================== UI Framework ====================
+customtkinter>=5.2.0
+
+# ==================== Cryptography ====================
+pycryptodome>=3.19.0
+
+# ==================== Serial Communication ====================
+pyserial>=3.5
+
+# ==================== Standard Library Dependencies ====================
+# These are included with Python but listed for documentation:
+# - tkinter (GUI framework - built-in)
+# - json (JSON parsing - built-in)
+# - logging (Logging system - built-in)
+# - threading (Multi-threading - built-in)
+# - re (Regular expressions - built-in)
+# - os (Operating system interface - built-in)
+# - sys (System-specific parameters - built-in)
+# - datetime (Date and time handling - built-in)
+# - html (HTML utilities - built-in)

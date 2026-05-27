@@ -1,0 +1,30 @@
+[
+  {
+    "acquirerGroupId": 1,
+    "terminalId" : "12000798",
+    "nii": "0721",
+    "ip": "ws1.prismamp.com",
+    "ipPort": "8443",
+    "gedc": null
+  },
+  {
+    "acquirerGroupId": 2,
+    "terminalId" : "76330027",
+    "nii": "0721",
+    "ip": "qwww318.americanexpress.com",
+    "ipPort": "8443",
+    "gedc": {
+      "uri": "/IPPayments/inter/CardAuthorization.do",
+      "Accept-Language": "en-us",
+      "User-Agent": "76330027;testlane3000;POS",
+      "Cache-Control": "no-cache",
+      "origin": "testlane3000",
+      "country": "032",
+      "region": "LAC",
+      "message": "ISO GLOBAL EDC",
+      "MerchNbr": "3217801844",
+      "RtInd": "050",
+      "Content-Type": "plain/text"
+    }
+  }
+]

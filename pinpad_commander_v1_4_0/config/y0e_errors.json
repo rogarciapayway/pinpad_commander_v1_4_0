@@ -1,0 +1,19 @@
+{
+  "00": "Sin error",
+  "01": "Cancelado por el usuario",
+  "02": "Ultimos cuatro digitos erroneos",
+  "03": "Error lectura del track II",
+  "04": "Error en PIN",
+  "05": "Error EMV",
+  "06": "Error de hardware",
+  "07": "Tiempo de espera excedido",
+  "08": "Error en secuencia",
+  "09": "Error de formato de datos o parámetros incorrectos",
+  "10": "Error de estado del dispositivo",
+  "11": "Error de CRC",
+  "12": "Error tarjeta removida",
+  "13": "Error de recurso no disponible",
+  "14": "Error de validación",
+  "15": "Error de procesamiento",
+  "FF": "Error desconocido"
+}

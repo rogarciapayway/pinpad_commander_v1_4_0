@@ -1,0 +1,172 @@
+{
+  "codigos_respuesta": {
+    "00": {
+      "descripcion": "Aprobada (authno)",
+      "referencia": "Operación aprobada, emitir cupón (cargo o ticket)"
+    },
+    "01": {
+      "descripcion": "Pedir Autorización",
+      "referencia": "Solicitar autorización telefónica, en caso de ser aprobada, cargar el código obtenido y dejar la operación en OFFLINE"
+    },
+    "02": {
+      "descripcion": "Pedir Autorización",
+      "referencia": "Idem punto anterior"
+    },
+    "03": {
+      "descripcion": "Comercio Inválido",
+      "referencia": "Verificar parámetros del sistema, código de comercio mal cargado"
+    },
+    "04": {
+      "descripcion": "Capturar Tarjeta",
+      "referencia": "Denegada, capturar la tarjeta"
+    },
+    "05": {
+      "descripcion": "Denegada",
+      "referencia": "Denegada"
+    },
+    "07": {
+      "descripcion": "Retenga y Llame",
+      "referencia": "Denegada, llamar al Centro de Autorizaciones"
+    },
+    "11": {
+      "descripcion": "Aprobada",
+      "referencia": "Operación aprobada, emitir cupón (cargo o ticket)"
+    },
+    "12": {
+      "descripcion": "Transacción Inválida",
+      "referencia": "Verificar el sistema, transacción no reconocida en el sistema"
+    },
+    "13": {
+      "descripcion": "Monto Inválido",
+      "referencia": "Verificar el sistema, error en el formato del campo importe"
+    },
+    "14": {
+      "descripcion": "Tarjeta Inválida",
+      "referencia": "Denegada, tarjeta no corresponde"
+    },
+    "25": {
+      "descripcion": "No Existe Original",
+      "referencia": "Denegada, registro no encontrado en el archivo de transacciones"
+    },
+    "28": {
+      "descripcion": "Servicio No Disponible",
+      "referencia": "Momentáneamente el servicio no está disponible. Se debe reintentar en unos segundos"
+    },
+    "30": {
+      "descripcion": "Error En Formato",
+      "referencia": "Verificar el sistema, error en el formato del mensaje"
+    },
+    "31": {
+      "descripcion": "Aplica Dcc",
+      "referencia": "Devuelve al POS información de tipo de cambio y moneda extranjera"
+    },
+    "38": {
+      "descripcion": "Excede Ingreso de PIN",
+      "referencia": "Denegada, excede cantidad de reintentos de PIN permitidos"
+    },
+    "39": {
+      "descripcion": "Código de seguridad incorrecto",
+      "referencia": "Solo E-Commerce. Código de seguridad incorrecto"
+    },
+    "43": {
+      "descripcion": "Retener Tarjeta",
+      "referencia": "Denegada, retener tarjeta"
+    },
+    "45": {
+      "descripcion": "Número de Opera en Cuotas",
+      "referencia": "Denegada, tarjeta inhibida para operar en cuotas"
+    },
+    "46": {
+      "descripcion": "Tarjeta no Vigente",
+      "referencia": "Denegada, tarjeta no está vigente aún"
+    },
+    "47": {
+      "descripcion": "PIN Requerido",
+      "referencia": "PIN Requerido"
+    },
+    "48": {
+      "descripcion": "Excede Máximo Cuotas",
+      "referencia": "Denegada, excede cantidad máxima de cuotas permitida"
+    },
+    "49": {
+      "descripcion": "Error Fecha Vencimiento",
+      "referencia": "Verificar el sistema, error en formato de fecha de expiración (vto)"
+    },
+    "51": {
+      "descripcion": "Fondos Insuficientes",
+      "referencia": "Denegada, no posee fondos suficientes"
+    },
+    "53": {
+      "descripcion": "Cuenta Inexistente",
+      "referencia": "Denegada, no existe cuenta asociada"
+    },
+    "54": {
+      "descripcion": "Tarjeta Vencida",
+      "referencia": "Denegada, tarjeta expirada"
+    },
+    "55": {
+      "descripcion": "PIN Incorrecto",
+      "referencia": "Denegada, código de identificación personal es incorrecto"
+    },
+    "56": {
+      "descripcion": "Tarjeta no Habilitada",
+      "referencia": "Denegada, emisor no habilitado en el sistema"
+    },
+    "57": {
+      "descripcion": "Transacción no Permitida",
+      "referencia": "Verificar el sistema, transacción no permitida a dicha tarjeta"
+    },
+    "58": {
+      "descripcion": "Servicio Inválido",
+      "referencia": "Verificar el sistema, transacción no permitida a dicha terminal"
+    },
+    "61": {
+      "descripcion": "Excede Limite",
+      "referencia": "Denegada, excede límite remanente de la tarjeta"
+    },
+    "65": {
+      "descripcion": "Excede Limite Tarjeta",
+      "referencia": "Denegada, excede límite remanente de la tarjeta"
+    },
+    "76": {
+      "descripcion": "Llamar al Emisor",
+      "referencia": "Solicitar autorización telefónica, en caso de ser aprobada, cargar el código obtenido y dejar la operación en OFFLINE"
+    },
+    "77": {
+      "descripcion": "Error Plan/Cuotas",
+      "referencia": "Denegada, cantidad de cuotas inválida para el plan seleccionado"
+    },
+    "85": {
+      "descripcion": "Aprobada",
+      "referencia": "Operación aprobada, emitir cupón (cargo o ticket)"
+    },
+    "89": {
+      "descripcion": "Terminal Invalida",
+      "referencia": "Denegada, número de terminal no habilitado por el Emisor"
+    },
+    "91": {
+      "descripcion": "Emisor Fuera Línea",
+      "referencia": "Solicitar autorización telefónica, en caso de ser aprobada, cargar el código obtenido y dejar la operación en OFFLINE"
+    },
+    "94": {
+      "descripcion": "Número de Secuencia Duplicada",
+      "referencia": "Denegada. Error en mensaje. Envíe nuevamente la transacción incrementando en uno el system trace de la misma"
+    },
+    "95": {
+      "descripcion": "Re-Transmitiendo",
+      "referencia": "Diferencias en la conciliación del cierre"
+    },
+    "96": {
+      "descripcion": "Error en Sistema",
+      "referencia": "Mal funcionamiento del sistema. Solicitar autorización telefónica"
+    },
+    "98": {
+      "descripcion": "Desincronización de Working Key",
+      "referencia": "Reintentar la operación"
+    },
+    "xx": {
+      "descripcion": "Rechazada (Codnum)",
+      "referencia": "Denegada, cualquier otro código no contemplado en tabla"
+    }
+  }
+}

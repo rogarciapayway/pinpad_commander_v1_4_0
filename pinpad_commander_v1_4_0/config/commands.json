@@ -1,0 +1,1589 @@
+{
+  "stx": 2,
+  "etx": 3,
+  "fs": 28,
+  "commands": {
+    "Y0I Información": {
+      "cid": "Y0I",
+      "description": "🔍 Identificación del PinPad - Obtiene información del dispositivo",
+      "request": {
+        "fields": []
+      },
+      "io": {
+        "expect_ack": true
+      },
+      "response": {
+        "validate_cid": true,
+        "parser": {
+          "type": "fs",
+          "fields": [
+            {
+              "name": "owner",
+              "description": "Propietario del PinPad",
+              "decode": "trim"
+            },
+            {
+              "name": "vendor",
+              "description": "Fabricante",
+              "decode": "trim"
+            },
+            {
+              "name": "model",
+              "description": "Modelo del PP",
+              "decode": "trim"
+            },
+            {
+              "name": "os_version",
+              "description": "Version de OS",
+              "decode": "trim"
+            },
+            {
+              "name": "soft_version",
+              "description": "Version de Soft",
+              "decode": "trim"
+            },
+            {
+              "name": "serial",
+              "description": "Nro de Serie",
+              "decode": "trim"
+            }
+          ]
+        }
+      }
+    },
+    "Y19 Transacción": {
+      "cid": "Y19",
+      "description": "💳 Transacción (Y19) — RSA/EXP",
+      "request": {
+        "fields": [
+          {
+            "name": "RSA",
+            "description": "🔑 Clave pública RSA en hexadecimal (512 bytes = 1024 chars hex)",
+            "default": "B110F42EDD15B735736365F83929D4B8152C4ED5371E1F6B3563092EFD580BFA72F533D9F3E442F301B9CD2C3EA2E8765A53B638119AC86B4EC84779F6FC98C9C951FF6D03F2B314C9D5A3BF2D83E7BBBD98A05047DD1336E309E5D2A888AFE7B97444047D21DBDA8252859B813AE60058899167D5CD0AF1230662E3F238A6439647B672F6FB5AA906FB55F8FF9A72C4DD59B317ECCF03F2FC91FF9A1A92367BB54CE7D3B349612AA3B23375D179DA1213D5BE1813BF5D9815718E479BF139357ECA2954840372AA597CCFED2E8786205F9B2F1CACE49FC5EB25D5CFB07DA4EDEE8F188FA2F7E3A59D50DB263B1EA4B80E75165DFF9494C58DEE1925B862C7BF",
+            "format": {
+              "type": "upper"
+            }
+          },
+          {
+            "name": "EXP",
+            "description": "🔢 Exponente RSA (típicamente 65537 = 10001 hex)",
+            "default": "10001",
+            "format": {
+              "type": "digits"
+            }
+          },
+          {
+            "name": "TEC",
+            "description": "⌨️ Tiempo entre comandos (060=Default)",
+            "default": "060",
+            "format": {
+              "type": "padleft",
+              "len": 3,
+              "ch": "0"
+            }
+          },
+          {
+            "name": "ET1",
+            "description": "💳 Envia track I: 0=No, 1=Si",
+            "default": "1",
+            "format": {
+              "type": "padleft",
+              "len": 1,
+              "ch": "0"
+            }
+          },
+          {
+            "name": "PTC",
+            "description": "🔐 Pide Tipo de cuenta: 0=No, 1=Si",
+            "default": "0",
+            "format": {
+              "type": "padleft",
+              "len": 1,
+              "ch": "0"
+            }
+          },
+          {
+            "name": "PMK",
+            "description": "🔑 Posición Master Key: 2=Lane / N6 Prod, G=N910 Prod, 1=N910 / N6 Test, N=No",
+            "default": "1",
+            "format": {
+              "type": "padleft",
+              "len": 1,
+              "ch": "0"
+            }
+          },
+          {
+            "name": "WRK",
+            "description": "🔧 Working Key: N=No",
+            "default": "N",
+            "format": {
+              "type": "padleft",
+              "len": 1,
+              "ch": "N"
+            }
+          },
+          {
+            "name": "ENC",
+            "description": "🔒 Encriptación: 0=No, 1=Sí",
+            "default": "0",
+            "format": {
+              "type": "padleft",
+              "len": 1,
+              "ch": "0"
+            }
+          },
+          {
+            "name": "IMP",
+            "description": "💰 Importe de la transacción (ej: 123.45)",
+            "default": "123.45",
+            "format": {
+              "type": "amount",
+              "decimals": 2,
+              "pad": 12
+            }
+          },
+          {
+            "name": "ICB",
+            "description": "💵 Importe de cashback / Propina(ej: 0.00)",
+            "default": "0.00",
+            "format": {
+              "type": "amount",
+              "decimals": 2,
+              "pad": 12
+            }
+          },
+          {
+            "name": "TTY",
+            "description": "📱 Tipo de transacción: 00=Compra, 09=Compra + Cash, etc.",
+            "default": "00",
+            "format": {
+              "type": "padleft",
+              "len": 2,
+              "ch": "0"
+            }
+          }
+        ],
+        "segments": [
+          {"type": "field", "name": "RSA"},
+          {"type": "fs"},
+          {"type": "field", "name": "EXP"},
+          {"type": "fs"},
+          {"type": "field", "name": "TEC"},
+          {"type": "field", "name": "ET1"},
+          {"type": "field", "name": "PTC"},
+          {"type": "field", "name": "PMK"},
+          {"type": "field", "name": "WRK"},
+          {"type": "fs"},
+          {"type": "field", "name": "ENC"},
+          {"type": "field", "name": "IMP"},
+          {"type": "field", "name": "ICB"},
+          {"type": "field", "name": "TTY"}
+        ]
+      },
+      "io": {
+        "expect_ack": true,
+        "timeout_sec": 60
+      },
+      "response": {
+        "validate_cid": true,
+        "parser": {
+          "type": "fs",
+          "fields": [
+            {
+              "name": "tarj_enmasc",
+              "description": "💳 Número de Tarjeta (8 primeros + 4 últimos, resto enmascarado)",
+              "decode": "trim"
+            },
+            {
+              "name": "CSE_CBC_NYA",
+              "description": "🔢 Código Servicio + CBC + Nombre/Apellido",
+              "decode": "trim",
+              "post": "parse_cse_cbc_nya",
+              "flatten": true
+            },
+            {
+              "name": "REG_MDI_VER",
+              "description": "⚠️ REG + Modo Ingreso + Versión",
+              "decode": "trim",
+              "post": "parse_reg_mdi_ver",
+              "flatten": true
+            },
+            {
+              "name": "FDV_TC2",
+              "description": "📅 Fecha Expiración + Track II encriptado",
+              "decode": "trim",
+              "post": "parse_fdv_tc2",
+              "flatten": true
+            },
+            {
+              "name": "1NL_NSF",
+              "description": "📖 Track1 no leído + Número Serie Físico",
+              "decode": "trim",
+              "post": "parse_1nl_nsf",
+              "flatten": true
+            },
+            {
+              "name": "CPG",
+              "description": "💳 Criptograma de las Tarjetas EMV",
+              "decode": "tlv_hex",
+              "post": "emv_pretty"
+            },
+            {
+              "name": "CAU_CRE_NSP_APN",
+              "description": "🔢 CAU + CRE + NSP + APN combinados",
+              "decode": "trim",
+              "post": "parse_cau_cre_nsp_apn",
+              "flatten": true
+            },
+            {
+              "name": "aid",
+              "description": "🆔 Identificador de la Aplicación seleccionada en el CHIP",
+              "decode": "trim"
+            },
+            {
+              "name": "TDC_PIN",
+              "description": "📋 Tipo de cuenta + PIN",
+              "decode": "trim",
+              "post": "parse_tdc_pin",
+              "flatten": true
+            },
+            {
+              "name": "ksn",
+              "description": "🔑 TKSN correspondiente a PINBLOCK",
+              "decode": "trim"
+            }
+          ]
+        }
+      }
+    },
+    "Y02 Transacción": {
+      "cid": "Y02",
+      "description": "📖 Lectura por banda/EMV/ manual — Configuración de flags + importes",
+      "request": {
+        "fields": [
+          {
+            "name": "U4D",
+            "description": "🔢 Últimos 4 dígitos: 0=No pedir, 1=Pedir",
+            "default": "0",
+            "format": {
+              "type": "padleft",
+              "len": 1,
+              "ch": "0"
+            }
+          },
+          {
+            "name": "CDS",
+            "description": "🔍 Codigo de Seguridad: 0=No Pedir, 1=Pedir",
+            "default": "0",
+            "format": {
+              "type": "padleft",
+              "len": 1,
+              "ch": "0"
+            }
+          },
+          {
+            "name": "ET1",
+            "description": "💳 Envia Track I",
+            "default": "1",
+            "format": {
+              "type": "padleft",
+              "len": 1,
+              "ch": "0"
+            }
+          },
+          {
+            "name": "SPI",
+            "description": "🔐 Solicitar PIN: 0=No, 1=Sí",
+            "default": "0",
+            "format": {
+              "type": "padleft",
+              "len": 1,
+              "ch": "0"
+            }
+          },
+          {
+            "name": "PTC",
+            "description": "🔐 Tipo de cuenta: 0=No Pedir, 1=Pedir",
+            "default": "0",
+            "format": {
+              "type": "padleft",
+              "len": 1,
+              "ch": "0"
+            }
+          },
+          {
+            "name": "PMK",
+            "description": "🔑 Posición Master Key: 2=Lane / N6 Prod, G=N910 Prod, 1=N910 / N6 Test, N=No",
+            "default": "1",
+            "format": {
+              "type": "padleft",
+              "len": 1,
+              "ch": "N"
+            }
+          },
+          {
+            "name": "WRK",
+            "description": "🔧 Working Key N=No",
+            "default": "N",
+            "format": {
+              "type": "padleft",
+              "len": 1,
+              "ch": "N"
+            }
+          },
+          {
+            "name": "ENC",
+            "description": "🔒 Encriptación: 0=No, 1=Sí",
+            "default": "0",
+            "format": {
+              "type": "padleft",
+              "len": 1,
+              "ch": "0"
+            }
+          },
+          {
+            "name": "IMP",
+            "description": "💰 Importe de la transacción",
+            "default": "123.45",
+            "format": {
+              "type": "amount",
+              "decimals": 2,
+              "pad": 12
+            }
+          },
+          {
+            "name": "ICB",
+            "description": "💵 Importe de cashback / propina",
+            "default": "0.00",
+            "format": {
+              "type": "amount",
+              "decimals": 2,
+              "pad": 12
+            }
+          }
+        ],
+        "segments": [
+          {"type": "field", "name": "U4D"},
+          {"type": "field", "name": "CDS"},
+          {"type": "field", "name": "ET1"},
+          {"type": "field", "name": "SPI"},
+          {"type": "field", "name": "PTC"},
+          {"type": "field", "name": "PMK"},
+          {"type": "field", "name": "WRK"},
+          {"type": "fs"},
+          {"type": "field", "name": "ENC"},
+          {"type": "field", "name": "IMP"},
+          {"type": "field", "name": "ICB"}
+        ]
+      },
+      "io": {
+        "expect_ack": true,
+        "timeout_sec": 60
+      },
+      "response": {
+        "validate_cid": true,
+        "parser": {
+          "type": "fs",
+          "dynamic_by_mdi": true,
+          "mdi_configs": {
+            "B": {
+              "description": "Banda magnética",
+              "fields": [
+                {
+                  "name": "tarj_enmascarada",
+                  "description": "💳 Número de Tarjeta (puede estar vacío en banda)",
+                  "decode": "trim"
+                },
+                {
+                  "name": "FDV_TC1",
+                  "description": "📅 Fecha + Track 1 encriptado",
+                  "decode": "trim",
+                  "post": "parse_fdv_tc1",
+                  "flatten": true
+                },
+                {
+                  "name": "TC2",
+                  "description": "🔐 Track 2 encriptado con RSA",
+                  "decode": "hex",
+                  "post": "rsa_decrypt"
+                },
+                {
+                  "name": "1NL_CDS",
+                  "description": "📖 Track1 no leído + Codigo de seguridad",
+                  "decode": "trim",
+                  "post": "parse_1nl_cds",
+                  "flatten": true
+                },
+                {
+                  "name": "numero_serie",
+                  "description": "🔢 Número Serie Físico",
+                  "decode": "trim"
+                },
+                {
+                  "name": "TDC_PIN",
+                  "description": "📋 Tipo de cuenta + PIN",
+                  "decode": "trim",
+                  "post": "parse_tdc_pin",
+                  "flatten": true
+                },
+                {
+                  "name": "ksn",
+                  "description": "🔑 TKSN correspondiente a PINBLOCK",
+                  "decode": "trim"
+                }
+              ]
+            },
+            "C": {
+              "description": "Chip (EMV)",
+              "fields": [
+                {
+                  "name": "tarj_enmascarada",
+                  "description": "💳 Número de Tarjeta",
+                  "decode": "trim"
+                },
+                {
+                  "name": "FDV_TC2",
+                  "description": "📅 Fecha + Track 2 encriptado",
+                  "decode": "trim",
+                  "post": "parse_fdv_tc2",
+                  "flatten": true
+                },
+                {
+                  "name": "1NL_NSF",
+                  "description": "📖 Track1 no leído + Número Serie Físico",
+                  "decode": "trim",
+                  "post": "parse_1nl_nsf",
+                  "flatten": true
+                },
+                {
+                  "name": "EMV_TLV_2",
+                  "description": "💳 Datos EMV en formato TLV",
+                  "decode": "tlv_hex",
+                  "post": "emv_pretty"
+                },
+                {
+                  "name": "CAU_CRE_NSP_APN",
+                  "description": "🔢 CAU + CRE + NSP + APN combinados",
+                  "decode": "trim",
+                  "post": "parse_cau_cre_nsp_apn",
+                  "flatten": true
+                },
+                {
+                  "name": "aid",
+                  "description": "💳 Aplicación de la Tarjeta",
+                  "decode": "trim"
+                },
+                {
+                  "name": "TDC_PVF_PIN",
+                  "description": "🔢 Tipo de cuenta + PVF + PIN",
+                  "decode": "trim",
+                  "post": "parse_tdc_pvf_pin",
+                  "flatten": true
+                },
+                {
+                  "name": "ksn",
+                  "description": "🔑 TKSN correspondiente a PINBLOCK",
+                  "decode": "trim"
+                }
+              ]
+            },
+            "M": {
+              "description": "Manual",
+              "fields": [
+                {
+                  "name": "tarj_enmascarada",
+                  "description": "💳 Número de Tarjeta",
+                  "decode": "hex",
+                  "post": "rsa_decrypt"
+                },
+                {
+                  "name": "FDV_CDS",
+                  "description": "📅 Fecha + Codigo de seguridad",
+                  "decode": "trim",
+                  "post": "parse_fdv_cds",
+                  "flatten": true
+                },
+                {
+                  "name": "numero_serie",
+                  "description": "🔢 Número Serie Físico",
+                  "decode": "trim"
+                },
+                {
+                  "name": "tipo_cuenta",
+                  "description": "🔢 Tipo de cuenta",
+                  "decode": "trim"
+                }
+              ]
+            }
+          },
+          "default_fields": [
+            {
+              "name": "tarj_enmascarada",
+              "description": "💳 Número de Tarjeta (puede estar vacío en banda)",
+              "decode": "trim"
+            },
+            {
+              "name": "FDV_TC1",
+              "description": "📅 Fecha + Track 1 encriptado",
+              "decode": "trim",
+              "post": "parse_fdv_tc1",
+              "flatten": true
+            },
+            {
+              "name": "TC2",
+              "description": "🔐 Track 2 encriptado con RSA",
+              "decode": "hex",
+              "post": "rsa_decrypt"
+            },
+            {
+              "name": "track1_no_leido",
+              "description": "📖 Track1 no leído",
+              "decode": "trim"
+            },
+            {
+              "name": "producto",
+              "description": "📦 Información del producto",
+              "decode": "hex_ascii_printable"
+            },
+            "aid"
+          ]
+        }
+      }
+    },
+    "Y06 Cancelación": {
+      "cid": "Y06",
+      "description": "🔄 Cancelación de transacción — Cancela la operación en curso",
+      "request": {
+        "fields": [
+          {
+            "name": "TOC",
+            "description": "⏱️ Timeout QR (3 dígitos numéricos)",
+            "default": "030",
+            "format": {
+              "type": "padleft",
+              "len": 3,
+              "ch": "0"
+            }
+          }
+        ],
+        "segments": [
+          {"type": "field", "name": "TOC"}
+        ]
+      },
+      "io": {
+        "expect_ack": true,
+        "timeout_sec": 60
+      },
+      "response": {
+        "validate_cid": true,
+        "parser": {
+          "type": "fs",
+          "fields": [
+            "RESULTADO"
+          ]
+        }
+      }
+    },
+    "Y0Q Mostrar QR": {
+      "cid": "Y0Q",
+      "description": "📖 Mostrar QR en pantalla",
+      "request": {
+        "fields": [
+          {
+            "name": "QRT",
+            "description": "📖  QR TLV",
+            "default": "00020101021141280010com.prisma0110com.prisma44330007com.grc011827-18284117-5-AB-15032001127182841175011327-18284117-55204541153030325802AR5906Prisma6006Bogota62380302ab07081220052850160007POSInfo010116304D1AF",
+            "decode": "trim"
+          }
+        ],
+        "segments": [
+          {"type": "field", "name": "QRT"}
+        ]
+      },
+      "io": {
+        "expect_ack": true
+      },
+      "response": {
+        "validate_cid": true,
+        "parser": {
+          "type": "fs",
+          "fields": [
+            "RESULTADO"
+          ]
+        }
+      }
+    },
+    "Y03 Conf. EMV": {
+      "cid": "Y03",
+      "description": "✅ Confirmación de transacción — Envío de códigos de autorización",
+      "request": {
+        "fields": [
+          {
+            "name": "CAU",
+            "description": "🔢 Código de autorización (6 dígitos)",
+            "default": "B17676",
+            "decode": "trim"
+          },
+          {
+            "name": "CRE",
+            "description": "📋 Código de respuesta (2 chars, ej: 00=OK)",
+            "default": "00",
+            "format": {
+              "type": "upper"
+            }
+          },
+          {
+            "name": "RCP",
+            "description": "🧾 Criptograma Emisor: N=No",
+            "default": "N"
+          }
+        ],
+        "segments": [
+          {"type": "field", "name": "CAU"},
+          {"type": "field", "name": "CRE"},
+          {"type": "field", "name": "RCP"}
+        ]
+      },
+      "io": {
+        "expect_ack": true,
+        "timeout_sec": 60
+      },
+      "response": {
+        "validate_cid": true,
+        "parser": {
+          "type": "fs",
+          "fields": [
+            {
+              "name": "CAU_CRE_RCP",
+              "description": "💳 CAU + CRE + Datos EMV adicionales en formato TLV",
+              "decode": "trim",
+              "post": "parse_cau_cre_rcp",
+              "flatten": true
+            }
+          ]
+        }
+      }
+    },
+    "Y77 Propina": {
+      "cid": "Y77",
+      "description": "✅ Solicitud de Propina",
+      "request": {
+        "fields": [
+          {
+            "name": "TOM",
+            "description": "⌨️ Tiempo timeout (060=Default)",
+            "default": "060",
+            "format": {
+              "type": "padleft",
+              "len": 3,
+              "ch": "0"
+            }
+          },
+          {
+            "name": "CME",
+            "description": "📋 Código de Propina 06 ",
+            "default": "06",
+            "format": {
+              "type": "padleft",
+              "len": 2,
+              "ch": "0"
+            }
+          }
+        ],
+        "segments": [
+          {"type": "field", "name": "TOM"},
+          {"type": "fs"},
+          {"type": "field", "name": "CME"},
+          {"type": "fs"}
+        ]
+      },
+      "io": {
+        "expect_ack": true,
+        "timeout_sec": 60
+      },
+      "response": {
+        "validate_cid": true,
+        "parser": {
+          "type": "fs",
+          "fields": [
+            {
+              "name": "ingreso",
+              "description": "📋 Ingreso",
+              "decode": "trim"
+            }
+          ]
+        }
+      }
+    },
+    "Y0P Ticket (Desuso)": {
+      "cid": "Y0P",
+      "description": "✅ Ticket",
+      "request": {
+        "fields": [
+          {
+            "name": "CCL",
+            "description": "📋 Imprime Copia Comercio?: 0=No, 1=Si",
+            "default": "0",
+            "format": {
+              "type": "padleft",
+              "len": 1,
+              "ch": "0"
+            }
+          },
+          {
+            "name": "CCO",
+            "description": "📋 Imprime Copia Cliente?: 0=No, 1=Si",
+            "default": "0",
+            "format": {
+              "type": "padleft",
+              "len": 1,
+              "ch": "0"
+            }
+          },
+          {
+            "name": "SGN",
+            "description": "🔐 Solicita firma?: 0=No, 1=Si",
+            "default": "0",
+            "format": {
+              "type": "padleft",
+              "len": 1,
+              "ch": "0"
+            }
+          },
+          {
+            "name": "PCO",
+            "description": "🔐 Estado Transacción: 0=Desaprobada, 1=Aprobada",
+            "default": "1",
+            "format": {
+              "type": "padleft",
+              "len": 1,
+              "ch": "0"
+            }
+          },
+          {
+            "name": "DS1",
+            "description": "🔐 Nombre de Fantasia",
+            "default": "Nombre de Fantasia",
+            "format": {
+              "type": "padright",
+              "len": 40,
+              "ch": " "
+            }
+          },
+          {
+            "name": "DS2",
+            "description": "🔐 Domicilio del punto de venta",
+            "default": "Domicilio del punto de venta",
+            "format": {
+              "type": "padright",
+              "len": 40,
+              "ch": " "
+            }
+          },
+          {
+            "name": "DS3",
+            "description": "🔐 Localidad del punto de venta",
+            "default": "Localidad del punto de venta",
+            "format": {
+              "type": "padright",
+              "len": 40,
+              "ch": " "
+            }
+          },
+          {
+            "name": "DS4",
+            "description": "🔐 CUIT",
+            "default": "30-59891004-5",
+            "format": {
+              "type": "padright",
+              "len": 40,
+              "ch": " "
+            }
+          },
+          {
+            "name": "ISS",
+            "description": "🔐 Marca de la tarjeta",
+            "default": "Visa",
+            "format": {
+              "type": "padright",
+              "len": 10,
+              "ch": " "
+            }
+          },
+          {
+            "name": "TER",
+            "description": "🔐 Nro de terminal",
+            "default": "80102030",
+            "format": {
+              "type": "padright",
+              "len": 10,
+              "ch": " "
+            }
+          },
+          {
+            "name": "NDL",
+            "description": "🔐 Nro de Lote",
+            "default": "1",
+            "format": {
+              "type": "padleft",
+              "len": 6,
+              "ch": "0"
+            }
+          },
+          {
+            "name": "COM",
+            "description": "🔐 Nro de Comercio",
+            "default": "03659307",
+            "format": {
+              "type": "padleft",
+              "len": 16,
+              "ch": "0"
+            }
+          },
+          {
+            "name": "TIC",
+            "description": "🔐 Nro de Ticket",
+            "default": "1",
+            "format": {
+              "type": "padleft",
+              "len": 6,
+              "ch": "0"
+            }
+          },
+          {
+            "name": "SOF",
+            "description": "📋 Versión de Soft ",
+            "default": "1.7.2.1",
+            "format": {
+              "type": "upper"
+            }
+          },
+          {
+            "name": "MSP",
+            "description": "📋 Mensaje Promocional ",
+            "default": "",
+            "format": {
+              "type": "upper"
+            }
+          },
+          {
+            "name": "AUT",
+            "description": "🔐 Código de Autorización",
+            "default": "1",
+            "format": {
+              "type": "padleft",
+              "len": 6,
+              "ch": "0"
+            }
+          },
+          {
+            "name": "RES",
+            "description": "🔐 Código de Respuesta",
+            "default": "00",
+            "format": {
+              "type": "padleft",
+              "len": 2,
+              "ch": "0"
+            }
+          },
+          {
+            "name": "DRE",
+            "description": "🔐 Texto de referencia",
+            "default": "Aprobada",
+            "format": {
+              "type": "upper"
+            }
+          },
+          {
+            "name": "CDC",
+            "description": "🔐 Cantidad de Cuotas",
+            "default": "01",
+            "format": {
+              "type": "padleft",
+              "len": 2,
+              "ch": "0"
+            }
+          }
+        ],
+        "segments": [
+          {"type": "field", "name": "CCL"},
+          {"type": "field", "name": "CCO"},
+          {"type": "field", "name": "SGN"},
+          {"type": "field", "name": "PCO"},
+          {"type": "field", "name": "DS1"},
+          {"type": "field", "name": "DS2"},
+          {"type": "field", "name": "DS3"},
+          {"type": "field", "name": "DS4"},
+          {"type": "field", "name": "ISS"},
+          {"type": "field", "name": "TER"},
+          {"type": "field", "name": "NDL"},
+          {"type": "field", "name": "COM"},
+          {"type": "field", "name": "TIC"},
+          {"type": "field", "name": "SOF"},
+          {"type": "fs"},
+          {"type": "field", "name": "MSP"},
+          {"type": "fs"},
+          {"type": "field", "name": "AUT"},
+          {"type": "field", "name": "RES"},
+          {"type": "field", "name": "DRE"},
+          {"type": "fs"},
+          {"type": "field", "name": "CDC"}
+        ]
+      },
+      "io": {
+        "expect_ack": true,
+        "timeout_sec": 60
+      },
+      "response": {
+        "validate_cid": true
+      }
+    },
+    "Y0P Ticket_SB": {
+      "cid": "Y0P",
+      "description": "✅ Ticket Sensory Branding",
+      "request": {
+        "fields": [
+          {
+            "name": "CCL",
+            "description": "📋 Imprime Copia Comercio?: 0=No, 1=Si",
+            "default": "0",
+            "format": {
+              "type": "padleft",
+              "len": 1,
+              "ch": "0"
+            }
+          },
+          {
+            "name": "CCO",
+            "description": "📋 Imprime Copia Cliente?: 0=No, 1=Si",
+            "default": "0",
+            "format": {
+              "type": "padleft",
+              "len": 1,
+              "ch": "0"
+            }
+          },
+          {
+            "name": "SGN",
+            "description": "🔐 Solicita firma?: 0=No, 1=Si",
+            "default": "0",
+            "format": {
+              "type": "padleft",
+              "len": 1,
+              "ch": "0"
+            }
+          },
+          {
+            "name": "PCO",
+            "description": "🔐 Estado Transacción: 0=Desaprobada, 1=Aprobada, 2=Aprob. Parcialmente",
+            "default": "1",
+            "format": {
+              "type": "padleft",
+              "len": 1,
+              "ch": "0"
+            }
+          },
+          {
+            "name": "IMP",
+            "description": "💰 Importe de la transacción",
+            "default": "123.45",
+            "format": {
+              "type": "amount",
+              "decimals": 2,
+              "pad": 12
+            }
+          },
+          {
+            "name": "ICB",
+            "description": "💰 Importe de cashback",
+            "default": "0",
+            "format": {
+              "type": "amount",
+              "decimals": 2,
+              "pad": 12
+            }
+          },
+          {
+            "name": "DS1",
+            "description": "🔐 Nombre de Fantasia",
+            "default": "Nombre de Fantasia",
+            "format": {
+              "type": "padright",
+              "len": 40,
+              "ch": " "
+            }
+          },
+          {
+            "name": "DS2",
+            "description": "🔐 Domicilio del punto de venta",
+            "default": "Domicilio del punto de venta",
+            "format": {
+              "type": "padright",
+              "len": 40,
+              "ch": " "
+            }
+          },
+          {
+            "name": "DS3",
+            "description": "🔐 Localidad del punto de venta",
+            "default": "Localidad del punto de venta",
+            "format": {
+              "type": "padright",
+              "len": 40,
+              "ch": " "
+            }
+          },
+          {
+            "name": "DS4",
+            "description": "🔐 CUIT",
+            "default": "30-59891004-5",
+            "format": {
+              "type": "padright",
+              "len": 40,
+              "ch": " "
+            }
+          },
+          {
+            "name": "ISS",
+            "description": "🔐 Marca de la tarjeta",
+            "default": "Visa",
+            "format": {
+              "type": "padright",
+              "len": 10,
+              "ch": " "
+            }
+          },
+          {
+            "name": "TER",
+            "description": "🔐 Nro de terminal",
+            "default": "80102030",
+            "format": {
+              "type": "padright",
+              "len": 10,
+              "ch": " "
+            }
+          },
+          {
+            "name": "NDL",
+            "description": "🔐 Nro de Lote",
+            "default": "1",
+            "format": {
+              "type": "padleft",
+              "len": 6,
+              "ch": "0"
+            }
+          },
+          {
+            "name": "COM",
+            "description": "🔐 Nro de Comercio",
+            "default": "0003659307",
+            "format": {
+              "type": "padright",
+              "len": 16,
+              "ch": " "
+            }
+          },
+          {
+            "name": "TIC",
+            "description": "🔐 Nro de Ticket",
+            "default": "1",
+            "format": {
+              "type": "padleft",
+              "len": 6,
+              "ch": "0"
+            }
+          },
+          {
+            "name": "SOF",
+            "description": "📋 Versión de Soft ",
+            "default": "1.10.0.0",
+            "format": {
+              "type": "upper"
+            }
+          },
+          {
+            "name": "MSP",
+            "description": "📋 Mensaje Promocional ",
+            "default": " ",
+            "format": {
+              "type": "upper"
+            }
+          },
+          {
+            "name": "AUT",
+            "description": "🔐 Código de Autorización",
+            "default": "1",
+            "format": {
+              "type": "padleft",
+              "len": 6,
+              "ch": "0"
+            }
+          },
+          {
+            "name": "RES",
+            "description": "🔐 Código de Respuesta",
+            "default": "00",
+            "format": {
+              "type": "padleft",
+              "len": 2,
+              "ch": "0"
+            }
+          },
+          {
+            "name": "DRE",
+            "description": "🔐 Texto de referencia",
+            "default": "Aprobada",
+            "format": {
+              "type": "upper"
+            }
+          },
+          {
+            "name": "CDC",
+            "description": "🔐 Cantidad de Cuotas",
+            "default": "01",
+            "format": {
+              "type": "padleft",
+              "len": 2,
+              "ch": "0"
+            }
+          },
+          {
+            "name": "MOR",
+            "description": "💰 Importe original, aut parcial sino 0",
+            "default": "0",
+            "format": {
+              "type": "amount",
+              "decimals": 2,
+              "pad": 12
+            }
+          },
+          {
+            "name": "FSB",
+            "description": "🔐 Forzar SB, 0=No forzar, 1=Forzar Visa, 2=Forzar Master, 3=Forzar Payway",
+            "default": "0",
+            "format": {
+              "type": "padleft",
+              "len": 1,
+              "ch": "0"
+            }
+          }
+        ],
+        "segments": [
+          {"type": "field", "name": "CCL"},
+          {"type": "field", "name": "CCO"},
+          {"type": "field", "name": "SGN"},
+          {"type": "field", "name": "PCO"},
+          {"type": "field", "name": "IMP"},
+          {"type": "field", "name": "ICB"},
+          {"type": "field", "name": "DS1"},
+          {"type": "field", "name": "DS2"},
+          {"type": "field", "name": "DS3"},
+          {"type": "field", "name": "DS4"},
+          {"type": "field", "name": "ISS"},
+          {"type": "field", "name": "TER"},
+          {"type": "field", "name": "NDL"},
+          {"type": "field", "name": "COM"},
+          {"type": "field", "name": "TIC"},
+          {"type": "field", "name": "SOF"},
+          {"type": "fs"},
+          {"type": "field", "name": "MSP"},
+          {"type": "fs"},
+          {"type": "field", "name": "AUT"},
+          {"type": "field", "name": "RES"},
+          {"type": "field", "name": "DRE"},
+          {"type": "fs"},
+          {"type": "field", "name": "CDC"},
+          {"type": "field", "name": "MOR"},
+          {"type": "field", "name": "FSB"}
+        ]
+      },
+      "io": {
+        "expect_ack": true,
+        "timeout_sec": 60
+      },
+      "response": {
+        "validate_cid": true
+      }
+    },
+    "Y26 NoUsar": {
+      "cid": "Y26",
+      "description": "✅ Configuración limites CVM",
+      "request": {
+        "fields": [
+          {
+            "name": "IDM",
+            "description": "📋 ID de marca: 00=Master, 01=Visa, 02=Discover, etc",
+            "default": "00",
+            "format": {
+              "type": "padleft",
+              "len": 2,
+              "ch": "0"
+            }
+          },
+          {
+            "name": "MDI",
+            "description": "📋 Modo de ingreso: Default L (CTLS)",
+            "default": "L",
+            "format": {
+              "type": "upper"
+            }
+          },
+          {
+            "name": "CVM",
+            "description": "🔐 Limite de CVM 12 digitos",
+            "default": "80000.00",
+            "format": {
+              "type": "amount",
+              "decimals": 2,
+              "pad": 12
+            }
+          }
+        ],
+        "segments": [
+          {"type": "field", "name": "IDM"},
+          {"type": "field", "name": "MDI"},
+          {"type": "field", "name": "CVM"}
+        ]
+      },
+      "io": {
+        "expect_ack": true,
+        "timeout_sec": 60
+      },
+      "response": {
+        "validate_cid": true,
+        "parser": {
+          "type": "fs",
+          "fields": [
+            {
+              "name": "codigo_respuesta",
+              "description": "📋 Codigo de Respuesta: 1=OK, 0=ERROR",
+              "decode": "trim"
+            }
+          ]
+        }
+      }
+    },
+    "Y0C Bimoneda": {
+      "cid": "Y0C",
+      "description": "✅ Configuración limites CVM y Moneda",
+      "request": {
+        "fields": [
+          {
+            "name": "MIN",
+            "description": "📋 Moneda Interface valor I",
+            "default": "I",
+            "format": {
+              "type": "upper"
+            }
+          },
+          {
+            "name": "CMI",
+            "description": "📋 Codigo de Moneda: 032=Pesos, 840=Dolares",
+            "default": "032",
+            "format": {
+              "type": "padleft",
+              "len": 3,
+              "ch": "0"
+            }
+          },
+          {
+            "name": "PRI",
+            "description": "🔐 Persiste Moneda en Interface? 0=NO, 1=SI",
+            "default": "0",
+            "format": {
+              "type": "padleft",
+              "len": 1,
+              "ch": "0"
+            }
+          },
+          {
+            "name": "IM1",
+            "description": "🔐 ID Moneda1: 00=Master, 01=Visa, 02=Cabal, 03=Amex, 04=UPI",
+            "default": "00",
+            "format": {
+              "type": "padleft",
+              "len": 2,
+              "ch": "0"
+            }
+          },
+          {
+            "name": "CM1",
+            "description": "🔐 Codigo Moneda1: 032=Pesos, 840=Dolares",
+            "default": "032",
+            "format": {
+              "type": "padleft",
+              "len": 3,
+              "ch": "0"
+            }
+          },
+          {
+            "name": "CV1",
+            "description": "🔐 CVM Limit1",
+            "default": "80000.00",
+            "format": {
+              "type": "amount",
+              "decimals": 2,
+              "pad": 12
+            }
+          },
+          {
+            "name": "IM2",
+            "description": "🔐 ID Moneda2: 00=Master, 01=Visa, 02=Cabal, 03=Amex, 04=UPI",
+            "default": "01",
+            "format": {
+              "type": "padleft",
+              "len": 2,
+              "ch": "0"
+            }
+          },
+          {
+            "name": "CM2",
+            "description": "🔐 Codigo Moneda2: 032=Pesos, 840=Dolares",
+            "default": "032",
+            "format": {
+              "type": "padleft",
+              "len": 3,
+              "ch": "0"
+            }
+          },
+          {
+            "name": "CV2",
+            "description": "🔐 CVM Limit2",
+            "default": "80000.00",
+            "format": {
+              "type": "amount",
+              "decimals": 2,
+              "pad": 12
+            }
+          },
+          {
+            "name": "IM3",
+            "description": "🔐 ID Moneda3: 00=Master, 01=Visa, 02=Cabal, 03=Amex, 04=UPI",
+            "default": "02",
+            "format": {
+              "type": "padleft",
+              "len": 2,
+              "ch": "0"
+            }
+          },
+          {
+            "name": "CM3",
+            "description": "🔐 Codigo Moneda3: 032=Pesos, 840=Dolares",
+            "default": "032",
+            "format": {
+              "type": "padleft",
+              "len": 3,
+              "ch": "0"
+            }
+          },
+          {
+            "name": "CV3",
+            "description": "🔐 CVM Limit3",
+            "default": "80000.00",
+            "format": {
+              "type": "amount",
+              "decimals": 2,
+              "pad": 12
+            }
+          },
+          {
+            "name": "IM4",
+            "description": "🔐 ID Moneda4: 00=Master, 01=Visa, 02=Cabal, 03=Amex, 04=UPI",
+            "default": "03",
+            "format": {
+              "type": "padleft",
+              "len": 2,
+              "ch": "0"
+            }
+          },
+          {
+            "name": "CM4",
+            "description": "🔐 Codigo Moneda4: 032=Pesos, 840=Dolares",
+            "default": "032",
+            "format": {
+              "type": "padleft",
+              "len": 3,
+              "ch": "0"
+            }
+          },
+          {
+            "name": "CV4",
+            "description": "🔐 CVM Limit4",
+            "default": "80000.00",
+            "format": {
+              "type": "amount",
+              "decimals": 2,
+              "pad": 12
+            }
+          },
+          {
+            "name": "IM5",
+            "description": "🔐 ID Moneda5: 00=Master, 01=Visa, 02=Cabal, 03=Amex, 04=UPI",
+            "default": "04",
+            "format": {
+              "type": "padleft",
+              "len": 2,
+              "ch": "0"
+            }
+          },
+          {
+            "name": "CM5",
+            "description": "🔐 Codigo Moneda5: 032=Pesos, 840=Dolares",
+            "default": "032",
+            "format": {
+              "type": "padleft",
+              "len": 3,
+              "ch": "0"
+            }
+          },
+          {
+            "name": "CV5",
+            "description": "🔐 CVM Limit5",
+            "default": "80000.00",
+            "format": {
+              "type": "amount",
+              "decimals": 2,
+              "pad": 12
+            }
+          },
+          {
+            "name": "PRS",
+            "description": "🔐 Persiste Moneda y CVM: 0=NO, 1=SI",
+            "default": "0",
+            "format": {
+              "type": "padleft",
+              "len": 1,
+              "ch": "0"
+            }
+          }
+        ],
+        "segments": [
+          {"type": "field", "name": "MIN"},
+          {"type": "field", "name": "CMI"},
+          {"type": "field", "name": "PRI"},
+          {"type": "field", "name": "IM1"},
+          {"type": "field", "name": "CM1"},
+          {"type": "field", "name": "CV1"},
+          {"type": "field", "name": "IM2"},
+          {"type": "field", "name": "CM2"},
+          {"type": "field", "name": "CV2"},
+          {"type": "field", "name": "IM3"},
+          {"type": "field", "name": "CM3"},
+          {"type": "field", "name": "CV3"},
+          {"type": "field", "name": "IM4"},
+          {"type": "field", "name": "CM4"},
+          {"type": "field", "name": "CV4"},
+          {"type": "field", "name": "IM5"},
+          {"type": "field", "name": "CM5"},
+          {"type": "field", "name": "CV5"},
+          {"type": "fs"},
+          {"type": "field", "name": "PRS"}
+        ]
+      },
+      "io": {
+        "expect_ack": true,
+        "timeout_sec": 60
+      },
+      "response": {
+        "validate_cid": true,
+        "parser": {
+          "type": "fs",
+          "fields": [
+            {
+              "name": "COE_IM1_CM1_CV1_IM2_CM2_CV2_IM3_CM3_CV3_IM4_CM4_CV4_IM5_CM5_CV5",
+              "description": "🔢 COE_IM1_CM1_CV1_IM2_CM2_CV2_IM3_CM3_CV3_IM4_CM4_CV4_IM5_CM5_CV5 ",
+              "decode": "trim",
+              "post": "parse_COE_IM1_CM1_CV1_IM2_CM2_CV2_IM3_CM3_CV3_IM4_CM4_CV4_IM5_CM5_CV5",
+              "flatten": true
+            }
+          ]
+        }
+      }
+    },
+    "Y0A Amex Adquirencia": {
+      "cid": "Y0A",
+      "description": "💳 Cambio adquirencia Amex — Consulta/Configura modo Amex Puro u Opt Blue",
+      "request": {
+        "fields": [
+          {
+            "name": "ACQ",
+            "description": "🔧 Definición adquirencia: 0=Consulta estado, 1=Amex Puro, 2=Amex Opt Blue",
+            "default": "0",
+            "format": {
+              "type": "padleft",
+              "len": 1,
+              "ch": "0"
+            }
+          }
+        ],
+        "segments": [
+          {"type": "field", "name": "ACQ"}
+        ]
+      },
+      "io": {
+        "expect_ack": true
+      },
+      "response": {
+        "validate_cid": true,
+        "parser": {
+          "type": "fs",
+          "fields": [
+            {
+              "name": "SAQ",
+              "description": "📋 Status adquirencia: 0=Error, 1=Amex Puro, 2=Amex Opt Blue",
+              "decode": "trim"
+            }
+          ]
+        }
+      }
+    },
+    "Y0C_Consulta": {
+      "cid": "Y0C",
+      "description": "✅ Consulta limites CVM y Moneda",
+      "request": {
+        "fields": [
+          {
+            "name": "CON",
+            "description": "📋 Consulta valor C",
+            "default": "C",
+            "format": {
+              "type": "upper"
+            }
+          },
+          {
+            "name": "PER",
+            "description": "📋 Persiste valor fijo 0",
+            "default": "0",
+            "format": {
+              "type": "upper"
+            }
+          }
+        ],
+        "segments": [
+          {"type": "field", "name": "CON"},
+          {"type": "fs"},
+          {"type": "field", "name": "PER"}
+        ]
+      },
+      "io": {
+        "expect_ack": true,
+        "timeout_sec": 60
+      },
+      "response": {
+        "validate_cid": true,
+        "parser": {
+          "type": "fs",
+          "fields": [
+            {
+              "name": "COE_IM1_CM1_CV1_IM2_CM2_CV2_IM3_CM3_CV3_IM4_CM4_CV4_IM5_CM5_CV5",
+              "description": "🔢 COE_IM1_CM1_CV1_IM2_CM2_CV2_IM3_CM3_CV3_IM4_CM4_CV4_IM5_CM5_CV5",
+              "decode": "trim",
+              "post": "parse_Y0C_Consulta",
+              "flatten": true
+            }
+          ]
+        }
+      }
+    }
+  }
+}

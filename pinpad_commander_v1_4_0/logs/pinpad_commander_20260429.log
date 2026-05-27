@@ -1,0 +1,275 @@
+2026-04-29 15:01:27 - root - INFO - === PinPad Commander Security Logging Initialized ===
+2026-04-29 15:01:27 - root - INFO - Log directory: C:\SPP-1.5.0\pinpad_commander_v1_4_0\logs
+2026-04-29 15:01:27 - root - INFO - Log level: INFO
+2026-04-29 15:01:27 - root - INFO - === Environment Security Check ===
+2026-04-29 15:01:27 - root - INFO - Write permissions: OK
+2026-04-29 15:01:27 - root - INFO - Directory config: OK
+2026-04-29 15:01:27 - root - INFO - Directory ui: OK
+2026-04-29 15:01:27 - root - INFO - Directory core: OK
+2026-04-29 15:01:27 - root - INFO - Directory crypto: OK
+2026-04-29 15:01:27 - root - INFO - File config/commands.json: OK
+2026-04-29 15:01:27 - root - INFO - File protocol.py: OK
+2026-04-29 15:01:27 - root - INFO - === Security configuration completed ===
+2026-04-29 15:01:29 - PinPadCommanderModular - INFO - Initializing PinPad Commander Modular
+2026-04-29 15:01:33 - root - INFO - Configuration loaded from C:\SPP-1.5.0\pinpad_commander_v1_4_0\config\commands.json
+2026-04-29 15:02:01 - root - INFO - RSA key loaded successfully from private.pem
+2026-04-29 15:03:18 - root - INFO - Connected to COM10 at 230400 baud
+2026-04-29 15:03:37 - root - INFO - Saved Y19 MDI for Y02 parsing: L
+2026-04-29 15:18:56 - root - INFO - === PinPad Commander Security Logging Initialized ===
+2026-04-29 15:18:56 - root - INFO - Log directory: C:\SPP-1.5.0\pinpad_commander_v1_4_0\logs
+2026-04-29 15:18:56 - root - INFO - Log level: INFO
+2026-04-29 15:18:56 - root - INFO - === Environment Security Check ===
+2026-04-29 15:18:56 - root - INFO - Write permissions: OK
+2026-04-29 15:18:56 - root - INFO - Directory config: OK
+2026-04-29 15:18:56 - root - INFO - Directory ui: OK
+2026-04-29 15:18:56 - root - INFO - Directory core: OK
+2026-04-29 15:18:56 - root - INFO - Directory crypto: OK
+2026-04-29 15:18:56 - root - INFO - File config/commands.json: OK
+2026-04-29 15:18:56 - root - INFO - File protocol.py: OK
+2026-04-29 15:18:56 - root - INFO - === Security configuration completed ===
+2026-04-29 15:18:57 - PinPadCommanderModular - INFO - Initializing PinPad Commander Modular
+2026-04-29 15:18:59 - root - INFO - Configuration loaded from C:\SPP-1.5.0\pinpad_commander_v1_4_0\config\commands.json
+2026-04-29 15:19:20 - root - INFO - Connected to COM10 at 230400 baud
+2026-04-29 15:19:30 - root - INFO - RSA key loaded successfully from private.pem
+2026-04-29 15:20:01 - root - INFO - Saved Y19 MDI for Y02 parsing: L
+2026-04-29 15:20:45 - TLSClient - INFO - TLS connected to ws1.prismamp.com:8443
+2026-04-29 15:20:45 - iso.orchestrator - INFO - Conectado a ws1.prismamp.com:8443
+2026-04-29 15:20:45 - TLSClient - INFO - TX: 67 bytes
+2026-04-29 15:20:45 - TLSClient - INFO - RX: 33 bytes
+2026-04-29 15:21:44 - TLSClient - INFO - TX: 67 bytes
+2026-04-29 15:22:02 - TLSClient - INFO - TX: 67 bytes
+2026-04-29 15:26:38 - root - INFO - === PinPad Commander Security Logging Initialized ===
+2026-04-29 15:26:38 - root - INFO - Log directory: C:\SPP-1.5.0\pinpad_commander_v1_4_0\logs
+2026-04-29 15:26:38 - root - INFO - Log level: INFO
+2026-04-29 15:26:38 - root - INFO - === Environment Security Check ===
+2026-04-29 15:26:38 - root - INFO - Write permissions: OK
+2026-04-29 15:26:38 - root - INFO - Directory config: OK
+2026-04-29 15:26:38 - root - INFO - Directory ui: OK
+2026-04-29 15:26:38 - root - INFO - Directory core: OK
+2026-04-29 15:26:38 - root - INFO - Directory crypto: OK
+2026-04-29 15:26:38 - root - INFO - File config/commands.json: OK
+2026-04-29 15:26:38 - root - INFO - File protocol.py: OK
+2026-04-29 15:26:38 - root - INFO - === Security configuration completed ===
+2026-04-29 15:26:39 - PinPadCommanderModular - INFO - Initializing PinPad Commander Modular
+2026-04-29 15:26:41 - root - INFO - Configuration loaded from C:\SPP-1.5.0\pinpad_commander_v1_4_0\config\commands.json
+2026-04-29 15:26:46 - root - INFO - Connected to COM10 at 230400 baud
+2026-04-29 15:26:52 - root - INFO - RSA key loaded successfully from private.pem
+2026-04-29 15:27:07 - TLSClient - INFO - TLS connected to ws1.prismamp.com:8443
+2026-04-29 15:27:07 - iso.orchestrator - INFO - Conectado a ws1.prismamp.com:8443
+2026-04-29 15:27:07 - TLSClient - INFO - TX: 67 bytes
+2026-04-29 15:27:07 - TLSClient - INFO - RX: 33 bytes
+2026-04-29 15:28:03 - root - INFO - Saved Y19 MDI for Y02 parsing: L
+2026-04-29 15:28:03 - iso.orchestrator - INFO - Y19 procesado: MDI=L PAN=481550******2801
+2026-04-29 15:28:03 - TLSClient - INFO - TX: 390 bytes
+2026-04-29 15:28:19 - TLSClient - INFO - TX: 67 bytes
+2026-04-29 15:31:47 - root - INFO - === PinPad Commander Security Logging Initialized ===
+2026-04-29 15:31:47 - root - INFO - Log directory: C:\SPP-1.5.0\pinpad_commander_v1_4_0\logs
+2026-04-29 15:31:47 - root - INFO - Log level: INFO
+2026-04-29 15:31:47 - root - INFO - === Environment Security Check ===
+2026-04-29 15:31:47 - root - INFO - Write permissions: OK
+2026-04-29 15:31:47 - root - INFO - Directory config: OK
+2026-04-29 15:31:47 - root - INFO - Directory ui: OK
+2026-04-29 15:31:47 - root - INFO - Directory core: OK
+2026-04-29 15:31:47 - root - INFO - Directory crypto: OK
+2026-04-29 15:31:47 - root - INFO - File config/commands.json: OK
+2026-04-29 15:31:47 - root - INFO - File protocol.py: OK
+2026-04-29 15:31:47 - root - INFO - === Security configuration completed ===
+2026-04-29 15:31:48 - PinPadCommanderModular - INFO - Initializing PinPad Commander Modular
+2026-04-29 15:31:50 - root - INFO - Configuration loaded from C:\SPP-1.5.0\pinpad_commander_v1_4_0\config\commands.json
+2026-04-29 15:31:55 - root - INFO - Connected to COM10 at 230400 baud
+2026-04-29 15:32:01 - root - INFO - RSA key loaded successfully from private.pem
+2026-04-29 15:32:15 - TLSClient - INFO - TLS connected to ws1.prismamp.com:8443
+2026-04-29 15:32:15 - iso.orchestrator - INFO - Conectado a ws1.prismamp.com:8443
+2026-04-29 15:32:15 - TLSClient - INFO - TX: 67 bytes
+2026-04-29 15:32:15 - TLSClient - INFO - RX: 33 bytes
+2026-04-29 15:32:31 - root - INFO - Saved Y19 MDI for Y02 parsing: L
+2026-04-29 15:32:31 - iso.orchestrator - INFO - Y19 procesado: MDI=L PAN=481550******2801
+2026-04-29 15:32:31 - TLSClient - INFO - TX: 390 bytes
+2026-04-29 15:33:01 - TLSClient - WARNING - Timeout esperando respuesta (30.0s)
+2026-04-29 16:03:18 - root - INFO - === PinPad Commander Security Logging Initialized ===
+2026-04-29 16:03:18 - root - INFO - Log directory: C:\SPP-1.5.0\pinpad_commander_v1_4_0\logs
+2026-04-29 16:03:18 - root - INFO - Log level: INFO
+2026-04-29 16:03:18 - root - INFO - === Environment Security Check ===
+2026-04-29 16:03:18 - root - INFO - Write permissions: OK
+2026-04-29 16:03:18 - root - INFO - Directory config: OK
+2026-04-29 16:03:18 - root - INFO - Directory ui: OK
+2026-04-29 16:03:18 - root - INFO - Directory core: OK
+2026-04-29 16:03:18 - root - INFO - Directory crypto: OK
+2026-04-29 16:03:18 - root - INFO - File config/commands.json: OK
+2026-04-29 16:03:18 - root - INFO - File protocol.py: OK
+2026-04-29 16:03:18 - root - INFO - === Security configuration completed ===
+2026-04-29 16:03:20 - PinPadCommanderModular - INFO - Initializing PinPad Commander Modular
+2026-04-29 16:03:22 - root - INFO - Configuration loaded from C:\SPP-1.5.0\pinpad_commander_v1_4_0\config\commands.json
+2026-04-29 16:03:26 - root - INFO - Connected to COM10 at 230400 baud
+2026-04-29 16:03:32 - root - INFO - RSA key loaded successfully from private.pem
+2026-04-29 16:03:38 - TLSClient - INFO - TLS connected to ws1.prismamp.com:8443
+2026-04-29 16:03:38 - iso.orchestrator - INFO - Conectado a ws1.prismamp.com:8443
+2026-04-29 16:03:38 - TLSClient - INFO - TX: 67 bytes
+2026-04-29 16:03:38 - TLSClient - INFO - RX: 33 bytes
+2026-04-29 16:03:53 - root - INFO - Saved Y19 MDI for Y02 parsing: L
+2026-04-29 16:03:53 - iso.orchestrator - INFO - Y19 procesado: MDI=L PAN=481550******2801
+2026-04-29 16:03:53 - TLSClient - INFO - TX: 414 bytes
+2026-04-29 16:03:53 - TLSClient - INFO - RX: 79 bytes
+2026-04-29 16:04:42 - root - INFO - Saved Y19 MDI for Y02 parsing: M
+2026-04-29 16:04:48 - root - INFO - Using Y02 fields for MDI=M: Manual
+2026-04-29 16:20:55 - root - INFO - === PinPad Commander Security Logging Initialized ===
+2026-04-29 16:20:55 - root - INFO - Log directory: C:\SPP-1.5.0\pinpad_commander_v1_4_0\logs
+2026-04-29 16:20:55 - root - INFO - Log level: INFO
+2026-04-29 16:20:55 - root - INFO - === Environment Security Check ===
+2026-04-29 16:20:55 - root - INFO - Write permissions: OK
+2026-04-29 16:20:55 - root - INFO - Directory config: OK
+2026-04-29 16:20:55 - root - INFO - Directory ui: OK
+2026-04-29 16:20:55 - root - INFO - Directory core: OK
+2026-04-29 16:20:55 - root - INFO - Directory crypto: OK
+2026-04-29 16:20:55 - root - INFO - File config/commands.json: OK
+2026-04-29 16:20:55 - root - INFO - File protocol.py: OK
+2026-04-29 16:20:55 - root - INFO - === Security configuration completed ===
+2026-04-29 16:20:56 - PinPadCommanderModular - INFO - Initializing PinPad Commander Modular
+2026-04-29 16:20:58 - root - INFO - Configuration loaded from C:\SPP-1.5.0\pinpad_commander_v1_4_0\config\commands.json
+2026-04-29 16:21:02 - root - INFO - Connected to COM10 at 230400 baud
+2026-04-29 16:21:07 - root - INFO - RSA key loaded successfully from private.pem
+2026-04-29 16:21:16 - TLSClient - INFO - TLS connected to ws1.prismamp.com:8443
+2026-04-29 16:21:16 - iso.orchestrator - INFO - Conectado a ws1.prismamp.com:8443
+2026-04-29 16:21:16 - TLSClient - INFO - TX: 67 bytes
+2026-04-29 16:21:16 - TLSClient - INFO - RX: 33 bytes
+2026-04-29 16:21:45 - root - INFO - Saved Y19 MDI for Y02 parsing: L
+2026-04-29 16:21:45 - iso.orchestrator - INFO - Y19 procesado: MDI=L PAN=481550******2801
+2026-04-29 16:21:45 - TLSClient - INFO - TX: 382 bytes
+2026-04-29 16:21:45 - TLSClient - INFO - RX: 107 bytes
+2026-04-29 16:30:06 - root - INFO - === PinPad Commander Security Logging Initialized ===
+2026-04-29 16:30:06 - root - INFO - Log directory: C:\SPP-1.5.0\pinpad_commander_v1_4_0\logs
+2026-04-29 16:30:06 - root - INFO - Log level: INFO
+2026-04-29 16:30:06 - root - INFO - === Environment Security Check ===
+2026-04-29 16:30:06 - root - INFO - Write permissions: OK
+2026-04-29 16:30:06 - root - INFO - Directory config: OK
+2026-04-29 16:30:06 - root - INFO - Directory ui: OK
+2026-04-29 16:30:06 - root - INFO - Directory core: OK
+2026-04-29 16:30:06 - root - INFO - Directory crypto: OK
+2026-04-29 16:30:06 - root - INFO - File config/commands.json: OK
+2026-04-29 16:30:06 - root - INFO - File protocol.py: OK
+2026-04-29 16:30:06 - root - INFO - === Security configuration completed ===
+2026-04-29 16:30:07 - PinPadCommanderModular - INFO - Initializing PinPad Commander Modular
+2026-04-29 16:30:09 - root - INFO - Configuration loaded from C:\SPP-1.5.0\pinpad_commander_v1_4_0\config\commands.json
+2026-04-29 16:30:13 - root - INFO - Connected to COM10 at 230400 baud
+2026-04-29 16:30:19 - root - INFO - RSA key loaded successfully from private.pem
+2026-04-29 16:30:28 - TLSClient - INFO - TLS connected to ws1.prismamp.com:8443
+2026-04-29 16:30:28 - iso.orchestrator - INFO - Conectado a ws1.prismamp.com:8443
+2026-04-29 16:30:28 - TLSClient - INFO - TX: 67 bytes
+2026-04-29 16:30:28 - TLSClient - INFO - RX: 33 bytes
+2026-04-29 16:30:39 - TLSClient - INFO - TX: 67 bytes
+2026-04-29 16:30:39 - TLSClient - INFO - RX: 33 bytes
+2026-04-29 16:31:12 - root - INFO - Saved Y19 MDI for Y02 parsing: L
+2026-04-29 16:31:12 - iso.orchestrator - INFO - Y19 procesado: MDI=L PAN=530058******6756
+2026-04-29 16:31:12 - TLSClient - INFO - TX: 422 bytes
+2026-04-29 16:32:16 - TLSClient - INFO - TX: 67 bytes
+2026-04-29 16:32:44 - root - INFO - Saved Y19 MDI for Y02 parsing: L
+2026-04-29 16:32:44 - iso.orchestrator - INFO - Y19 procesado: MDI=L PAN=457665******8496
+2026-04-29 16:32:44 - TLSClient - ERROR - Send error: EOF occurred in violation of protocol (_ssl.c:2396)
+2026-04-29 16:37:33 - root - INFO - === PinPad Commander Security Logging Initialized ===
+2026-04-29 16:37:33 - root - INFO - Log directory: C:\SPP-1.5.0\pinpad_commander_v1_4_0\logs
+2026-04-29 16:37:33 - root - INFO - Log level: INFO
+2026-04-29 16:37:33 - root - INFO - === Environment Security Check ===
+2026-04-29 16:37:33 - root - INFO - Write permissions: OK
+2026-04-29 16:37:33 - root - INFO - Directory config: OK
+2026-04-29 16:37:33 - root - INFO - Directory ui: OK
+2026-04-29 16:37:33 - root - INFO - Directory core: OK
+2026-04-29 16:37:33 - root - INFO - Directory crypto: OK
+2026-04-29 16:37:33 - root - INFO - File config/commands.json: OK
+2026-04-29 16:37:33 - root - INFO - File protocol.py: OK
+2026-04-29 16:37:33 - root - INFO - === Security configuration completed ===
+2026-04-29 16:37:34 - PinPadCommanderModular - INFO - Initializing PinPad Commander Modular
+2026-04-29 16:37:35 - root - INFO - Configuration loaded from C:\SPP-1.5.0\pinpad_commander_v1_4_0\config\commands.json
+2026-04-29 16:37:41 - root - INFO - Connected to COM10 at 230400 baud
+2026-04-29 16:37:47 - root - INFO - RSA key loaded successfully from private.pem
+2026-04-29 16:37:59 - TLSClient - INFO - TLS connected to ws1.prismamp.com:8443
+2026-04-29 16:37:59 - iso.orchestrator - INFO - Conectado a ws1.prismamp.com:8443
+2026-04-29 16:37:59 - TLSClient - INFO - TX: 67 bytes
+2026-04-29 16:37:59 - TLSClient - INFO - RX: 33 bytes
+2026-04-29 16:38:05 - TLSClient - INFO - TLS connected to ws1.prismamp.com:8443
+2026-04-29 16:38:05 - iso.orchestrator - INFO - Conectado a ws1.prismamp.com:8443
+2026-04-29 16:38:05 - TLSClient - INFO - TX: 67 bytes
+2026-04-29 16:38:05 - TLSClient - INFO - RX: 33 bytes
+2026-04-29 16:38:17 - root - INFO - Saved Y19 MDI for Y02 parsing: L
+2026-04-29 16:38:17 - iso.orchestrator - INFO - Y19 procesado: MDI=L PAN=530058******6756
+2026-04-29 16:38:18 - TLSClient - INFO - TLS connected to ws1.prismamp.com:8443
+2026-04-29 16:38:18 - iso.orchestrator - INFO - Conectado a ws1.prismamp.com:8443
+2026-04-29 16:38:18 - TLSClient - INFO - TX: 422 bytes
+2026-04-29 16:38:18 - TLSClient - INFO - RX: 79 bytes
+2026-04-29 16:42:26 - TLSClient - INFO - TLS connected to ws1.prismamp.com:8443
+2026-04-29 16:42:26 - iso.orchestrator - INFO - Conectado a ws1.prismamp.com:8443
+2026-04-29 16:42:26 - TLSClient - INFO - TX: 67 bytes
+2026-04-29 16:42:26 - TLSClient - INFO - RX: 33 bytes
+2026-04-29 16:43:08 - TLSClient - INFO - TLS connected to ws1.prismamp.com:8443
+2026-04-29 16:43:08 - iso.orchestrator - INFO - Conectado a ws1.prismamp.com:8443
+2026-04-29 16:43:08 - TLSClient - INFO - TX: 67 bytes
+2026-04-29 16:43:08 - TLSClient - INFO - RX: 33 bytes
+2026-04-29 16:43:18 - root - INFO - Saved Y19 MDI for Y02 parsing: L
+2026-04-29 16:43:18 - iso.orchestrator - INFO - Y19 procesado: MDI=L PAN=481550******2801
+2026-04-29 16:43:18 - TLSClient - INFO - TLS connected to ws1.prismamp.com:8443
+2026-04-29 16:43:18 - iso.orchestrator - INFO - Conectado a ws1.prismamp.com:8443
+2026-04-29 16:43:18 - TLSClient - INFO - TX: 382 bytes
+2026-04-29 16:43:18 - TLSClient - INFO - RX: 79 bytes
+2026-04-29 16:43:46 - TLSClient - INFO - TLS connected to ws1.prismamp.com:8443
+2026-04-29 16:43:46 - iso.orchestrator - INFO - Conectado a ws1.prismamp.com:8443
+2026-04-29 16:43:46 - TLSClient - INFO - TX: 67 bytes
+2026-04-29 16:43:46 - TLSClient - INFO - RX: 33 bytes
+2026-04-29 16:43:58 - root - INFO - Saved Y19 MDI for Y02 parsing: L
+2026-04-29 16:43:58 - iso.orchestrator - INFO - Y19 procesado: MDI=L PAN=481550******2801
+2026-04-29 16:43:58 - TLSClient - INFO - TLS connected to ws1.prismamp.com:8443
+2026-04-29 16:43:58 - iso.orchestrator - INFO - Conectado a ws1.prismamp.com:8443
+2026-04-29 16:43:59 - TLSClient - INFO - TX: 382 bytes
+2026-04-29 16:43:59 - TLSClient - INFO - RX: 79 bytes
+2026-04-29 16:44:29 - TLSClient - INFO - TLS connected to ws1.prismamp.com:8443
+2026-04-29 16:44:29 - iso.orchestrator - INFO - Conectado a ws1.prismamp.com:8443
+2026-04-29 16:44:30 - TLSClient - INFO - TX: 67 bytes
+2026-04-29 16:44:30 - TLSClient - INFO - RX: 33 bytes
+2026-04-29 16:44:50 - root - INFO - Saved Y19 MDI for Y02 parsing: L
+2026-04-29 16:44:50 - iso.orchestrator - INFO - Y19 procesado: MDI=L PAN=450799******1026
+2026-04-29 16:44:50 - TLSClient - INFO - TLS connected to ws1.prismamp.com:8443
+2026-04-29 16:44:50 - iso.orchestrator - INFO - Conectado a ws1.prismamp.com:8443
+2026-04-29 16:44:50 - TLSClient - INFO - TX: 382 bytes
+2026-04-29 16:44:50 - TLSClient - INFO - RX: 79 bytes
+2026-04-29 16:45:28 - root - INFO - Saved Y19 MDI for Y02 parsing: L
+2026-04-29 16:45:28 - iso.orchestrator - INFO - Y19 procesado: MDI=L PAN=437996******5617
+2026-04-29 16:45:28 - TLSClient - INFO - TLS connected to ws1.prismamp.com:8443
+2026-04-29 16:45:28 - iso.orchestrator - INFO - Conectado a ws1.prismamp.com:8443
+2026-04-29 16:45:28 - TLSClient - INFO - TX: 382 bytes
+2026-04-29 16:45:29 - TLSClient - INFO - RX: 113 bytes
+2026-04-29 16:56:59 - root - INFO - === PinPad Commander Security Logging Initialized ===
+2026-04-29 16:56:59 - root - INFO - Log directory: C:\SPP-1.5.0\pinpad_commander_v1_4_0\logs
+2026-04-29 16:56:59 - root - INFO - Log level: INFO
+2026-04-29 16:56:59 - root - INFO - === Environment Security Check ===
+2026-04-29 16:56:59 - root - INFO - Write permissions: OK
+2026-04-29 16:56:59 - root - INFO - Directory config: OK
+2026-04-29 16:56:59 - root - INFO - Directory ui: OK
+2026-04-29 16:56:59 - root - INFO - Directory core: OK
+2026-04-29 16:56:59 - root - INFO - Directory crypto: OK
+2026-04-29 16:56:59 - root - INFO - File config/commands.json: OK
+2026-04-29 16:56:59 - root - INFO - File protocol.py: OK
+2026-04-29 16:56:59 - root - INFO - === Security configuration completed ===
+2026-04-29 16:57:01 - PinPadCommanderModular - INFO - Initializing PinPad Commander Modular
+2026-04-29 16:57:03 - root - INFO - Configuration loaded from C:\SPP-1.5.0\pinpad_commander_v1_4_0\config\commands.json
+2026-04-29 16:57:12 - root - INFO - Connected to COM10 at 230400 baud
+2026-04-29 16:57:23 - root - INFO - RSA key loaded successfully from private.pem
+2026-04-29 16:57:34 - TLSClient - INFO - TLS connected to ws1.prismamp.com:8443
+2026-04-29 16:57:34 - iso.orchestrator - INFO - Conectado a ws1.prismamp.com:8443
+2026-04-29 16:57:34 - TLSClient - INFO - TX: 67 bytes
+2026-04-29 16:57:34 - TLSClient - INFO - RX: 33 bytes
+2026-04-29 16:57:53 - root - INFO - Saved Y19 MDI for Y02 parsing: L
+2026-04-29 16:57:53 - iso.orchestrator - INFO - Y19 procesado: MDI=L PAN=450799******1026
+2026-04-29 16:57:53 - TLSClient - INFO - TLS connected to ws1.prismamp.com:8443
+2026-04-29 16:57:53 - iso.orchestrator - INFO - Conectado a ws1.prismamp.com:8443
+2026-04-29 16:57:53 - TLSClient - INFO - TX: 382 bytes
+2026-04-29 16:57:53 - TLSClient - INFO - RX: 79 bytes
+2026-04-29 16:58:22 - root - INFO - Saved Y19 MDI for Y02 parsing: L
+2026-04-29 16:58:22 - iso.orchestrator - INFO - Y19 procesado: MDI=L PAN=481550******2801
+2026-04-29 16:58:22 - TLSClient - INFO - TLS connected to ws1.prismamp.com:8443
+2026-04-29 16:58:22 - iso.orchestrator - INFO - Conectado a ws1.prismamp.com:8443
+2026-04-29 16:58:22 - TLSClient - INFO - TX: 382 bytes
+2026-04-29 16:58:22 - TLSClient - INFO - RX: 79 bytes
+2026-04-29 16:58:32 - root - INFO - Saved Y19 MDI for Y02 parsing: L
+2026-04-29 16:58:32 - iso.orchestrator - INFO - Y19 procesado: MDI=L PAN=437996******5617
+2026-04-29 16:58:33 - TLSClient - INFO - TLS connected to ws1.prismamp.com:8443
+2026-04-29 16:58:33 - iso.orchestrator - INFO - Conectado a ws1.prismamp.com:8443
+2026-04-29 16:58:33 - TLSClient - INFO - TX: 382 bytes
+2026-04-29 16:58:33 - TLSClient - INFO - RX: 113 bytes

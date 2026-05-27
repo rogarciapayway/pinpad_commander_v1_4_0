@@ -1,0 +1,92 @@
+{
+  "tipo_mensaje": "0230",
+  "descripcion": "ADVICE DE UNA COMPRA - RESPONSE",
+  "modo_ingreso": "todos",
+  "campos": {
+    "TPDU": {
+      "formato": "n..10",
+      "atributo": "M",
+      "descripcion": "TPDU"
+    },
+    "tipo_mensaje": {
+      "valor": "0230",
+      "atributo": "M"
+    },
+    "mapa_bit": {
+      "formato": "b64",
+      "atributo": "M",
+      "descripcion": "Mapa de BIT"
+    },
+    "3": {
+      "formato": "n6",
+      "atributo": "M",
+      "descripcion": "Código de Procesamiento"
+    },
+    "4": {
+      "formato": "n12",
+      "atributo": "M",
+      "descripcion": "Importe de la Transacción"
+    },
+    "7": {
+      "formato": "n10",
+      "atributo": "M",
+      "descripcion": "Fecha y Hora de la Transmisión",
+      "patron": "MMDDHHMMSS"
+    },
+    "11": {
+      "formato": "n6",
+      "atributo": "M",
+      "descripcion": "Número de Trace del Sistema"
+    },
+    "24": {
+      "formato": "n3",
+      "atributo": "M",
+      "descripcion": "Identificador Internacional de la Red"
+    },
+    "38": {
+      "formato": "an6",
+      "atributo": "M",
+      "descripcion": "Código de Autorización"
+    },
+    "39": {
+      "formato": "an2",
+      "atributo": "M",
+      "descripcion": "Código de Respuesta"
+    },
+    "41": {
+      "formato": "ans8",
+      "atributo": "M",
+      "descripcion": "Identificación de la Terminal"
+    },
+    "42": {
+      "formato": "ans15",
+      "atributo": "M",
+      "descripcion": "Código de Identificación Comercio"
+    },
+    "48": {
+      "formato": "LLLVAR ans…999",
+      "atributo": "M",
+      "descripcion": "Cuotas / Datos Originales"
+    },
+    "49": {
+      "formato": "n3",
+      "atributo": "M",
+      "descripcion": "Código de Moneda"
+    },
+    "52": {
+      "formato": "b64",
+      "atributo": "O",
+      "descripcion": "PIN Block BIT"
+    },
+    "54": {
+      "formato": "LLLVAR an12",
+      "atributo": "O",
+      "descripcion": "Monto Adicional"
+    },
+    "63": {
+      "formato": "LLLVAR ans...999",
+      "atributo": "O",
+      "descripcion": "Mensaje del Host Mostrar / Imprimir"
+    }
+  }
+}

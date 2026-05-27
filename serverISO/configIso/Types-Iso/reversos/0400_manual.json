@@ -1,0 +1,94 @@
+{
+  "tipo_mensaje": "0400",
+  "descripcion": "REVERSO - REQUEST MANUAL",
+  "modo_ingreso": "manual",
+  "campos": {
+    "TPDU": {
+      "formato": "n..10",
+      "atributo": "M",
+      "descripcion": "TPDU"
+    },
+    "tipo_mensaje": {
+      "valor": "0400",
+      "atributo": "M"
+    },
+    "mapa_bit": {
+      "formato": "b64",
+      "atributo": "M",
+      "descripcion": "Mapa de BIT"
+    },
+    "2": {
+      "formato": "LLVAR n..19",
+      "atributo": "M",
+      "descripcion": "Número de Tarjeta"
+    },
+    "3": {
+      "formato": "n6",
+      "atributo": "M",
+      "descripcion": "Código de Procesamiento"
+    },
+    "4": {
+      "formato": "n12",
+      "atributo": "M",
+      "descripcion": "Importe de la Transacción"
+    },
+    "7": {
+      "formato": "n10",
+      "atributo": "M",
+      "descripcion": "Fecha y Hora de la Transmisión",
+      "patron": "MMDDHHMMSS"
+    },
+    "11": {
+      "formato": "n6",
+      "atributo": "M",
+      "descripcion": "Número del Trace del Sistema"
+    },
+    "12": {
+      "formato": "n6",
+      "atributo": "M",
+      "descripcion": "Hora Local de la Transacción",
+      "patron": "HHMMSS"
+    },
+    "13": {
+      "formato": "n4",
+      "atributo": "M",
+      "descripcion": "Fecha Local de la Transacción",
+      "patron": "MMDD"
+    },
+    "22": {
+      "formato": "n3",
+      "atributo": "M",
+      "descripcion": "Modo de Ingreso"
+    },
+    "24": {
+      "formato": "n3",
+      "atributo": "M",
+      "descripcion": "Identificador Internacional de la Red"
+    },
+    "25": {
+      "formato": "n2",
+      "atributo": "M",
+      "descripcion": "Código de condición de la POS"
+    },
+    "41": {
+      "formato": "ans8",
+      "atributo": "M",
+      "descripcion": "Identificación de la Terminal"
+    },
+    "42": {
+      "formato": "ans15",
+      "atributo": "M",
+      "descripcion": "Código de Identificación Comercio"
+    },
+    "49": {
+      "formato": "n3",
+      "atributo": "M",
+      "descripcion": "Código de Moneda"
+    },
+    "90": {
+      "formato": "n42",
+      "atributo": "M",
+      "descripcion": "Datos de la Transacción Original"
+    }
+  }
+}

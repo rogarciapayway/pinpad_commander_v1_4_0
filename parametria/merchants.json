@@ -1,0 +1,47 @@
+[
+  {
+    "merchantGroupId": 1,
+    "name": "VISA",
+    "commerce": "03659307",
+    "acquirerGroupId": 1,
+    "aidTable": "01",
+    "arsCVM": "000008000000",
+    "usdCVM": "000000010000"
+  },
+  {
+    "merchantGroupId": 2,
+    "name": "MASTERCARD",
+    "commerce": "23659307",
+    "acquirerGroupId": 1,
+    "aidTable": "00",
+    "arsCVM": "000008000000",
+    "usdCVM": "000000010000"
+  },
+  {
+    "merchantGroupId": 3,
+    "name": "CABAL/DISCOVER",
+    "commerce": "61337515",
+    "acquirerGroupId": 1,
+    "aidTable": "02",
+    "arsCVM": "000008000000",
+    "usdCVM": "000000010000"
+  },
+  {
+    "merchantGroupId": 4,
+    "name": "AMEX",
+    "commerce": "3217801844",
+    "acquirerGroupId": 2,
+    "aidTable": "03",
+    "arsCVM": "000008000000",
+    "usdCVM": "000000010000"
+  },
+  {
+    "merchantGroupId": 5,
+    "name": "UNION PAY",
+    "commerce": null,
+    "acquirerGroupId": 1,
+    "aidTable": "04",
+    "arsCVM": "000008000000",
+    "usdCVM": "000000010000"
+  }
+]
