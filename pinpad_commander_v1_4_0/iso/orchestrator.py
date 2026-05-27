@@ -162,11 +162,21 @@ class TransactionOrchestrator:
         # 5. Determinar si necesita Y03 (solo si aprobada)
         y03_needed = False
         y03_params = None
-        if needs_y03(mdi) and iso_result.get('success'):
-            resp_code = iso_result.get('parsed', {}).get('fields', {}).get(39, 'XX')
-            if resp_code in ('00', '11', '85'):
-                y03_needed = True
-                y03_params = build_y03_params(iso_result.get('parsed', {}))
+        if not iso_result.get('success'):
+            return {
+                'success': False,
+                'error': iso_result.get('error', 'Sin respuesta del host'),
+                'y19_data': y19_data,
+                'iso_result': iso_result,
+                'needs_y03': False,
+                'y03_params': None,
+                'summary': get_transaction_summary(y19_data, iso_result),
+            }
+
+        resp_code = iso_result.get('parsed', {}).get('fields', {}).get(39, 'XX')
+        if needs_y03(mdi) and resp_code in ('00', '11', '85'):
+            y03_needed = True
+            y03_params = build_y03_params(iso_result.get('parsed', {}))
 
         # 6. Generar resumen
         summary = get_transaction_summary(y19_data, iso_result)
@@ -190,12 +200,14 @@ class TransactionOrchestrator:
         except Exception as e:
             return {'success': False, 'error': str(e)}
 
-        # Echo usa NII del config
-        from .transaction_engine import NII_POR_MARCA, _NII_DEFAULT
-        from .iso8583_builder import build_echo_test
-        terminal = self.terminal_id or '74000025'
+        from .transaction_engine import _NII_DEFAULT
+        from .iso8583_builder import build_echo_test, parse_response
+        # Resolver NII de echo desde parametria
+        conn = self.tx_manager.builder.parametria.resolve('Visa',
+            terminal_override=self.terminal_id, echo=True)
+        terminal = conn['terminal_id']
         merchant = self.merchant_id or '03659307'
-        nii = _NII_DEFAULT
+        nii = conn['nii']
         msg = build_echo_test(terminal, merchant, nii)
 
         try:
@@ -206,7 +218,6 @@ class TransactionOrchestrator:
         if not response_data:
             return {'success': False, 'error': 'Sin respuesta (timeout)'}
 
-        from .iso8583_builder import parse_response
         parsed = parse_response(response_data)
         return {'success': True, 'parsed': parsed}
 

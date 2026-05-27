@@ -1,0 +1,53 @@
+{
+  "terminal": {
+    "terminalId": "74000025",
+    "defaultSerialPort": "COM10",
+    "baud": "230400",
+    "defaultAmount": "000000055000",
+    "defaultCashback": "000000000000",
+    "defaultPmk": "1",
+    "tec": "060"
+  },
+  "comercio": {
+    "domicilio1": "Siempre Viva",
+    "domicilio2": "123",
+    "domicilio3": "",
+    "domicilio4": "20-99888777-9",
+    "cuit": "20-99888777-9"
+  },
+  "nii": {
+    "echo": "0112",
+    "Visa": "0721",
+    "MasterCard": "0721",
+    "Amex": "0112",
+    "default": "0112"
+  },
+  "acquirers": [
+    {
+      "acquirerGroupId": 1,
+      "terminalId": "74000025",
+      "ip": "ws1.prismamp.com",
+      "ipPort": "8443",
+      "gedc": null
+    },
+    {
+      "acquirerGroupId": 2,
+      "terminalId": "76330027",
+      "ip": "qwww318.americanexpress.com",
+      "ipPort": "8443",
+      "gedc": {
+        "uri": "/IPPayments/inter/CardAuthorization.do",
+        "Accept-Language": "en-us",
+        "User-Agent": "76330027;testlane3000;POS",
+        "Cache-Control": "no-cache",
+        "origin": "testlane3000",
+        "country": "032",
+        "region": "LAC",
+        "message": "ISO GLOBAL EDC",
+        "MerchNbr": "3217801844",
+        "RtInd": "050",
+        "Content-Type": "plain/text"
+      }
+    }
+  ]
+}

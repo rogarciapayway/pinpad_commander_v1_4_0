@@ -15,48 +15,25 @@ from .iso8583_builder import build_message, build_echo_test, parse_response
 
 log = logging.getLogger(__name__)
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-PARAMETRIA_DIR = os.path.join(BASE_DIR, 'parametria')
-CONFIG_ISO_DIR = os.path.join(BASE_DIR, 'serverISO', 'configIso')
+ISO_DIR = os.path.dirname(os.path.abspath(__file__))
+PARAMETRIA_DIR = os.path.join(ISO_DIR, 'parametria')
 
 
 def _load_json(path):
     with open(path, 'r', encoding='utf-8') as f:
         return json.load(f)
 
+def load_config():
+    return _load_json(os.path.join(PARAMETRIA_DIR, 'config.json'))
+
 def load_merchants():
     return _load_json(os.path.join(PARAMETRIA_DIR, 'merchants.json'))
 
-def load_acquirer_groups():
-    return _load_json(os.path.join(PARAMETRIA_DIR, 'acquirerGroup.json'))
-
-def load_spp_config():
-    return _load_json(os.path.join(PARAMETRIA_DIR, 'config.json'))
-
 def load_codigos_respuesta():
-    return _load_json(os.path.join(CONFIG_ISO_DIR, 'campos_iso', 'codigos_respuesta.json'))
+    return _load_json(os.path.join(PARAMETRIA_DIR, 'codigos_respuesta.json'))
 
 
-# NII por marca - se carga desde nii_config.json
-def _load_nii_config():
-    nii_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'nii_config.json')
-    try:
-        with open(nii_path, 'r', encoding='utf-8') as f:
-            data = json.load(f)
-        return data.get('nii_por_marca', {}), data.get('nii_default', '0721')
-    except Exception as e:
-        log.warning('No se pudo cargar nii_config.json: %s', e)
-        return {}, '0721'
-
-_NII_MARCA, _NII_DEFAULT = _load_nii_config()
-NII_POR_MARCA = _NII_MARCA or {
-    'Visa': '0721',
-    'MasterCard': '0721',
-    'Maestro': '0721',
-    'Cabal': '0721',
-    'Discover': '0721',
-    'Amex': '0721',
-}
+_NII_DEFAULT = '0721'
 
 # POS Entry Mode (campo 22, 4 digitos BCD)
 POS_ENTRY = {
@@ -93,21 +70,33 @@ def build_campo_59(modo):
 
 class ParametriaResolver:
     def __init__(self):
+        self.config = {}
         self.merchants = []
-        self.acquirer_groups = []
-        self.spp_config = {}
+        self.acquirers = []
         self._loaded = False
 
     def load(self):
         try:
+            self.config = load_config()
             self.merchants = load_merchants()
-            self.acquirer_groups = load_acquirer_groups()
-            self.spp_config = load_spp_config()
+            self.acquirers = self.config.get('acquirers', [])
             self._loaded = True
         except Exception as e:
             log.warning('No se pudo cargar parametria SPP: %s', e)
 
-    def resolve(self, marca, terminal_override=None, merchant_override=None):
+    def get_nii(self, marca=None, echo=False):
+        """Resolver NII desde config. Echo tiene su propio NII."""
+        nii_cfg = self.config.get('nii', {})
+        if echo:
+            return nii_cfg.get('echo', _NII_DEFAULT)
+        if marca:
+            # Buscar por nombre exacto o parcial
+            for key, val in nii_cfg.items():
+                if key.lower() == marca.lower():
+                    return val
+        return nii_cfg.get('default', _NII_DEFAULT)
+
+    def resolve(self, marca, terminal_override=None, merchant_override=None, echo=False):
         if not self._loaded:
             self.load()
 
@@ -121,18 +110,17 @@ class ParametriaResolver:
         acq_group = None
         if merchant_entry:
             agid = merchant_entry.get('acquirerGroupId')
-            for ag in self.acquirer_groups:
+            for ag in self.acquirers:
                 if ag.get('acquirerGroupId') == agid:
                     acq_group = ag
                     break
 
-        terminal_id = terminal_override or (acq_group or {}).get('terminalId', '12345678')
+        default_terminal = self.config.get('terminal', {}).get('terminalId', '74000025')
+        terminal_id = terminal_override or (acq_group or {}).get('terminalId', default_terminal)
         merchant_id = merchant_override or (merchant_entry or {}).get('commerce', '03659307')
         host = (acq_group or {}).get('ip', 'ws1.prismamp.com')
         port = int((acq_group or {}).get('ipPort', '8443'))
-
-        # NII segun marca de tarjeta
-        nii = NII_POR_MARCA.get(marca, _NII_DEFAULT)
+        nii = self.get_nii(marca, echo=echo)
         tpdu = '60%s0000' % nii
 
         return {
@@ -174,10 +162,12 @@ class TransactionBuilder:
         monto = params.get('monto', 100.0)
         codigo_proc = params.get('codigo_proc', '000000')
 
+        is_echo = tipo_msg == '0800'
         conn = self.parametria.resolve(
             marca,
             terminal_override=params.get('terminal_id'),
-            merchant_override=params.get('merchant_id')
+            merchant_override=params.get('merchant_id'),
+            echo=is_echo
         )
 
         now = datetime.now()
@@ -290,10 +280,12 @@ class TransactionBuilder:
 
     def build_and_get_info(self, params):
         marca = params.get('marca', 'Visa')
+        is_echo = params.get('tipo_mensaje', '0200') == '0800'
         conn = self.parametria.resolve(
             marca,
             terminal_override=params.get('terminal_id'),
-            merchant_override=params.get('merchant_id')
+            merchant_override=params.get('merchant_id'),
+            echo=is_echo
         )
         msg = self.build_transaction(params)
         return {
