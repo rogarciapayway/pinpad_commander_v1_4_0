@@ -62,10 +62,51 @@ def gen_track2(pan, venc=None):
     return '%s=%s101' % (pan, v)
 
 
-def build_campo_59(modo):
-    """Campo 59: producto 021 mandatorio."""
-    cap = CAPACIDAD.get(modo, '7')
-    return '0210001004070' + cap
+def load_productos():
+    try:
+        return _load_json(os.path.join(PARAMETRIA_DIR, 'productos.json'))
+    except Exception:
+        return {}
+
+
+def build_campo_59(modo, override=None):
+    """
+    Campo 59: Lista de productos.
+
+    Si override tiene valor, se usa directo (permite pegar desde UI).
+    Si no, se arma desde productos.json concatenando los habilitados.
+    Producto 021 siempre presente.
+
+    Formato original verificado: '0210001004070' + capacidad (1 digito)
+    Total 14 chars para solo producto 021.
+    """
+    if override:
+        return override
+
+    productos_cfg = load_productos()
+    productos = productos_cfg.get('productos', [])
+
+    result = ''
+    tiene_021 = False
+
+    for prod in productos:
+        if not prod.get('enabled'):
+            continue
+
+        prod_id = prod['id']
+        if prod_id == '021':
+            tiene_021 = True
+            cap = CAPACIDAD.get(modo, '7')
+            result += '0210001004070' + cap
+        else:
+            valor = prod.get('valor', '')
+            result += prod_id + valor
+
+    if not tiene_021:
+        cap = CAPACIDAD.get(modo, '7')
+        result = '0210001004070' + cap + result
+
+    return result
 
 
 class ParametriaResolver:
@@ -209,7 +250,7 @@ class TransactionBuilder:
         # Campos transaccionales comunes (no para reverso)
         if tipo_msg != '0400':
             fields[48] = params.get('cuotas', '001')
-            fields[59] = build_campo_59(modo)
+            fields[59] = build_campo_59(modo, override=params.get('campo_59'))
             fields[60] = 'PAYWAY_COE'
             fields[62] = ticket
 

@@ -1,0 +1,36 @@
+2026-05-28 11:16:07 - root - INFO - === PinPad Commander Security Logging Initialized ===
+2026-05-28 11:16:07 - root - INFO - Log directory: C:\SPP-1.5.0\pinpad_commander_v1_4_0\logs
+2026-05-28 11:16:07 - root - INFO - Log level: INFO
+2026-05-28 11:16:07 - root - INFO - === Environment Security Check ===
+2026-05-28 11:16:07 - root - INFO - Write permissions: OK
+2026-05-28 11:16:07 - root - INFO - Directory config: OK
+2026-05-28 11:16:07 - root - INFO - Directory ui: OK
+2026-05-28 11:16:07 - root - INFO - Directory core: OK
+2026-05-28 11:16:07 - root - INFO - Directory crypto: OK
+2026-05-28 11:16:07 - root - INFO - File config/commands.json: OK
+2026-05-28 11:16:07 - root - INFO - File protocol.py: OK
+2026-05-28 11:16:07 - root - INFO - === Security configuration completed ===
+2026-05-28 11:16:08 - PinPadCommanderModular - INFO - Initializing PinPad Commander Modular
+2026-05-28 11:16:10 - root - INFO - Configuration loaded from C:\SPP-1.5.0\pinpad_commander_v1_4_0\config\commands.json
+2026-05-28 11:16:25 - root - INFO - Connected to COM11 at 230400 baud
+2026-05-28 11:16:30 - root - INFO - RSA key loaded successfully from private.pem
+2026-05-28 11:16:45 - TLSClient - INFO - TLS connected to ws1.prismamp.com:8443
+2026-05-28 11:16:45 - iso.orchestrator - INFO - Conectado a ws1.prismamp.com:8443
+2026-05-28 11:16:45 - TLSClient - INFO - TX: 67 bytes
+2026-05-28 11:16:45 - TLSClient - INFO - RX: 33 bytes
+2026-05-28 11:19:21 - root - INFO - Saved Y19 MDI for Y02 parsing: L
+2026-05-28 11:19:21 - core.bridge_manager - INFO - [BRIDGE] Llamando orchestrator: marca=Visa mdi=L monto=123.45
+2026-05-28 11:19:21 - iso.orchestrator - INFO - [STEP 1] Extrayendo datos Y19...
+2026-05-28 11:19:21 - iso.orchestrator - INFO - [STEP 1] OK: MDI=L PAN=481550******2801 Track2=SI EMV=244
+2026-05-28 11:19:21 - iso.orchestrator - INFO - [STEP 2] Construyendo params ISO...
+2026-05-28 11:19:21 - iso.orchestrator - INFO - [STEP 2] OK: modo=contactless pan=481550...
+2026-05-28 11:19:21 - iso.orchestrator - INFO - [STEP 3] Conectando TLS a ws1.prismamp.com:8443...
+2026-05-28 11:19:21 - TLSClient - INFO - TLS connected to ws1.prismamp.com:8443
+2026-05-28 11:19:21 - iso.orchestrator - INFO - Conectado a ws1.prismamp.com:8443
+2026-05-28 11:19:21 - iso.orchestrator - INFO - [STEP 3] OK: Conectado
+2026-05-28 11:19:21 - iso.orchestrator - INFO - [STEP 4] Ejecutando ISO 0200...
+2026-05-28 11:19:21 - TLSClient - INFO - TX: 382 bytes
+2026-05-28 11:19:21 - TLSClient - INFO - RX: 107 bytes
+2026-05-28 11:19:21 - iso.orchestrator - INFO - [STEP 4] OK: success=True code=00
+2026-05-28 11:19:21 - core.bridge_manager - INFO - [BRIDGE] Orchestrator retorno: success=True
+2026-05-28 11:19:22 - iso.iso_logger - INFO - TXN #0001 grabada en 20260528_transacciones.log

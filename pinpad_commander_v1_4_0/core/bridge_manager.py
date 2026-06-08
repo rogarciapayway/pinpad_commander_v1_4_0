@@ -54,6 +54,13 @@ class BridgeManager:
         except Exception:
             return '03659307'
 
+    def _get_campo59_override(self):
+        try:
+            val = self.app.window.connection_panel.bridge_campo59_entry.get().strip()
+            return val if val else None
+        except Exception:
+            return None
+
     def _update_tls_status(self, text, color='gray50'):
         try:
             self.app.window.communication_panel.iso_tls_label.configure(
@@ -189,11 +196,13 @@ class BridgeManager:
                     mdi, modo, marca, monto, terminal, merchant))
 
                 log.info('[BRIDGE] Llamando orchestrator: marca=%s mdi=%s monto=%.2f', marca, mdi, monto)
+                campo59 = self._get_campo59_override()
                 result = self.orchestrator.process_y19_response(
                     parsed_y19=parsed_y19,
                     monto=monto,
                     marca=marca,
-                    cuotas='001'
+                    cuotas='001',
+                    campo_59=campo59
                 )
                 log.info('[BRIDGE] Orchestrator retorno: success=%s', result.get('success') if result else 'NONE')
                 self.app.window.after(0, lambda: self._show_iso_result(result, parsed_y19))
@@ -258,11 +267,13 @@ class BridgeManager:
 
                 log.info('[BRIDGE] Manual: Y02 recibido, enviando ISO. marca=%s monto=%.2f pan=%s****',
                          marca, monto, y19_data['pan'][:6])
+                campo59 = self._get_campo59_override()
                 result = self.orchestrator.process_y19_response(
                     parsed_y19=combined,
                     monto=monto,
                     marca=marca,
-                    cuotas='001'
+                    cuotas='001',
+                    campo_59=campo59
                 )
                 log.info('[BRIDGE] Orchestrator retorno: success=%s', result.get('success') if result else 'NONE')
                 self.app.window.after(0, lambda: self._show_iso_result(result, combined))

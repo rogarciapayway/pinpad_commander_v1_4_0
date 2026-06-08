@@ -117,6 +117,8 @@ def extract_y19_data(parsed_response):
         'track1_no_leido': None,
         'aid': None,
         'tipo_cuenta': None,
+        'tipo_transaccion': None,
+        'monto_adicional': None,
     }
 
     # MDI (modo de ingreso)
@@ -248,6 +250,20 @@ def extract_y19_data(parsed_response):
                 result['cvv'] = val
             break
 
+    # Tag 9C (tipo transaccion) y 9F03 (monto adicional) desde CPG
+    cpg_for_txn = fields.get('CPG', {})
+    if isinstance(cpg_for_txn, dict):
+        tlv_txn = cpg_for_txn.get('tlv', {})
+        if isinstance(tlv_txn, dict):
+            # Tag 9C -> tipo transaccion (00=compra, 09=cashback, etc.)
+            tag_9c = tlv_txn.get('9C', '')
+            if tag_9c and tag_9c != '00':
+                result['tipo_transaccion'] = tag_9c
+            # Tag 9F03 -> monto adicional (cashback/propina)
+            tag_9f03 = tlv_txn.get('9F03', '')
+            if tag_9f03 and int(tag_9f03) > 0:
+                result['monto_adicional'] = tag_9f03
+
     # PIN Block - puede venir como 'pin', 'PIN'
     for pin_key in ('pin', 'PIN'):
         pin = fields.get(pin_key, '')
@@ -322,13 +338,21 @@ def build_iso_params(y19_data, transaction_config):
     mdi = y19_data.get('mdi', 'M')
     modo = MDI_TO_MODE.get(mdi, 'manual')
 
+    # Codigo de procesamiento: tag 9C define los primeros 2 digitos
+    # 00 = compra, 09 = compra + cashback/monto adicional
+    tipo_txn = y19_data.get('tipo_transaccion', '')
+    if tipo_txn:
+        codigo_proc = tipo_txn.zfill(2) + '0000'
+    else:
+        codigo_proc = transaction_config.get('codigo_proc', '000000')
+
     params = {
         'tipo_mensaje': '0200',
         'modo': modo,
         'marca': transaction_config.get('marca', 'Visa'),
         'pan': y19_data.get('pan', ''),
         'monto': transaction_config.get('monto', 100.0),
-        'codigo_proc': transaction_config.get('codigo_proc', '000000'),
+        'codigo_proc': codigo_proc,
         'terminal_id': transaction_config.get('terminal_id'),
         'merchant_id': transaction_config.get('merchant_id'),
         'cuotas': transaction_config.get('cuotas', '001'),
@@ -365,6 +389,25 @@ def build_iso_params(y19_data, transaction_config):
     # Cashback
     if transaction_config.get('cashback'):
         params['cashback'] = transaction_config['cashback']
+
+    # Monto adicional desde tag 9F03 (cashback/propina) -> Campo 54
+    # Si 9F03 tiene valor > 0, habilitar campo 54
+    monto_adicional = y19_data.get('monto_adicional')
+    if monto_adicional:
+        # monto_adicional viene como string BCD del tag 9F03 (ej: '000000010000')
+        # Lo pasamos directo como cashback para que se incluya en campo 54
+        try:
+            monto_adic_int = int(monto_adicional)
+            if monto_adic_int > 0:
+                params['cashback'] = monto_adic_int / 100.0
+                log.info('Monto adicional (9F03): %s -> campo 54: %.2f',
+                         monto_adicional, params['cashback'])
+        except (ValueError, TypeError):
+            pass
+
+    # Campo 59 override
+    if transaction_config.get('campo_59'):
+        params['campo_59'] = transaction_config['campo_59']
 
     return params
 

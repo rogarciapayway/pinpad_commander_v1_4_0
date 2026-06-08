@@ -77,7 +77,7 @@ class TransactionOrchestrator:
 
     def process_y19_response(self, parsed_y19, monto=100.0,
                               codigo_proc='000000', marca='Visa',
-                              cuotas='001', cashback=None):
+                              cuotas='001', cashback=None, campo_59=None):
         """
         Procesar respuesta Y19 y ejecutar transaccion ISO completa.
         """
@@ -119,6 +119,7 @@ class TransactionOrchestrator:
             'marca': marca,
             'cuotas': cuotas,
             'cashback': cashback,
+            'campo_59': campo_59,
         }
         try:
             iso_params = build_iso_params(y19_data, tx_config)

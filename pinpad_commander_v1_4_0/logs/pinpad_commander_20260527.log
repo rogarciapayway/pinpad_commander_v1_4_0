@@ -265,3 +265,271 @@
 2026-05-27 16:13:46 - iso.orchestrator - INFO - [STEP 4] OK: success=False code=?
 2026-05-27 16:13:46 - core.bridge_manager - INFO - [BRIDGE] Orchestrator retorno: success=False
 2026-05-27 16:13:46 - iso.iso_logger - INFO - TXN #0006 grabada en 20260527_transacciones.log
+2026-05-27 16:15:43 - root - INFO - === PinPad Commander Security Logging Initialized ===
+2026-05-27 16:15:43 - root - INFO - Log directory: C:\SPP-1.5.0\pinpad_commander_v1_4_0\logs
+2026-05-27 16:15:43 - root - INFO - Log level: INFO
+2026-05-27 16:15:43 - root - INFO - === Environment Security Check ===
+2026-05-27 16:15:43 - root - INFO - Write permissions: OK
+2026-05-27 16:15:43 - root - INFO - Directory config: OK
+2026-05-27 16:15:43 - root - INFO - Directory ui: OK
+2026-05-27 16:15:43 - root - INFO - Directory core: OK
+2026-05-27 16:15:43 - root - INFO - Directory crypto: OK
+2026-05-27 16:15:43 - root - INFO - File config/commands.json: OK
+2026-05-27 16:15:43 - root - INFO - File protocol.py: OK
+2026-05-27 16:15:43 - root - INFO - === Security configuration completed ===
+2026-05-27 16:15:45 - PinPadCommanderModular - INFO - Initializing PinPad Commander Modular
+2026-05-27 16:15:47 - root - INFO - Configuration loaded from C:\SPP-1.5.0\pinpad_commander_v1_4_0\config\commands.json
+2026-05-27 16:15:53 - root - INFO - Connected to COM10 at 230400 baud
+2026-05-27 16:15:58 - root - INFO - RSA key loaded successfully from private.pem
+2026-05-27 16:16:06 - TLSClient - INFO - TLS connected to ws1.prismamp.com:8443
+2026-05-27 16:16:06 - iso.orchestrator - INFO - Conectado a ws1.prismamp.com:8443
+2026-05-27 16:16:06 - TLSClient - INFO - TX: 67 bytes
+2026-05-27 16:16:06 - TLSClient - INFO - RX: 33 bytes
+2026-05-27 16:16:18 - root - INFO - Saved Y19 MDI for Y02 parsing: L
+2026-05-27 16:16:18 - core.bridge_manager - INFO - [BRIDGE] Llamando orchestrator: marca=Visa mdi=L monto=123.45
+2026-05-27 16:16:18 - iso.orchestrator - INFO - [STEP 1] Extrayendo datos Y19...
+2026-05-27 16:16:18 - iso.orchestrator - INFO - [STEP 1] OK: MDI=L PAN=481550******2801 Track2=SI EMV=244
+2026-05-27 16:16:18 - iso.orchestrator - INFO - [STEP 2] Construyendo params ISO...
+2026-05-27 16:16:18 - iso.orchestrator - INFO - [STEP 2] OK: modo=contactless pan=481550...
+2026-05-27 16:16:18 - iso.orchestrator - INFO - [STEP 3] Conectando TLS a ws1.prismamp.com:8443...
+2026-05-27 16:16:19 - TLSClient - INFO - TLS connected to ws1.prismamp.com:8443
+2026-05-27 16:16:19 - iso.orchestrator - INFO - Conectado a ws1.prismamp.com:8443
+2026-05-27 16:16:19 - iso.orchestrator - INFO - [STEP 3] OK: Conectado
+2026-05-27 16:16:19 - iso.orchestrator - INFO - [STEP 4] Ejecutando ISO 0200...
+2026-05-27 16:16:19 - TLSClient - INFO - TX: 382 bytes
+2026-05-27 16:16:19 - iso.orchestrator - INFO - [STEP 4] OK: success=False code=?
+2026-05-27 16:16:19 - core.bridge_manager - INFO - [BRIDGE] Orchestrator retorno: success=False
+2026-05-27 16:16:19 - iso.iso_logger - INFO - TXN #0007 grabada en 20260527_transacciones.log
+2026-05-27 16:16:46 - root - INFO - Saved Y19 MDI for Y02 parsing: L
+2026-05-27 16:16:46 - core.bridge_manager - INFO - [BRIDGE] Llamando orchestrator: marca=Visa mdi=L monto=123.45
+2026-05-27 16:16:46 - iso.orchestrator - INFO - [STEP 1] Extrayendo datos Y19...
+2026-05-27 16:16:46 - iso.orchestrator - INFO - [STEP 1] OK: MDI=L PAN=481550******2801 Track2=SI EMV=244
+2026-05-27 16:16:46 - iso.orchestrator - INFO - [STEP 2] Construyendo params ISO...
+2026-05-27 16:16:46 - iso.orchestrator - INFO - [STEP 2] OK: modo=contactless pan=481550...
+2026-05-27 16:16:46 - iso.orchestrator - INFO - [STEP 3] Conectando TLS a ws1.prismamp.com:8443...
+2026-05-27 16:16:46 - TLSClient - INFO - TLS connected to ws1.prismamp.com:8443
+2026-05-27 16:16:46 - iso.orchestrator - INFO - Conectado a ws1.prismamp.com:8443
+2026-05-27 16:16:46 - iso.orchestrator - INFO - [STEP 3] OK: Conectado
+2026-05-27 16:16:46 - iso.orchestrator - INFO - [STEP 4] Ejecutando ISO 0200...
+2026-05-27 16:16:46 - TLSClient - INFO - TX: 382 bytes
+2026-05-27 16:16:46 - TLSClient - INFO - RX: 79 bytes
+2026-05-27 16:16:46 - iso.orchestrator - INFO - [STEP 4] OK: success=True code=05
+2026-05-27 16:16:46 - core.bridge_manager - INFO - [BRIDGE] Orchestrator retorno: success=True
+2026-05-27 16:16:46 - iso.iso_logger - INFO - TXN #0008 grabada en 20260527_transacciones.log
+2026-05-27 16:44:17 - TLSClient - INFO - TLS connected to ws1.prismamp.com:8443
+2026-05-27 16:44:17 - iso.orchestrator - INFO - Conectado a ws1.prismamp.com:8443
+2026-05-27 16:44:17 - TLSClient - INFO - TX: 67 bytes
+2026-05-27 16:44:17 - TLSClient - INFO - RX: 33 bytes
+2026-05-27 16:44:26 - root - INFO - Saved Y19 MDI for Y02 parsing: L
+2026-05-27 16:44:26 - core.bridge_manager - INFO - [BRIDGE] Llamando orchestrator: marca=MasterCard mdi=L monto=123.45
+2026-05-27 16:44:26 - iso.orchestrator - INFO - [STEP 1] Extrayendo datos Y19...
+2026-05-27 16:44:26 - iso.orchestrator - INFO - [STEP 1] OK: MDI=L PAN=530058******6764 Track2=SI EMV=284
+2026-05-27 16:44:26 - iso.orchestrator - INFO - [STEP 2] Construyendo params ISO...
+2026-05-27 16:44:26 - iso.orchestrator - INFO - [STEP 2] OK: modo=contactless pan=530058...
+2026-05-27 16:44:26 - iso.orchestrator - INFO - [STEP 3] Conectando TLS a ws1.prismamp.com:8443...
+2026-05-27 16:44:27 - TLSClient - INFO - TLS connected to ws1.prismamp.com:8443
+2026-05-27 16:44:27 - iso.orchestrator - INFO - Conectado a ws1.prismamp.com:8443
+2026-05-27 16:44:27 - iso.orchestrator - INFO - [STEP 3] OK: Conectado
+2026-05-27 16:44:27 - iso.orchestrator - INFO - [STEP 4] Ejecutando ISO 0200...
+2026-05-27 16:44:27 - TLSClient - INFO - TX: 422 bytes
+2026-05-27 16:44:27 - TLSClient - INFO - RX: 79 bytes
+2026-05-27 16:44:27 - iso.orchestrator - INFO - [STEP 4] OK: success=True code=05
+2026-05-27 16:44:27 - core.bridge_manager - INFO - [BRIDGE] Orchestrator retorno: success=True
+2026-05-27 16:44:27 - iso.iso_logger - INFO - TXN #0009 grabada en 20260527_transacciones.log
+2026-05-27 16:45:16 - root - INFO - Saved Y19 MDI for Y02 parsing: L
+2026-05-27 16:45:16 - core.bridge_manager - INFO - [BRIDGE] Llamando orchestrator: marca=MasterCard mdi=L monto=123.45
+2026-05-27 16:45:16 - iso.orchestrator - INFO - [STEP 1] Extrayendo datos Y19...
+2026-05-27 16:45:17 - iso.orchestrator - INFO - [STEP 1] OK: MDI=L PAN=530058******6764 Track2=SI EMV=284
+2026-05-27 16:45:17 - iso.orchestrator - INFO - [STEP 2] Construyendo params ISO...
+2026-05-27 16:45:17 - iso.orchestrator - INFO - [STEP 2] OK: modo=contactless pan=530058...
+2026-05-27 16:45:17 - iso.orchestrator - INFO - [STEP 3] Conectando TLS a ws1.prismamp.com:8443...
+2026-05-27 16:45:17 - TLSClient - INFO - TLS connected to ws1.prismamp.com:8443
+2026-05-27 16:45:17 - iso.orchestrator - INFO - Conectado a ws1.prismamp.com:8443
+2026-05-27 16:45:17 - iso.orchestrator - INFO - [STEP 3] OK: Conectado
+2026-05-27 16:45:17 - iso.orchestrator - INFO - [STEP 4] Ejecutando ISO 0200...
+2026-05-27 16:45:17 - TLSClient - INFO - TX: 422 bytes
+2026-05-27 16:45:17 - iso.orchestrator - INFO - [STEP 4] OK: success=False code=?
+2026-05-27 16:45:17 - core.bridge_manager - INFO - [BRIDGE] Orchestrator retorno: success=False
+2026-05-27 16:45:17 - iso.iso_logger - INFO - TXN #0010 grabada en 20260527_transacciones.log
+2026-05-27 16:45:32 - root - INFO - Saved Y19 MDI for Y02 parsing: L
+2026-05-27 16:45:32 - core.bridge_manager - INFO - [BRIDGE] Llamando orchestrator: marca=MasterCard mdi=L monto=123.45
+2026-05-27 16:45:33 - iso.orchestrator - INFO - [STEP 1] Extrayendo datos Y19...
+2026-05-27 16:45:33 - iso.orchestrator - INFO - [STEP 1] OK: MDI=L PAN=530058******6764 Track2=SI EMV=284
+2026-05-27 16:45:33 - iso.orchestrator - INFO - [STEP 2] Construyendo params ISO...
+2026-05-27 16:45:33 - iso.orchestrator - INFO - [STEP 2] OK: modo=contactless pan=530058...
+2026-05-27 16:45:33 - iso.orchestrator - INFO - [STEP 3] Conectando TLS a ws1.prismamp.com:8443...
+2026-05-27 16:45:33 - TLSClient - INFO - TLS connected to ws1.prismamp.com:8443
+2026-05-27 16:45:33 - iso.orchestrator - INFO - Conectado a ws1.prismamp.com:8443
+2026-05-27 16:45:33 - iso.orchestrator - INFO - [STEP 3] OK: Conectado
+2026-05-27 16:45:33 - iso.orchestrator - INFO - [STEP 4] Ejecutando ISO 0200...
+2026-05-27 16:45:33 - TLSClient - INFO - TX: 422 bytes
+2026-05-27 16:45:33 - TLSClient - INFO - RX: 79 bytes
+2026-05-27 16:45:33 - iso.orchestrator - INFO - [STEP 4] OK: success=True code=05
+2026-05-27 16:45:33 - core.bridge_manager - INFO - [BRIDGE] Orchestrator retorno: success=True
+2026-05-27 16:45:33 - iso.iso_logger - INFO - TXN #0011 grabada en 20260527_transacciones.log
+2026-05-27 16:46:06 - root - INFO - Saved Y19 MDI for Y02 parsing: L
+2026-05-27 16:46:06 - core.bridge_manager - INFO - [BRIDGE] Llamando orchestrator: marca=MasterCard mdi=L monto=123.45
+2026-05-27 16:46:06 - iso.orchestrator - INFO - [STEP 1] Extrayendo datos Y19...
+2026-05-27 16:46:06 - iso.orchestrator - INFO - [STEP 1] OK: MDI=L PAN=530058******6764 Track2=SI EMV=284
+2026-05-27 16:46:06 - iso.orchestrator - INFO - [STEP 2] Construyendo params ISO...
+2026-05-27 16:46:06 - iso.orchestrator - INFO - [STEP 2] OK: modo=contactless pan=530058...
+2026-05-27 16:46:06 - iso.orchestrator - INFO - [STEP 3] Conectando TLS a ws1.prismamp.com:8443...
+2026-05-27 16:46:06 - TLSClient - INFO - TLS connected to ws1.prismamp.com:8443
+2026-05-27 16:46:06 - iso.orchestrator - INFO - Conectado a ws1.prismamp.com:8443
+2026-05-27 16:46:06 - iso.orchestrator - INFO - [STEP 3] OK: Conectado
+2026-05-27 16:46:06 - iso.orchestrator - INFO - [STEP 4] Ejecutando ISO 0200...
+2026-05-27 16:46:06 - TLSClient - INFO - TX: 422 bytes
+2026-05-27 16:46:06 - iso.orchestrator - INFO - [STEP 4] OK: success=False code=?
+2026-05-27 16:46:06 - core.bridge_manager - INFO - [BRIDGE] Orchestrator retorno: success=False
+2026-05-27 16:46:06 - iso.iso_logger - INFO - TXN #0012 grabada en 20260527_transacciones.log
+2026-05-27 16:46:45 - root - INFO - Saved Y19 MDI for Y02 parsing: L
+2026-05-27 16:46:45 - core.bridge_manager - INFO - [BRIDGE] Llamando orchestrator: marca=MasterCard mdi=L monto=123.45
+2026-05-27 16:46:45 - iso.orchestrator - INFO - [STEP 1] Extrayendo datos Y19...
+2026-05-27 16:46:45 - iso.orchestrator - INFO - [STEP 1] OK: MDI=L PAN=530058******6764 Track2=SI EMV=284
+2026-05-27 16:46:45 - iso.orchestrator - INFO - [STEP 2] Construyendo params ISO...
+2026-05-27 16:46:45 - iso.orchestrator - INFO - [STEP 2] OK: modo=contactless pan=530058...
+2026-05-27 16:46:45 - iso.orchestrator - INFO - [STEP 3] Conectando TLS a ws1.prismamp.com:8443...
+2026-05-27 16:46:45 - TLSClient - INFO - TLS connected to ws1.prismamp.com:8443
+2026-05-27 16:46:45 - iso.orchestrator - INFO - Conectado a ws1.prismamp.com:8443
+2026-05-27 16:46:45 - iso.orchestrator - INFO - [STEP 3] OK: Conectado
+2026-05-27 16:46:45 - iso.orchestrator - INFO - [STEP 4] Ejecutando ISO 0200...
+2026-05-27 16:46:45 - TLSClient - INFO - TX: 422 bytes
+2026-05-27 16:46:46 - iso.orchestrator - INFO - [STEP 4] OK: success=False code=?
+2026-05-27 16:46:46 - core.bridge_manager - INFO - [BRIDGE] Orchestrator retorno: success=False
+2026-05-27 16:46:46 - iso.iso_logger - INFO - TXN #0013 grabada en 20260527_transacciones.log
+2026-05-27 17:12:10 - root - INFO - Saved Y19 MDI for Y02 parsing: L
+2026-05-27 17:12:10 - core.bridge_manager - INFO - [BRIDGE] Llamando orchestrator: marca=MasterCard mdi=L monto=123.45
+2026-05-27 17:12:10 - iso.orchestrator - INFO - [STEP 1] Extrayendo datos Y19...
+2026-05-27 17:12:10 - iso.orchestrator - INFO - [STEP 1] OK: MDI=L PAN=530058******6764 Track2=SI EMV=284
+2026-05-27 17:12:10 - iso.orchestrator - INFO - [STEP 2] Construyendo params ISO...
+2026-05-27 17:12:10 - iso.orchestrator - INFO - [STEP 2] OK: modo=contactless pan=530058...
+2026-05-27 17:12:10 - iso.orchestrator - INFO - [STEP 3] Conectando TLS a ws1.prismamp.com:8443...
+2026-05-27 17:12:10 - TLSClient - INFO - TLS connected to ws1.prismamp.com:8443
+2026-05-27 17:12:10 - iso.orchestrator - INFO - Conectado a ws1.prismamp.com:8443
+2026-05-27 17:12:10 - iso.orchestrator - INFO - [STEP 3] OK: Conectado
+2026-05-27 17:12:10 - iso.orchestrator - INFO - [STEP 4] Ejecutando ISO 0200...
+2026-05-27 17:12:10 - TLSClient - INFO - TX: 422 bytes
+2026-05-27 17:12:11 - TLSClient - INFO - RX: 79 bytes
+2026-05-27 17:12:11 - iso.orchestrator - INFO - [STEP 4] OK: success=True code=91
+2026-05-27 17:12:11 - core.bridge_manager - INFO - [BRIDGE] Orchestrator retorno: success=True
+2026-05-27 17:12:11 - iso.iso_logger - INFO - TXN #0014 grabada en 20260527_transacciones.log
+2026-05-27 17:12:44 - root - INFO - Saved Y19 MDI for Y02 parsing: L
+2026-05-27 17:12:44 - core.bridge_manager - INFO - [BRIDGE] Llamando orchestrator: marca=MasterCard mdi=L monto=123.45
+2026-05-27 17:12:44 - iso.orchestrator - INFO - [STEP 1] Extrayendo datos Y19...
+2026-05-27 17:12:44 - iso.orchestrator - INFO - [STEP 1] OK: MDI=L PAN=530058******6764 Track2=SI EMV=284
+2026-05-27 17:12:44 - iso.orchestrator - INFO - [STEP 2] Construyendo params ISO...
+2026-05-27 17:12:44 - iso.orchestrator - INFO - [STEP 2] OK: modo=contactless pan=530058...
+2026-05-27 17:12:44 - iso.orchestrator - INFO - [STEP 3] Conectando TLS a ws1.prismamp.com:8443...
+2026-05-27 17:12:44 - TLSClient - INFO - TLS connected to ws1.prismamp.com:8443
+2026-05-27 17:12:44 - iso.orchestrator - INFO - Conectado a ws1.prismamp.com:8443
+2026-05-27 17:12:44 - iso.orchestrator - INFO - [STEP 3] OK: Conectado
+2026-05-27 17:12:44 - iso.orchestrator - INFO - [STEP 4] Ejecutando ISO 0200...
+2026-05-27 17:12:44 - TLSClient - INFO - TX: 422 bytes
+2026-05-27 17:12:45 - TLSClient - INFO - RX: 79 bytes
+2026-05-27 17:12:45 - iso.orchestrator - INFO - [STEP 4] OK: success=True code=05
+2026-05-27 17:12:45 - core.bridge_manager - INFO - [BRIDGE] Orchestrator retorno: success=True
+2026-05-27 17:12:45 - iso.iso_logger - INFO - TXN #0015 grabada en 20260527_transacciones.log
+2026-05-27 17:13:08 - root - INFO - Saved Y19 MDI for Y02 parsing: L
+2026-05-27 17:13:08 - core.bridge_manager - INFO - [BRIDGE] Llamando orchestrator: marca=MasterCard mdi=L monto=123.45
+2026-05-27 17:13:08 - iso.orchestrator - INFO - [STEP 1] Extrayendo datos Y19...
+2026-05-27 17:13:08 - iso.orchestrator - INFO - [STEP 1] OK: MDI=L PAN=530058******6764 Track2=SI EMV=284
+2026-05-27 17:13:08 - iso.orchestrator - INFO - [STEP 2] Construyendo params ISO...
+2026-05-27 17:13:08 - iso.orchestrator - INFO - [STEP 2] OK: modo=contactless pan=530058...
+2026-05-27 17:13:08 - iso.orchestrator - INFO - [STEP 3] Conectando TLS a ws1.prismamp.com:8443...
+2026-05-27 17:13:08 - TLSClient - INFO - TLS connected to ws1.prismamp.com:8443
+2026-05-27 17:13:08 - iso.orchestrator - INFO - Conectado a ws1.prismamp.com:8443
+2026-05-27 17:13:08 - iso.orchestrator - INFO - [STEP 3] OK: Conectado
+2026-05-27 17:13:08 - iso.orchestrator - INFO - [STEP 4] Ejecutando ISO 0200...
+2026-05-27 17:13:08 - TLSClient - INFO - TX: 422 bytes
+2026-05-27 17:13:08 - TLSClient - INFO - RX: 79 bytes
+2026-05-27 17:13:08 - iso.orchestrator - INFO - [STEP 4] OK: success=True code=91
+2026-05-27 17:13:08 - core.bridge_manager - INFO - [BRIDGE] Orchestrator retorno: success=True
+2026-05-27 17:13:08 - iso.iso_logger - INFO - TXN #0016 grabada en 20260527_transacciones.log
+2026-05-27 17:13:46 - root - INFO - Saved Y19 MDI for Y02 parsing: L
+2026-05-27 17:13:46 - core.bridge_manager - INFO - [BRIDGE] Llamando orchestrator: marca=Visa mdi=L monto=123.45
+2026-05-27 17:13:46 - iso.orchestrator - INFO - [STEP 1] Extrayendo datos Y19...
+2026-05-27 17:13:46 - iso.orchestrator - INFO - [STEP 1] OK: MDI=L PAN=481550******2801 Track2=SI EMV=244
+2026-05-27 17:13:46 - iso.orchestrator - INFO - [STEP 2] Construyendo params ISO...
+2026-05-27 17:13:46 - iso.orchestrator - INFO - [STEP 2] OK: modo=contactless pan=481550...
+2026-05-27 17:13:46 - iso.orchestrator - INFO - [STEP 3] Conectando TLS a ws1.prismamp.com:8443...
+2026-05-27 17:13:46 - TLSClient - INFO - TLS connected to ws1.prismamp.com:8443
+2026-05-27 17:13:46 - iso.orchestrator - INFO - Conectado a ws1.prismamp.com:8443
+2026-05-27 17:13:46 - iso.orchestrator - INFO - [STEP 3] OK: Conectado
+2026-05-27 17:13:46 - iso.orchestrator - INFO - [STEP 4] Ejecutando ISO 0200...
+2026-05-27 17:13:46 - TLSClient - INFO - TX: 382 bytes
+2026-05-27 17:13:47 - TLSClient - INFO - RX: 79 bytes
+2026-05-27 17:13:47 - iso.orchestrator - INFO - [STEP 4] OK: success=True code=05
+2026-05-27 17:13:47 - core.bridge_manager - INFO - [BRIDGE] Orchestrator retorno: success=True
+2026-05-27 17:13:47 - iso.iso_logger - INFO - TXN #0017 grabada en 20260527_transacciones.log
+2026-05-27 17:14:14 - root - INFO - Saved Y19 MDI for Y02 parsing: L
+2026-05-27 17:14:14 - core.bridge_manager - INFO - [BRIDGE] Llamando orchestrator: marca=Visa mdi=L monto=123.45
+2026-05-27 17:14:14 - iso.orchestrator - INFO - [STEP 1] Extrayendo datos Y19...
+2026-05-27 17:14:14 - iso.orchestrator - INFO - [STEP 1] OK: MDI=L PAN=481550******2801 Track2=SI EMV=244
+2026-05-27 17:14:14 - iso.orchestrator - INFO - [STEP 2] Construyendo params ISO...
+2026-05-27 17:14:14 - iso.orchestrator - INFO - [STEP 2] OK: modo=contactless pan=481550...
+2026-05-27 17:14:14 - iso.orchestrator - INFO - [STEP 3] Conectando TLS a ws1.prismamp.com:8443...
+2026-05-27 17:14:14 - TLSClient - INFO - TLS connected to ws1.prismamp.com:8443
+2026-05-27 17:14:14 - iso.orchestrator - INFO - Conectado a ws1.prismamp.com:8443
+2026-05-27 17:14:14 - iso.orchestrator - INFO - [STEP 3] OK: Conectado
+2026-05-27 17:14:14 - iso.orchestrator - INFO - [STEP 4] Ejecutando ISO 0200...
+2026-05-27 17:14:14 - TLSClient - INFO - TX: 382 bytes
+2026-05-27 17:14:14 - TLSClient - INFO - RX: 107 bytes
+2026-05-27 17:14:14 - iso.orchestrator - INFO - [STEP 4] OK: success=True code=00
+2026-05-27 17:14:14 - core.bridge_manager - INFO - [BRIDGE] Orchestrator retorno: success=True
+2026-05-27 17:14:15 - iso.iso_logger - INFO - TXN #0018 grabada en 20260527_transacciones.log
+2026-05-27 17:15:15 - TLSClient - INFO - TLS connected to ws1.prismamp.com:8443
+2026-05-27 17:15:15 - iso.orchestrator - INFO - Conectado a ws1.prismamp.com:8443
+2026-05-27 17:15:15 - TLSClient - INFO - TX: 67 bytes
+2026-05-27 17:15:15 - TLSClient - INFO - RX: 33 bytes
+2026-05-27 17:15:24 - root - INFO - Saved Y19 MDI for Y02 parsing: L
+2026-05-27 17:15:24 - core.bridge_manager - INFO - [BRIDGE] Llamando orchestrator: marca=MasterCard mdi=L monto=123.45
+2026-05-27 17:15:24 - iso.orchestrator - INFO - [STEP 1] Extrayendo datos Y19...
+2026-05-27 17:15:24 - iso.orchestrator - INFO - [STEP 1] OK: MDI=L PAN=530058******6756 Track2=SI EMV=284
+2026-05-27 17:15:24 - iso.orchestrator - INFO - [STEP 2] Construyendo params ISO...
+2026-05-27 17:15:24 - iso.orchestrator - INFO - [STEP 2] OK: modo=contactless pan=530058...
+2026-05-27 17:15:24 - iso.orchestrator - INFO - [STEP 3] Conectando TLS a ws1.prismamp.com:8443...
+2026-05-27 17:15:24 - TLSClient - INFO - TLS connected to ws1.prismamp.com:8443
+2026-05-27 17:15:24 - iso.orchestrator - INFO - Conectado a ws1.prismamp.com:8443
+2026-05-27 17:15:24 - iso.orchestrator - INFO - [STEP 3] OK: Conectado
+2026-05-27 17:15:24 - iso.orchestrator - INFO - [STEP 4] Ejecutando ISO 0200...
+2026-05-27 17:15:24 - TLSClient - INFO - TX: 422 bytes
+2026-05-27 17:15:25 - TLSClient - INFO - RX: 105 bytes
+2026-05-27 17:15:25 - iso.orchestrator - INFO - [STEP 4] OK: success=True code=30
+2026-05-27 17:15:25 - core.bridge_manager - INFO - [BRIDGE] Orchestrator retorno: success=True
+2026-05-27 17:15:25 - iso.iso_logger - INFO - TXN #0019 grabada en 20260527_transacciones.log
+2026-05-27 17:15:40 - root - INFO - Saved Y19 MDI for Y02 parsing: L
+2026-05-27 17:15:40 - core.bridge_manager - INFO - [BRIDGE] Llamando orchestrator: marca=MasterCard mdi=L monto=123.45
+2026-05-27 17:15:40 - iso.orchestrator - INFO - [STEP 1] Extrayendo datos Y19...
+2026-05-27 17:15:40 - iso.orchestrator - INFO - [STEP 1] OK: MDI=L PAN=530058******6756 Track2=SI EMV=284
+2026-05-27 17:15:40 - iso.orchestrator - INFO - [STEP 2] Construyendo params ISO...
+2026-05-27 17:15:40 - iso.orchestrator - INFO - [STEP 2] OK: modo=contactless pan=530058...
+2026-05-27 17:15:40 - iso.orchestrator - INFO - [STEP 3] Conectando TLS a ws1.prismamp.com:8443...
+2026-05-27 17:15:40 - TLSClient - INFO - TLS connected to ws1.prismamp.com:8443
+2026-05-27 17:15:40 - iso.orchestrator - INFO - Conectado a ws1.prismamp.com:8443
+2026-05-27 17:15:40 - iso.orchestrator - INFO - [STEP 3] OK: Conectado
+2026-05-27 17:15:40 - iso.orchestrator - INFO - [STEP 4] Ejecutando ISO 0200...
+2026-05-27 17:15:40 - TLSClient - INFO - TX: 422 bytes
+2026-05-27 17:15:41 - TLSClient - INFO - RX: 105 bytes
+2026-05-27 17:15:41 - iso.orchestrator - INFO - [STEP 4] OK: success=True code=30
+2026-05-27 17:15:41 - core.bridge_manager - INFO - [BRIDGE] Orchestrator retorno: success=True
+2026-05-27 17:15:41 - iso.iso_logger - INFO - TXN #0020 grabada en 20260527_transacciones.log
+2026-05-27 17:16:14 - TLSClient - INFO - TLS connected to ws1.prismamp.com:8443
+2026-05-27 17:16:14 - iso.orchestrator - INFO - Conectado a ws1.prismamp.com:8443
+2026-05-27 17:16:14 - TLSClient - INFO - TX: 67 bytes
+2026-05-27 17:16:14 - TLSClient - INFO - RX: 33 bytes
+2026-05-27 17:16:32 - root - INFO - Saved Y19 MDI for Y02 parsing: L
+2026-05-27 17:16:32 - core.bridge_manager - INFO - [BRIDGE] Llamando orchestrator: marca=Visa mdi=L monto=123.45
+2026-05-27 17:16:32 - iso.orchestrator - INFO - [STEP 1] Extrayendo datos Y19...
+2026-05-27 17:16:32 - iso.orchestrator - INFO - [STEP 1] OK: MDI=L PAN=450799******6454 Track2=SI EMV=244
+2026-05-27 17:16:32 - iso.orchestrator - INFO - [STEP 2] Construyendo params ISO...
+2026-05-27 17:16:32 - iso.orchestrator - INFO - [STEP 2] OK: modo=contactless pan=450799...
+2026-05-27 17:16:32 - iso.orchestrator - INFO - [STEP 3] Conectando TLS a ws1.prismamp.com:8443...
+2026-05-27 17:16:32 - TLSClient - INFO - TLS connected to ws1.prismamp.com:8443
+2026-05-27 17:16:32 - iso.orchestrator - INFO - Conectado a ws1.prismamp.com:8443
+2026-05-27 17:16:32 - iso.orchestrator - INFO - [STEP 3] OK: Conectado
+2026-05-27 17:16:32 - iso.orchestrator - INFO - [STEP 4] Ejecutando ISO 0200...
+2026-05-27 17:16:32 - TLSClient - INFO - TX: 382 bytes
+2026-05-27 17:16:32 - TLSClient - INFO - RX: 85 bytes
+2026-05-27 17:16:32 - iso.orchestrator - INFO - [STEP 4] OK: success=True code=00
+2026-05-27 17:16:32 - core.bridge_manager - INFO - [BRIDGE] Orchestrator retorno: success=True
+2026-05-27 17:16:32 - iso.iso_logger - INFO - TXN #0021 grabada en 20260527_transacciones.log

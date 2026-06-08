@@ -1,0 +1,107 @@
+{
+  "descripcion": "Productos del campo 59 ISO 8583. Producto 021 siempre presente.",
+  "productos": [
+    {
+      "id": "002",
+      "nombre": "Datos adicionales",
+      "enabled": false,
+      "valor": "00100400"
+    },
+    {
+      "id": "021",
+      "nombre": "Capacidad maxima terminal",
+      "enabled": true,
+      "valor_por_modo": {
+        "manual": "0001004070",
+        "banda": "0001004070",
+        "chip": "0001004070",
+        "contactless": "0001004070"
+      },
+      "nota": "Siempre presente. Formato: 021 + 000100407 + capacidad(1=M,2=B,5=C,7=L). La capacidad se agrega automaticamente."
+    },
+    {
+      "id": "033",
+      "nombre": "Codigo plan cuotas",
+      "enabled": false,
+      "valor": "001200"
+    },
+    {
+      "id": "040",
+      "nombre": "Datos DUKPT/3DES",
+      "enabled": false,
+      "valor": "0892014090000301"
+    },
+    {
+      "id": "068",
+      "nombre": "Nombre comercio linea 1",
+      "enabled": false,
+      "valor": "            "
+    },
+    {
+      "id": "069",
+      "nombre": "Nombre comercio linea 2",
+      "enabled": false,
+      "valor": "            "
+    },
+    {
+      "id": "094",
+      "nombre": "Nombre sucursal",
+      "enabled": false,
+      "valor": "             Store 1"
+    },
+    {
+      "id": "095",
+      "nombre": "Direccion sucursal",
+      "enabled": false,
+      "valor": "      Av. Dummy 1234"
+    },
+    {
+      "id": "003",
+      "nombre": "Codigo postal",
+      "enabled": false,
+      "valor": "  test"
+    },
+    {
+      "id": "097",
+      "nombre": "Codigo postal extendido",
+      "enabled": false,
+      "valor": " CP1414G"
+    },
+    {
+      "id": "096",
+      "nombre": "Telefono comercio",
+      "enabled": false,
+      "valor": "05399"
+    },
+    {
+      "id": "098",
+      "nombre": "Provincia/Estado",
+      "enabled": false,
+      "valor": "   "
+    },
+    {
+      "id": "112",
+      "nombre": "Datos adicionales 112",
+      "enabled": false,
+      "valor": "     "
+    },
+    {
+      "id": "154",
+      "nombre": "Datos adicionales 154",
+      "enabled": false,
+      "valor": "                    "
+    },
+    {
+      "id": "028",
+      "nombre": "Indicador encripcion 3DES/DUKPT",
+      "enabled": false,
+      "valor": "001"
+    },
+    {
+      "id": "157",
+      "nombre": "Soft descriptor",
+      "enabled": false,
+      "valor": "UALA   *CA*FANTASYNAME"
+    }
+  ]
+}

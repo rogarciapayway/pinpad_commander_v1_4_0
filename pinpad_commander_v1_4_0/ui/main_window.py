@@ -80,7 +80,7 @@ class MainWindow(ctk.CTk):
     
     def _create_connection_panel(self):
         """Crear panel de conexión compacto"""
-        conn_frame = ctk.CTkFrame(self.scrollable_frame, corner_radius=8, height=95)
+        conn_frame = ctk.CTkFrame(self.scrollable_frame, corner_radius=8, height=115)
         conn_frame.pack(fill="x", padx=5, pady=3)
         conn_frame.pack_propagate(False)
         
@@ -207,7 +207,16 @@ class MainWindow(ctk.CTk):
                                                    font=ctk.CTkFont(size=9))
         self.bridge_merchant_entry.insert(0, "03659307")
         self.bridge_merchant_entry.pack(side="left")
-        
+
+        # Fila 3: Campo 59 override (productos)
+        bridge_row3 = ctk.CTkFrame(bridge_group, fg_color="transparent")
+        bridge_row3.pack(fill="x", pady=(2,0))
+        ctk.CTkLabel(bridge_row3, text="F59:", font=ctk.CTkFont(size=9)).pack(side="left", padx=(0,2))
+        self.bridge_campo59_entry = ctk.CTkEntry(bridge_row3, width=150, height=22,
+                                                  placeholder_text="Productos (override)",
+                                                  font=ctk.CTkFont(size=9))
+        self.bridge_campo59_entry.pack(side="left", fill="x", expand=True)
+
         # Crear objeto connection_panel para compatibilidad
         self.connection_panel = type('ConnectionPanel', (), {
             'connect_btn': self.connect_btn,
@@ -226,7 +235,8 @@ class MainWindow(ctk.CTk):
             'bridge_status_label': self.bridge_status_label,
             'bridge_echo_btn': self.bridge_echo_btn,
             'bridge_terminal_entry': self.bridge_terminal_entry,
-            'bridge_merchant_entry': self.bridge_merchant_entry
+            'bridge_merchant_entry': self.bridge_merchant_entry,
+            'bridge_campo59_entry': self.bridge_campo59_entry
         })()
     
     def _create_command_panel(self):
